@@ -35,15 +35,19 @@ portrait_caption: >-
   Salma M. Elsherif
 
 education:
-- name: Massachusetts Institute of Technology
-  logo: /assets/images/badges/MIT_Social_circle.png
+- name: Vanderbilt University
+  logo: /assets/images/badges/VLogo.png
   position: >- 
-    Department of Electrical Engineering and Computer Science <br/>
-    Ph.D. Student
-  date: Sep. 2024 - present
-- name: Peking University
+    Department of Civil and Environmental Engineering <br/>
+    Ph.D. Candidate
+  date: August 2021 - present
+- name: Cairo University
   logo: /assets/images/badges/PKU_red.png
-  position: B.S. in Computer Science
+  position: M.Sc. in 
+  date: Sep. 2019 - Jul. 2021
+- name: Cairo University
+  logo: /assets/images/badges/PKU_red.png
+  position: B.Sc. in Civil Engineering
   date: Sep. 2019 - Jul. 2021
 
 # experience:
