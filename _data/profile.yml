@@ -46,20 +46,25 @@ education:
   date: August 2021 - Present
 - name: Cairo University
   logo: /assets/images/badges/CairoUniLogo.png
-  position: M.Sc. in 
-  date: Sep. 2019 - Jul. 2021
+  position: M.Sc. in Water Resources and Environmental Engineering <br/>
+    Department of Irrigation and Hydraulics Engineering 
+  date: 2017 - 2020
 - name: Cairo University
   logo: /assets/images/badges/CairoUniLogo.png
   position: B.Sc. in Civil Engineering
-  date: Sep. 2019 - Jul. 2021
+  date: 2011 - Jul. 2016
 
-experience:
- - name: Peking University
-   logo: /assets/images/badges/PKU_red.png
-   position: Research Intern
-   date: Sep. 2019 - Jul. 2021
+# experience:
+# - name: Peking University
+#   logo: /assets/images/badges/PKU_red.png
+#   position: Research Intern
+#   date: Sep. 2019 - Jul. 2021
 
 awards:
+- name: AWWA-CWP Student Scholarship 
+  date: 2024
+- name: Second Place, Student Poster Competition at Water Smart Innovations Conference
+  date: 2023
 - name: J. Waldo Smith Hydraulic Fellowship, American Society of Civil Engineers (ASCE) 
   date: 2023
 - name: Rengao Song Scholarship for Water Science and Technology, Louisville Water Company & AWWWA
