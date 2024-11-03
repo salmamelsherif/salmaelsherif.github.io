@@ -1,7 +1,7 @@
 ---
 title:          "Control-theoretic modeling of multi-species water quality dynamics in drinking water networks: Survey, methods, and test cases"
 date:           2023-01-01 12:12:00 +0800
-selected:       true
+selected:       false
 pub:            "Annual Reviews in Control"
 pub_date:       "2023"
 abstract: >-
