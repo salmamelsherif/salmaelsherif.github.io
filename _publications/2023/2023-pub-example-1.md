@@ -17,3 +17,9 @@ authors:
 links:
   Paper: https://www.sciencedirect.com/science/article/abs/pii/S1367578822000943
 ---
+<details>
+  <summary>View Abstract</summary>
+  <p>
+    When the cover image is not provided, it will generate random colorful bubble images as the cover image using the <code>bubble_visual_hash.js</code> script.
+  </p>
+</details>
