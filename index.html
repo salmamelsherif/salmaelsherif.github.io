@@ -2,14 +2,13 @@
 layout: default
 title : Homepage
 navbar_title: Home
+<link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico?">
 ---
 {% include widgets/profile_card.html %}
 
 {% include widgets/debug_repo_name.html %}
 
 {% include widgets/debug_url.html %}
-
-<link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico?">
 
 {% if site.data.display.homepage.show_experience %}
     {% include widgets/experience_card.html %}
