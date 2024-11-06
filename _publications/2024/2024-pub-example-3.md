@@ -16,6 +16,7 @@ authors:
   - Ahmad F. Taha
   - Ahmed A. Abokifa
 detailed_abstract: "This study introduces a novel chlorine injection control (CIC) method that integrates multi-species dynamics to optimize chlorine concentration..."
+toggle_text: "Read More"
 links:
   Paper: https://www.sciencedirect.com/science/article/pii/S004313542401340X?via%3Dihub
 ---
