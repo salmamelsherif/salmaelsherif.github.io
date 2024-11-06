@@ -14,7 +14,7 @@
             <p class="mt-0 mb-0 small">{{ item.pub_pre }}<i>{{ item.pub }}</i>{{ item.pub_post }} {{ item.pub_date }} {{ item.pub_last }}</p>
             <p class="mt-0 mb-0 small text-muted">{{ item.abstract }}</p>
             
-            <!-- Links Section with Conditional Inline Toggle Button -->
+            <!-- Links Section -->
             <p class="small pb-0 mb-0 lh-125 text-muted abstract-links d-inline">
                 {% for link in item.links %}
                 {% if link[1].url %}
@@ -23,31 +23,31 @@
                 <a target="_blank" href="{{ link[1] }}">[{{ link[0] }}]</a>
                 {% endif %}
                 {% endfor %}
-                
-                <!-- Conditional Toggle Button -->
+
+                <!-- Conditional Toggle Button if Detailed Abstract Exists -->
                 {% if item.detailed_abstract %}
                 <a href="javascript:void(0);" class="text-primary" onclick="toggleAbstract('{{ item.id }}')">[{{ item.toggle_text }}]</a>
                 {% endif %}
             </p>
 
-            <!-- Hidden Paragraph for Additional Information -->
+            <!-- Hidden Detailed Abstract Section -->
             {% if item.detailed_abstract %}
-            <span id="abstract-{{ item.id }}" class="d-inline" style="display: none;">
-                <p class="small text-muted d-inline">{{ item.detailed_abstract }}</p>
+            <span id="abstract-{{ item.id }}" style="display: none;">
+                <p class="small text-muted">{{ item.detailed_abstract }}</p>
             </span>
             {% endif %}
         </div>
     </div>
 </div>
 
-<!-- JavaScript to Handle Toggle Functionality -->
+<!-- JavaScript for Toggle Function -->
 <script>
     function toggleAbstract(id) {
         var abstract = document.getElementById('abstract-' + id);
         if (abstract.style.display === "none" || abstract.style.display === "") {
-            abstract.style.display = "inline";  // Display inline
+            abstract.style.display = "inline";  // Show the detailed abstract
         } else {
-            abstract.style.display = "none";
+            abstract.style.display = "none";  // Hide the detailed abstract
         }
     }
 </script>
