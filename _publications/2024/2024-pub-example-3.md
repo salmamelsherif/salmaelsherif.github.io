@@ -5,7 +5,7 @@ selected:       true
 pub:            "Water Research"
 # pub_pre:        "Submitted to "
 # pub_post:       'Under review.'
-pub_last:       ' <span class="badge badge-pill badge-publication badge-success">Spotlight</span>'
+pub_last:       ' <span class="badge badge-pill badge-publication" style="background-color: #3498db; color: white;">Journal</span> <span class="badge badge-pill badge-publication badge-success">Spotlight</span>'
 pub_date:       "2024"
 
 abstract: >-
