@@ -40,7 +40,7 @@
 <script>
     function toggleAbstract(id) {
         var abstract = document.getElementById('abstract-' + id);
-        if (abstract.style.display === "none") {
+        if (abstract.style.display === "none" || abstract.style.display === "") {
             abstract.style.display = "inline";  // Display inline
         } else {
             abstract.style.display = "none";
