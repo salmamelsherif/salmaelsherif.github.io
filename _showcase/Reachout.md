@@ -5,7 +5,6 @@ date: 2024-01-05 00:01:00 +0800
 height: 400px
 ---
 <div>
-  <img src="{{ '/assets/images/salma.png' | relative_url }}" class="w-100 rounded-top" loading="lazy">
   <div class="card-body">
     <h5 class="card-title">Feel Free to Reach out to Me!</h5>
     <p class="card-text">
