@@ -6,15 +6,22 @@
                     <h6 style="font-size: 1.15em;">Teaching Experience</h6>
                     <ul class="list-unstyled mb-1">
                         {% for interest in site.data.profile.teaching_experience %}
-                            <li class="media mb-1">
+                            <li class="media mb-3">
                                 <img src="{{ interest.logo | relative_url }}" alt="{{ interest.header }}" style="width: 18px;" class="mr-1 mt-1">
-                                <div class="mt-auto ml-auto no-break"><em>{{ interest.date }}</em></div>
                                 <div class="media-body">
-                                    <div>{{ interest.header }}</div>
-                                    <div class="small">{{ interest.dept }}</div>
-                                    <div class="small d-flex">
-                                        <div>{{ interest.position }}</div>
+                                    <!-- University and Date on the same line -->
+                                    <div class="d-flex justify-content-between">
+                                        <div>{{ interest.header }}</div>
+                                        <div class="text-muted small"><em>{{ interest.date }}</em></div>
                                     </div>
+                                    <div class="small">{{ interest.dept }}</div>
+                                    
+                                    <!-- Position as a list -->
+                                    <ul class="pl-3 mt-1">
+                                        {% for position in interest.positions %}
+                                            <li>{{ position }}</li>
+                                        {% endfor %}
+                                    </ul>
                                 </div>
                             </li>
                         {% endfor %}
