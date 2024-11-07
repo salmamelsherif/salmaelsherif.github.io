@@ -83,5 +83,7 @@ teaching_experience:
   - header: Water Resources Engineering
     logo: /assets/images/badges/VLogo.png
     dept: Civil Engineering
-    position: Lecturer
     date: 2021 - Present
+    positions:
+      - "Lecturer for graduate-level hydrology courses"
+      - "Supervised student projects on water quality"
