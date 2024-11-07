@@ -85,6 +85,6 @@ teaching_experience:
     dept: Civil and Environmental Engineering Engineering
     date: 2021 - Present
     courses:
-      - CE2200: Statics
-      - CE3300: Risk, Reliability, and Resilience Engineering
-      - CE4240, CE 5240: Infrastructure Systems Engineering
+      - "CE2200: Statics"
+      - "CE3300: Risk, Reliability, and Resilience Engineering"
+      - "CE4240, CE5240: Infrastructure Systems Engineering"
