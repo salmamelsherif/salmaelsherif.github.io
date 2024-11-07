@@ -6,11 +6,15 @@
                     <h6 style="font-size: 1.15em;">Teaching Experience</h6>
                     <ul class="list-unstyled mb-1">
                         {% for interest in site.data.profile.teaching_experience %}
-                        <li class="media mb-1">
-                            <!-- Replace 'icon.png' with the path to your icon/image -->
-                            <img src="icon.png" alt="Icon" style="width: 18px;" class="mr-1 mt-1">
+                        <li class="media mb-3">
+                            <img src="{{ interest.logo | relative_url }}" alt="{{ interest.header }}" style="width: 18px;" class="mr-1 mt-1">
                             <div class="media-body">
-                                {{ interest }}
+                                <h6 class="mt-0">{{ interest.header }}</h6>
+                                <ul class="pl-3">
+                                    {% for detail in interest.details %}
+                                    <li>{{ detail }}</li>
+                                    {% endfor %}
+                                </ul>
                             </div>
                         </li>
                         {% endfor %}
