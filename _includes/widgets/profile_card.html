@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col">
         <div class="card border-0 shadow-sm bg-white">
-            <div class="card-body p-5" style="font-size: 1.1em;"> <!-- Slightly increase font size for entire card body -->
+            <div class="card-body p-5" style="font-size: 1.1em;"> <!-- Scale up font size for entire card body -->
                 <div class="row">
                     <div class="col">
                         {% if site.data.profile.portrait_url %}
@@ -18,7 +18,7 @@
 
                         <!-- Keep name styling without any size adjustments -->
                         <div class="d-flex">
-                            <div class="h1 font-weight-normal">
+                            <div class="h1 font-weight-normal" style="font-size: 1em;">
                                 {{ site.data.profile.primary_name }} <small>{{ site.data.profile.secondary_name }}</small>
                             </div>
                             {% if site.data.profile.portrait_url %}
@@ -30,7 +30,8 @@
                             {% endif %}
                         </div>
                         
-                        <div class="text-profile-position">
+                        <!-- Affiliation section with original size -->
+                        <div class="text-profile-position" style="font-size: 1em;">
                             {% for position in site.data.profile.positions %}
                             {% if position.logo -%}
                             <img src="{{ position.logo | relative_url }}" alt="Logo" class="inline-badge"/>
@@ -38,9 +39,11 @@
                             {{ position.name }}<br/>
                             {% endfor %}
                         </div>
+                        
                         <div class="text-profile-bio mt-3" {% if site.data.profile.short_bio_text_justify %}style="text-align: justify;"{% endif %}>
                             {{ site.data.profile.short_bio }}
                         </div>
+                        
                         {% if site.data.profile.cv_link %}
                             <a target="_blank" href="{{ site.data.profile.cv_link | relative_url }}"><i class="fas fa-file-alt"></i> Curriculum Vitae</a> <br/>
                         {% endif %}
@@ -50,48 +53,50 @@
                 <hr />
                 <div class="row">
                     <div class="col">
-                        <a class="pr-3 no-break" href="mailto:{{ site.data.profile.email | encode_email }}">
+                        <!-- Email with original size -->
+                        <a class="pr-3 no-break" href="mailto:{{ site.data.profile.email | encode_email }}" style="font-size: 1em;">
                             <i class="fas fa-at"></i> <span class="email-text">{{ site.data.profile.email | replace: "@", "(at)" }}</span>
                         </a>
 
+                        <!-- Links with original size -->
                         {% if site.data.profile.gscholar %}
-                        <a class="pr-3 no-break" target="_blank" href="https://scholar.google.com/citations?user={{ site.data.profile.gscholar }}&hl=en">
+                        <a class="pr-3 no-break" target="_blank" href="https://scholar.google.com/citations?user={{ site.data.profile.gscholar }}&hl=en" style="font-size: 1em;">
                             <i class="fab fa-google-scholar"></i> Google Scholar
                         </a>
                         {% endif %}
                         
                         {% if site.data.profile.researchgate %}
-                        <a class="pr-3 no-break" target="_blank" href="https://www.researchgate.net/profile/{{ site.data.profile.researchgate }}">
+                        <a class="pr-3 no-break" target="_blank" href="https://www.researchgate.net/profile/{{ site.data.profile.researchgate }}" style="font-size: 1em;">
                             <i class="fab fa-researchgate"></i> ResearchGate
                         </a>
                         {% endif %}
                         
                         {% if site.data.profile.github %}
-                        <a class="pr-3 no-break" target="_blank" href="https://github.com/{{ site.data.profile.github }}">
+                        <a class="pr-3 no-break" target="_blank" href="https://github.com/{{ site.data.profile.github }}" style="font-size: 1em;">
                             <i class="fab fa-github"></i> GitHub
                         </a>
                         {% endif %}
 
                         {% if site.data.profile.wechat_qrcode %}
-                        <a class="pr-3 no-break" data-toggle="modal" data-target="#modal-wechat">
+                        <a class="pr-3 no-break" data-toggle="modal" data-target="#modal-wechat" style="font-size: 1em;">
                             <i class="fab fa-weixin"></i> WeChat
                         </a>
                         {% endif %}
 
                         {% if site.data.profile.linkedin %}
-                        <a class="pr-3 no-break" target="_blank" href="https://www.linkedin.com/in/{{ site.data.profile.linkedin }}">
+                        <a class="pr-3 no-break" target="_blank" href="https://www.linkedin.com/in/{{ site.data.profile.linkedin }}" style="font-size: 1em;">
                             <i class="fab fa-linkedin"></i> LinkedIn
                         </a>
                         {% endif %}
                         
                         {% if site.data.profile.twitter %}
-                        <a class="pr-3 no-break" target="_blank" href="https://twitter.com/{{ site.data.profile.twitter }}">
+                        <a class="pr-3 no-break" target="_blank" href="https://twitter.com/{{ site.data.profile.twitter }}" style="font-size: 1em;">
                             <i class="fab fa-twitter"></i> Twitter
                         </a>
                         {% endif %}
 
                         {% if site.data.profile.orcid %}
-                        <a class="pr-3 no-break" target="_blank" href="https://orcid.org/{{ site.data.profile.orcid }}">
+                        <a class="pr-3 no-break" target="_blank" href="https://orcid.org/{{ site.data.profile.orcid }}" style="font-size: 1em;">
                             <i class="fab fa-orcid"></i> ORCID
                         </a>
                         {% endif %}
