@@ -88,3 +88,12 @@ teaching_experience:
       - "CE2200: Statics"
       - "CE3300: Risk, Reliability, and Resilience Engineering"
       - "CE4240, CE5240: Infrastructure Systems Engineering"
+  - header: Assistant Lecturer at Cairo University
+    logo: /assets/images/badges/CairoUniLogo.png
+    dept: Irrigation and Hydraulics Department
+    date: 2017 - 2021
+    courses:
+      - IHDG211: "Fluid Mechanics"
+      – IHDG212: "Hydraulics of Pipelines and Pumps"
+      – IHDG312: "Design of Irrigation Works"
+      – IHDN403: "Field Measurements and Water Quality Aspects"
