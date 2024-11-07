@@ -3,9 +3,8 @@ layout: default
 title : About
 navbar_title: About
 ---
-{% if site.data.display.homepage.show_research %}
-    {% include widgets/research_card.html %}
-{% endif %}
+
+{% include widgets/research_card.html %}
 
 {% if site.data.display.homepage.show_experience %}
     {% include widgets/experience_card.html %}
