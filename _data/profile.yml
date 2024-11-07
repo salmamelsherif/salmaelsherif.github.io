@@ -80,9 +80,9 @@ research_interests:
 - "Cyber-physical systems, urban infrastructure development, and optimization of dynamic systems"
 
 teaching_experience:
- - header: "Teaching Assistant at Civil and Environmental Engineering Dept. at Vanderbilt University"
-    logo: "/assets/images/badges/VLogo.png"
-    details:
-      - "CE 2200: Statics"
-      - "Water quality modeling"
-      - "Hydrological data analysis"
+ - name: Vanderbilt University
+    logo: /assets/images/badges/VLogo.png
+    position: >- 
+    Ph.D. Candidate, <br/>
+    Department of Civil and Environmental Engineering 
+    date: August 2021 - Present
