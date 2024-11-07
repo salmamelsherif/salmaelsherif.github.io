@@ -43,7 +43,7 @@ education:
   logo: /assets/images/badges/VLogo.png
   position: >- 
     Ph.D. Candidate, <br/>
-    Department of Civil and Environmental Engineering 
+    Department of Civil and Environmental Department 
   date: August 2021 - Present
 - name: Cairo University
   logo: /assets/images/badges/CairoUniLogo.png
@@ -85,5 +85,6 @@ teaching_experience:
     dept: Civil and Environmental Engineering Engineering
     date: 2021 - Present
     courses:
-      - "Lecturer for graduate-level hydrology courses"
-      - "Supervised student projects on water quality"
+      - CE2200: Statics
+      - CE3300: Risk, Reliability, and Resilience Engineering
+      - CE4240, CE 5240: Infrastructure Systems Engineering
