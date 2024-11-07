@@ -1,0 +1,22 @@
+<div class="row mt-3">
+    <div class="col">
+        <div class="card border-0 shadow-sm bg-white">
+            <div class="card-body p-4">
+                <div class="mx-2 my-1">
+                    <h6 style="font-size: 1.15em;">Teaching Experience</h6>
+                    <ul class="list-unstyled mb-1">
+                        {% for interest in site.data.profile.research_interests %}
+                        <li class="media mb-1">
+                            <!-- Replace 'icon.png' with the path to your icon/image -->
+                            <img src="icon.png" alt="Icon" style="width: 18px;" class="mr-1 mt-1">
+                            <div class="media-body">
+                                {{ interest }}
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
