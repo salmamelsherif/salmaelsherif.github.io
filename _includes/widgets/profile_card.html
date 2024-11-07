@@ -1,11 +1,10 @@
 <div class="row">
     <div class="col">
-        <div class="card border-0 shadow-sm bg-white">
-            <div class="card-body p-5">
+        <div class="card border-0 shadow-sm bg-white w-100">
+            <div class="card-body p-5 scaled-text"> <!-- Apply scaling class here -->
                 <div class="row">
                     <div class="col">
                         {% if site.data.profile.portrait_url %}
-                        <!-- When the screen is wider than md, float the portrait on the right -->
                         <div class="figure float-right ml-4 mb-4 d-none d-md-block">
                             <img 
                                 src="{{ site.data.profile.portrait_url | relative_url }}" 
@@ -18,7 +17,7 @@
                         {% endif %}
 
                         <div class="d-flex">
-                            <div class="h1 font-weight-normal">
+                            <div class="h1 font-weight-normal name-title"> <!-- Apply no-scaling class to name -->
                                 {{ site.data.profile.primary_name }} <small>{{ site.data.profile.secondary_name }}</small>
                             </div>
                             {% if site.data.profile.portrait_url %}
@@ -100,23 +99,3 @@
         </div>        
     </div>
 </div>
-
-{% if site.data.profile.wechat_qrcode %}
-<div class="modal fade" id="modal-wechat" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-            <div class="modal-body p-0">
-                <img src="{{ site.data.profile.wechat_qrcode | relative_url }}" class="img-fluid">
-            </div>
-            {% if site.data.profile.wechat_prompt %}
-            <div class="modal-body p-1">
-                {{ site.data.profile.wechat_prompt }}
-            </div>
-            {% endif %}
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-{% endif %}
