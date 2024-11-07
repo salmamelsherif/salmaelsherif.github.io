@@ -3,7 +3,7 @@
     <div class="row no-gutters {% unless include.hide_bottom_border %}border-bottom{% endunless %} border-gray">
         <div class="col-md-3 col-xl-2 mb-md-0 p-md-3">
             {%- if item.cover -%}
-            <img src="{{ item.cover | relative_url }}" alt="{{ item.title }}" class="lazy w-100 rounded-sm">
+            <img data-src="{{ item.cover | relative_url }}" alt="{{ item.title }}" class="lazy w-100 rounded-sm" src="{{ '/assets/images/empty_300x200.png' | relative_url }}">
             {%- else -%}
             <svg class="bubble-visual-hash lazy w-100 rounded-sm" data-bubble-visual-hash="{{ item.id }}" viewBox="0 0 300 200"></svg>
             {%- endif -%}
@@ -40,12 +40,13 @@
 </div>
 
 <!-- JavaScript for Toggle Function -->
-function toggleAbstract(id) {
-    var abstract = document.getElementById('abstract-' + id);
-    if (abstract.style.display === "none" || abstract.style.display === "") {
-        abstract.style.display = "block";  // Use "block" instead of "inline" for compatibility
-    } else {
-        abstract.style.display = "none";
+<script>
+    function toggleAbstract(id) {
+        var abstract = document.getElementById('abstract-' + id);
+        if (abstract.style.display === "none" || abstract.style.display === "") {
+            abstract.style.display = "inline";  // Show the detailed abstract
+        } else {
+            abstract.style.display = "none";  // Hide the detailed abstract
+        }
     }
-}
-
+</script>
