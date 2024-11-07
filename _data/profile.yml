@@ -79,10 +79,10 @@ research_interests:
 - "Sustainable water resources management in the context of climate change"
 - "Cyber-physical systems, urban infrastructure development, and optimization of dynamic systems"
 
-teaching_experience:
- - name: Vanderbilt University
-    logo: /assets/images/badges/VLogo.png
-    position: >- 
-    Ph.D. Candidate, <br/>
-    Department of Civil and Environmental Engineering 
-    date: August 2021 - Present
+# teaching_experience:
+# - name: Vanderbilt University
+#    logo: /assets/images/badges/VLogo.png
+#    position: >- 
+#    Ph.D. Candidate, <br/>
+#    Department of Civil and Environmental Engineering 
+#    date: August 2021 - Present
