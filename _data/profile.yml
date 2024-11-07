@@ -78,3 +78,11 @@ research_interests:
 - "Stormwater management and flood control systems"
 - "Sustainable water resources management in the context of climate change"
 - "Cyber-physical systems, urban infrastructure development, and optimization of dynamic systems"
+
+teaching_experience:
+ - header: "Water Resources Engineering"
+    logo: "/assets/images/water_resources_icon.png"
+    details:
+      - "Groundwater flow and contamination"
+      - "Water quality modeling"
+      - "Hydrological data analysis"
