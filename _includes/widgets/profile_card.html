@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col">
         <div class="card border-0 shadow-sm bg-white">
-            <div class="card-body p-5" style="font-size: 1.25em;"> <!-- Scale up font size for entire card body -->
+            <div class="card-body p-5" style="font-size: 1.1em;"> <!-- Slightly increase font size for entire card body -->
                 <div class="row">
                     <div class="col">
                         {% if site.data.profile.portrait_url %}
@@ -16,9 +16,9 @@
                         </div>
                         {% endif %}
 
+                        <!-- Keep name styling without any size adjustments -->
                         <div class="d-flex">
-                            <!-- Set specific font size for name to exclude it from scaling -->
-                            <div class="h1 font-weight-normal" style="font-size: 1em;">
+                            <div class="h1 font-weight-normal">
                                 {{ site.data.profile.primary_name }} <small>{{ site.data.profile.secondary_name }}</small>
                             </div>
                             {% if site.data.profile.portrait_url %}
@@ -29,6 +29,7 @@
                             </div>
                             {% endif %}
                         </div>
+                        
                         <div class="text-profile-position">
                             {% for position in site.data.profile.positions %}
                             {% if position.logo -%}
