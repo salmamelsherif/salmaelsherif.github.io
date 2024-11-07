@@ -10,10 +10,6 @@
             <div class="media-body">
                 {% for item in year.items %}
                 <div class="my-1 d-flex align-items-center">
-                    <!-- Dark Gray Bullet Point Icon -->
-                    <div class="mr-2" style="color: #4a4a4a;">
-                        <i class="fas fa-circle" style="font-size: 0.5rem;"></i>
-                    </div>
                     <!-- News Item Title -->
                     <div>{{ item.title }}</div>
                     <div class="ml-auto mt-auto text-muted no-break"><i>{{ item.date | date: "%b %d" }}</i></div>
