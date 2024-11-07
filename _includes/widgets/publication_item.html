@@ -40,13 +40,12 @@
 </div>
 
 <!-- JavaScript for Toggle Function -->
-<script>
-    function toggleAbstract(id) {
-        var abstract = document.getElementById('abstract-' + id);
-        if (abstract.style.display === "none" || abstract.style.display === "") {
-            abstract.style.display = "inline";  // Show the detailed abstract
-        } else {
-            abstract.style.display = "none";  // Hide the detailed abstract
-        }
+function toggleAbstract(id) {
+    var abstract = document.getElementById('abstract-' + id);
+    if (abstract.style.display === "none" || abstract.style.display === "") {
+        abstract.style.display = "block";  // Use "block" instead of "inline" for compatibility
+    } else {
+        abstract.style.display = "none";
     }
-</script>
+}
+
