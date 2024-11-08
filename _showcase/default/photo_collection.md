@@ -7,9 +7,9 @@ images:
 - src: /assets/images/pyramids.jpg
   title: The Pyramids
   desc: Near my home in Egypt.
-- src: https://picsum.photos/seed/second22/800/800
-  title: Photo 2
-  desc: Description 2
+- src: /assets/images/VandFall.JPG
+  title: Shades of Fall
+  desc: Vandy at the Fall.
 ---
 
 {% include widgets/carousel.html id=page.id images=page.images height=page.height %}
