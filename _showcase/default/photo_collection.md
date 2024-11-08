@@ -2,7 +2,7 @@
 show: true
 width: 4
 date: 2021-09-12 00:01:00 +0800
-height: 400px
+height: 405px
 images:
 - src: /assets/images/pyramids.jpg
   title: The Pyramids
