@@ -5,7 +5,7 @@ date: 2025-01-12 00:01:00 +0800
 ---
 
 <div class="p-4">
-    <h2>Welcome to Highlights!</h2>
+    <h1>Welcome to Highlights!</h1>
     <hr />
     <div style="font-size: 1.25em;">
         <p>
