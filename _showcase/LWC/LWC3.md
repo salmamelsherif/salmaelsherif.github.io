@@ -3,7 +3,7 @@ show: true
 width: 3
 date: 2024-12-05 00:03:00 +0800
 group: My Visit to Louisville Water
-height: 600px
+height: 650px
 ---
 <div>
   <img class="lazy w-100 rounded-top" src="{{ '/assets/images/LWC_Pics/LWCVisit3.jpg' | relative_url }}">
