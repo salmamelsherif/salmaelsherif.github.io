@@ -3,13 +3,13 @@ show: true
 width: 3
 date: 2024-12-05 00:04:00 +0800
 group: My Visit to Louisville Water
-height: 405px
+height: 600px
 ---
 <div>
   <img class="lazy w-100 rounded-top" src="{{ '/assets/images/LWC_Pics/LWCVisit1.jpg' | relative_url }}">
   <div class="card-body">
     <p class="card-text">
-      Talk title, please email me for the full slide set.
+      During my talk.
     </p>
   </div>
 </div>
