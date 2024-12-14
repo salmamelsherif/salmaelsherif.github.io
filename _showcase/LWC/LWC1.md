@@ -1,6 +1,6 @@
 ---
 show: true
-width: 3
+width: 6
 date: 2024-01-10 00:01:00 +0800
 group: My Visit to Louisville Water
 height: 405px
