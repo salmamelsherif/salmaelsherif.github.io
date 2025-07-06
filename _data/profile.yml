@@ -26,10 +26,10 @@ short_bio_text_justify: false
 short_bio: >-
   <p>
   I am a Staff Water Resources Engineer at Arcadis with a Ph.D. degree in Civil Engineering from Vanderbilt University. 
+  </p>
   # I am a Research Assistant working with Professor <a href="https://engineering.vanderbilt.edu/bio/?pid=ahmad-taha" target="_blank">Ahmad F. Taha</a> in the Department of Civil and Environmental Engineering at Vanderbilt University.
   # I am interested in the research and development of computational algorithms in civil and environmental infrastructure systems. 
   # With a specific focus on hydrology, hydraulics, water quality, and climate, my research designs dynamic control and network-theoretic algorithms for the resilient regulation and monitoring of natural and built water systems.
-  </p>
   <p>
   If you are interested in my work or find any of my projects intriguing, please shoot me an email.
   </p>
