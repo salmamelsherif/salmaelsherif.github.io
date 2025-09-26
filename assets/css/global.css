@@ -68,3 +68,7 @@ div.lazy {
     font-family: Courier, monospace;
 }
 
+/* Override Bootstrap bg-light */
+.bg-light {
+  background-color: #3b4d73 !important; /* light navy */
+}
