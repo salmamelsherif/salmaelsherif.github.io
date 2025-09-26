@@ -67,12 +67,44 @@ div.lazy {
     font-family: Courier, monospace;
 }
 
-
-/* Global link colors */
-a {
-  color: #1a2a5e;  /* navy */
+/* 1) Global link color */
+a, a:visited {
+  color: #1a2a5e; /* navy */
+}
+a:hover, a:focus {
+  color: #132046; /* darker navy */
 }
 
-a:hover, a:focus {
-  color: #132046;  /* darker navy on hover */
+/* 2) Override Bootstrap utilities that force blue with !important */
+.text-primary {
+  color: #1a2a5e !important;
+}
+a.text-primary:hover,
+a.text-primary:focus {
+  color: #132046 !important;
+}
+
+/* 3) Navbar links (Bootstrap 4.6) */
+.navbar-light .navbar-nav .nav-link {
+  color: #1a2a5e;
+}
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link:focus {
+  color: #132046;
+}
+
+/* 4) Links styled as buttons */
+.btn-link {
+  color: #1a2a5e;
+}
+.btn-link:hover, .btn-link:focus {
+  color: #132046;
+}
+
+/* 5) Any custom link groups you use */
+.abstract-links a {
+  color: #1a2a5e;
+}
+.abstract-links a:hover, .abstract-links a:focus {
+  color: #132046;
 }
