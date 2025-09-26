@@ -66,3 +66,13 @@ div.lazy {
 .email-text {
     font-family: Courier, monospace;
 }
+
+
+/* Global link colors */
+a {
+  color: #1a2a5e;  /* navy */
+}
+
+a:hover, a:focus {
+  color: #132046;  /* darker navy on hover */
+}
