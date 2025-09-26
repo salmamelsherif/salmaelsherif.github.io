@@ -77,7 +77,7 @@ html, body.site-bg {
 .container { background: transparent; }
 
 /* If white boxes are hiding the navy, keep them but soften as desired */
-.card-surface { background: rgba(255,255,255,0.4); }
+.card-surface { background: rgba(255,255,255,0.2); }
 
 /* Optional: if you used Bootstrap's bg-white on cards, either swap to .card-surface in HTML
    or force a softer white globally (affects all .bg-white) */
