@@ -69,7 +69,7 @@ div.lazy {
 
 /* Site background */
 html, body.site-bg {
-  background-color: #3b4d73; /* light navy */
+  background-color: #9db8f2; /* light navy */
   min-height: 100vh;         /* ensure the color fills the viewport */
 }
 
@@ -77,7 +77,7 @@ html, body.site-bg {
 .container { background: transparent; }
 
 /* If white boxes are hiding the navy, keep them but soften as desired */
-.card-surface { background: rgba(255,255,255,0.2); }
+.card-surface { background: rgba(255,255,255,0.94); }
 
 /* Optional: if you used Bootstrap's bg-white on cards, either swap to .card-surface in HTML
    or force a softer white globally (affects all .bg-white) */
