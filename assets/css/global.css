@@ -69,7 +69,7 @@ div.lazy {
 
 /* Site background */
 html, body.site-bg {
-  background-color: #9db8f2; /* light navy */
+  background-color: #ced7eb; /* light navy */
   min-height: 100vh;         /* ensure the color fills the viewport */
 }
 
