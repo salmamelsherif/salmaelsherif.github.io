@@ -8,7 +8,7 @@ pub_last:       ' <span class="badge badge-pill badge-publication" style="backgr
 detailed_abstract: >-
   The operation and regulation of water distribution networks is a complex procedure aimed at efficiently supplying consumers with sufficient water while ensuring its safe quality. A critical aspect is the direct impact of the network’s hydraulics on the dynamics of water quality; the former is typically needed to inform the latter. Previous studies have tackled hydraulic optimization and water quality regulation as separate problems, although they are naturally coupled. While some attempts have been made to couple these problems into a single one, such studies have neglected control-theoretic virtues of the integrated problems. This paper fills this research gap by formulating a pump control problem that accounts for water quality controllability via classic Gramians. This is achieved by integrating water quality controllability metrics into the control problem, the goal is to enhance both water quality regulation and reducing pumping costs. A case study is presented to illustrate that utilizing controllability Gramians leads to an improved overall system performance.
 toggle_text: "Abstract"
-cover:          /assets/images/covers/WQCont.jpg
+cover:          /assets/images/covers/ACC.png
 authors:
   - Salma M. Elsherif
   - Mohamad H. Kazma
