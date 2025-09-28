@@ -110,3 +110,11 @@ a.text-primary:focus {
   color: #1f3f9e;
 }
 
+/* Match publication year/date color to the custom link navy */
+.small {
+  color: inherit;
+}
+.small i, 
+.small {
+  color: #274fc4; /* your new navy blue */
+}
