@@ -109,3 +109,22 @@ a.text-primary:focus {
 .abstract-links a:focus {
   color: #1f3f9e;
 }
+
+/* Normal state: navy text */
+#navbar-year .nav-link {
+  color: #274fc4;
+}
+
+/* Hover state: slightly darker navy */
+#navbar-year .nav-link:hover,
+#navbar-year .nav-link:focus {
+  color: #1f3f9e;
+}
+
+/* Active state: navy background with white text */
+#navbar-year .nav-link.active,
+#navbar-year .show > .nav-link {
+  background-color: #274fc4 !important;
+  color: #fff !important;
+  border-radius: .25rem;
+}
