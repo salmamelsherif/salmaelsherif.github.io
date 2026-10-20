@@ -1,0 +1,127 @@
+# ------------------------------------------------------------------
+# Content for the new home page. Edit the text here; no code needed.
+# Items marked "PLACEHOLDER" are examples for you to replace.
+# ------------------------------------------------------------------
+
+headline: "I keep water systems safe, reliable and ready for what's next."
+intro: >-
+  Water resources engineer at Arcadis with a Ph.D. from Vanderbilt.
+  I work where utility practice meets research: modeling networks,
+  planning capital investments, and building algorithms that keep
+  disinfectant where it needs to be.
+
+hero_note: >-
+  The network behind this text is a small model of a drinking water system.
+  Chlorine leaves the treatment plant and decays as it travels; hover or tap a node to read its residual.
+
+# ---------- What I do ----------
+services:
+  - title: Hydraulic and water quality modeling
+    summary: Building and calibrating network models that show how water and disinfectant actually move.
+    examples:
+      - Multi-species chlorine and disinfection byproduct models
+      - Pressure, flow and water age analysis for distribution networks
+      - "Open-source tools such as X-WHAT, a looped network design model in Excel"
+  - title: Asset management and capital planning
+    summary: Turning condition, risk and performance data into investment plans utilities can defend.
+    examples:
+      - "PLACEHOLDER: risk-based pipe renewal prioritization"
+      - "PLACEHOLDER: multi-year capital improvement programs"
+  - title: Resilience and strategic planning
+    summary: Helping systems prepare for demand growth, aging assets, contamination events and climate stress.
+    examples:
+      - "PLACEHOLDER: master planning and long-term supply scenarios"
+      - Contamination event response through sensor and booster placement
+  - title: Research and algorithm development
+    summary: Control and network theory applied to real water infrastructure problems.
+    examples:
+      - Booster station and sensor placement with controllability and observability metrics
+      - Joint hydraulic and water quality control, including quality-aware pump scheduling
+      - Model order reduction for large nonlinear water quality models
+
+# ---------- Industry / Research switch ----------
+sides:
+  industry:
+    label: Industry
+    role: Staff Water Resources Engineer, Arcadis
+    since: "2025"
+    text: >-
+      I support utilities and municipalities with modeling, asset management and planning,
+      bringing a research toolkit to day-to-day engineering decisions.
+    points:
+      - "PLACEHOLDER: types of clients you serve"
+      - "PLACEHOLDER: the deliverables you own"
+      - "Tools: EPANET, InfoWater, Python, GIS (PLACEHOLDER: edit)"
+  research:
+    label: Research
+    role: "Ph.D., Civil and Infrastructure Systems, Vanderbilt University"
+    since: "2021"
+    text: >-
+      My research designs monitoring and control algorithms for drinking water networks,
+      linking hydraulics and water quality so both can be managed together.
+    points:
+      - Published in Water Research, Water Resources Research and Annual Reviews in Control
+      - Collaborations with Louisville Water Company
+      - Mentoring students applying to graduate programs
+
+# ---------- Projects ----------
+# kind: industry or research. image is optional.
+projects:
+  - title: Where to put chlorine booster stations
+    kind: research
+    image: /assets/images/covers/WQCont.jpg
+    outcome: A placement method based on structural controllability that holds up as hydraulics change through the day.
+    tags: [Water quality, Control theory]
+    link: /publications
+  - title: Sensors that see contamination
+    kind: research
+    image: /assets/images/covers/SPMS.jpg
+    outcome: Sensor placement for nonlinear multi-species quality models, published in the Journal of Water Process Engineering.
+    tags: [Monitoring, Observability]
+    link: /publications
+  - title: X-WHAT open-source network design
+    kind: industry
+    image: /assets/images/covers/LoopX.jpg
+    outcome: A free Excel model for designing and optimizing looped distribution networks, built for engineers without costly software.
+    tags: [Design, Open source]
+    link: /publications
+  - title: Disinfectant control with byproduct limits
+    kind: research
+    image: /assets/images/covers/DBP.jpg
+    outcome: Controls chlorine across a network while keeping disinfection byproducts within limits, published in Water Research.
+    tags: [Water quality, Public health]
+    link: /publications
+  - title: "PLACEHOLDER: utility capital plan"
+    kind: industry
+    image: /assets/images/LWC_Pics/LWCVisit2.jpg
+    outcome: Describe the challenge, what you did, and the result. Clients can stay anonymous.
+    tags: [Asset management]
+    link: ""
+
+# ---------- Path (shown in order) ----------
+path:
+  - years: "2011–2016"
+    title: B.Sc. Civil Engineering
+    place: Cairo University
+  - years: "2017–2020"
+    title: M.Sc. Water Resources and Environmental Engineering
+    place: Cairo University
+  - years: "2021–2025"
+    title: Ph.D. Civil and Infrastructure Systems
+    place: Vanderbilt University
+  - years: "2025–now"
+    title: Staff Water Resources Engineer
+    place: Arcadis
+
+# ---------- Figures ----------
+figures:
+  - value: 11
+    label: papers and preprints
+  - value: 6
+    label: conference talks
+  - value: 5
+    label: fellowships and awards
+
+contact_line: >-
+  Working on a water system problem, or applying to graduate school and want advice?
+  I'm glad to hear from you.

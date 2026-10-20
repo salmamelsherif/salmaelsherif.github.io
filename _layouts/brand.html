@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>{% if page.title and page.title != "Homepage" %}{{ page.title }} - {% endif %}{{ site.data.profile.primary_name }}</title>
+    <meta name="description" content="{{ site.data.brand.intro | strip_html | strip_newlines | truncate: 160 }}">
+    <link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}?v=2">
+    <link rel="icon" type="image/svg+xml" href="{{ '/favicon.svg' | relative_url }}?v=2">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ '/favicon-32x32.png' | relative_url }}?v=2">
+    <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}?v=2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ '/assets/css/brand.css' | relative_url }}">
+</head>
+<body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-head">
+        <div class="wrap head-inner">
+            <a class="brand" href="{{ '/' | relative_url }}" aria-label="Home">
+                <img src="{{ '/favicon.svg' | relative_url }}" alt="" width="28" height="28">
+                <span>{{ site.data.profile.primary_name }}</span>
+            </a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+            <nav id="site-nav" class="site-nav">
+                <a href="{{ '/' | relative_url }}#work">What I do</a>
+                <a href="{{ '/' | relative_url }}#projects">Projects</a>
+                <a href="{{ '/publications' | relative_url }}">Publications</a>
+                <a href="{{ '/presentations' | relative_url }}">Talks</a>
+                <a href="{{ '/about' | relative_url }}">About</a>
+                <a class="nav-cta" href="{{ '/' | relative_url }}#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        {{ content }}
+    </main>
+
+    <footer class="site-foot" id="contact">
+        <svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0 40 C 240 0, 480 80, 720 40 S 1200 0, 1440 40 V80 H0 Z"></path>
+        </svg>
+        <div class="wrap foot-inner">
+            <div class="foot-text">
+                <h2>Let's talk water</h2>
+                <p>{{ site.data.brand.contact_line }}</p>
+            </div>
+            <div class="foot-links">
+                <p class="email-row">
+                    <span class="email" id="email">{{ site.data.profile.email }}</span>
+                    <button type="button" class="copy" data-copy="#email">Copy email</button>
+                </p>
+                <ul>
+                    {% if site.data.profile.linkedin %}<li><a href="https://www.linkedin.com/in/{{ site.data.profile.linkedin }}" target="_blank" rel="noopener">LinkedIn</a></li>{% endif %}
+                    {% if site.data.profile.gscholar %}<li><a href="https://scholar.google.com/citations?user={{ site.data.profile.gscholar }}" target="_blank" rel="noopener">Google Scholar</a></li>{% endif %}
+                    {% if site.data.profile.researchgate %}<li><a href="https://www.researchgate.net/profile/{{ site.data.profile.researchgate }}" target="_blank" rel="noopener">ResearchGate</a></li>{% endif %}
+                    {% if site.data.profile.twitter %}<li><a href="https://x.com/{{ site.data.profile.twitter }}" target="_blank" rel="noopener">X</a></li>{% endif %}
+                </ul>
+            </div>
+        </div>
+        <p class="wrap fine">&copy; {{ site.time | date: "%Y" }} {{ site.data.profile.primary_name }}</p>
+    </footer>
+
+    <script src="{{ '/assets/js/brand.js' | relative_url }}"></script>
+</body>
+</html>
