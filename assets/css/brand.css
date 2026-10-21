@@ -80,7 +80,7 @@ a:hover { color: var(--tide); }
 }
 .head-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
 .brand { display: flex; align-items: center; gap: 10px; color: var(--on-deep); text-decoration: none; font-family: var(--display); font-weight: 600; }
-.brand img { background: #fff; border-radius: 8px; padding: 3px; }
+.brand img { width: 34px; height: 34px; }
 .brand:hover { color: #fff; }
 .site-nav { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
 .site-nav a { color: var(--on-deep-muted); text-decoration: none; padding: 8px 12px; border-radius: 999px; font-size: var(--step--1); font-weight: 500; }
