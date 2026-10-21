@@ -19,11 +19,8 @@ intro: >-
 
 hero_note: >-
   A small model of a drinking water distribution network. Chlorine leaves the water treatment
-  plant at 2.5 mg/L and decays as it travels, disinfecting and guarding against pathogens along
-  the way. Hover or tap any junction, tank, pump or valve.
-hero_note_fine: >-
-  Illustrative values, not a calibrated simulation: water age comes from assumed pipe travel times,
-  dead-end stagnation and tank residence; chlorine follows first-order decay (k = 0.8 per day).
+  plant and decays as it travels, disinfecting and guarding against pathogens along the way.
+hero_note_fine: "Illustrative values, not an actual calibrated simulation. Numbers are approximate."
 
 # Photo used on the new home page (the old pages keep profile.yml's portrait)
 portrait: /assets/images/photos/portrait-studio.jpg
