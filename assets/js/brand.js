@@ -156,7 +156,7 @@
     };
 
     // treatment plant: right of centre on desktop, low on phones (clear of the text)
-    var tx = narrow ? W * 0.84 : W * 0.72, ty = narrow ? H * 0.07 : H * 0.42, best = null, bd = Infinity;
+    var tx = narrow ? W * 0.91 : W * 0.72, ty = narrow ? H * 0.675 : H * 0.42, best = null, bd = Infinity;
     nodes.forEach(function (n) { var d = Math.hypot(n.x - tx, n.y - ty); if (d < bd) { bd = d; best = n; } });
     source = best; source.kind = "plant";
 
@@ -183,7 +183,7 @@
 
     // 3) a few junctions left disconnected on purpose
     var isolatedWanted = narrow ? 1 : 3, picked = [];
-    var leaves = nodes.filter(function (n) { return n.kind === "junction" && n.adj.length === 1 && (narrow ? n.x > W * 0.74 && n.y < H * 0.62 : n.x > W * 0.5) && n.y > 30 && n.y < H - 30; });
+    var leaves = nodes.filter(function (n) { return n.kind === "junction" && n.adj.length === 1 && (narrow ? n.x > W * 0.72 && n.y > H * 0.3 && n.y < H * 0.62 : n.x > W * 0.5) && n.y > 30 && n.y < H - 30; });
     leaves.sort(function () { return rand() - 0.5; });
     leaves.forEach(function (n) {
       if (picked.length >= isolatedWanted) return;
@@ -215,7 +215,7 @@
     };
     markMain(source, narrow ? 3 : 4);
 
-    var clear = function (x, y) { return narrow ? (x > W * 0.74 && y < H * 0.62) : x > W * 0.48; };
+    var clear = function (x, y) { return narrow ? (x > W * 0.72 && y > H * 0.3 && y < H * 0.62) : x > W * 0.55; };
     var usable = function (n) { return n.kind === "junction" && clear(n.x, n.y) && n.x > 24 && n.x < W - 24 && n.y > 24 && n.y < H - 24; };
     var spaced = function (pt, list, min) { return list.every(function (o) { return Math.hypot(pt.x - o.x, pt.y - o.y) > min; }); };
 
@@ -279,7 +279,7 @@
   function textShade(x) {
     // fade the network behind the text column
     if (W < 760) return 0.35;
-    var edge = Math.min(W * 0.5, 620);
+    var edge = Math.min(W * 0.52, 700);
     return x < edge ? 0.22 + 0.5 * (x / edge) : 1;
   }
 
@@ -351,7 +351,7 @@
         ctx.fillStyle = "#E9A23B"; ctx.beginPath(); ctx.arc(n.x, n.y, 8.5, 0, 6.283); ctx.fill();
         return;
       }
-      if (n.kind === "tank") { drawTank(n, isHover); return; }
+      if (n.kind === "tank") { ctx.globalAlpha = W < 760 && !isHover ? 0.45 : 1; drawTank(n, isHover); ctx.globalAlpha = 1; return; }
       if (n.kind === "isolated") {
         ctx.strokeStyle = "rgba(159,184,202," + (isHover ? 1 : 0.7) * Math.max(s, 0.5) + ")";
         ctx.lineWidth = 1.5; ctx.setLineDash([2.5, 2.5]);
@@ -365,7 +365,7 @@
       if (isHover) { ctx.strokeStyle = "#fff"; ctx.lineWidth = 1.5; ctx.stroke(); }
     });
     links.forEach(function (f) {
-      ctx.globalAlpha = W < 760 ? 0.6 : Math.max(textShade(f.x), 0.8);
+      ctx.globalAlpha = W < 760 ? 0.4 : Math.max(textShade(f.x), 0.8);
       if (f.type === "pump") drawPump(f, f === hover); else drawValve(f, f === hover);
       ctx.globalAlpha = 1;
     });
