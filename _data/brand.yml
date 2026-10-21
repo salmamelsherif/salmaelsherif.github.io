@@ -21,6 +21,9 @@ hero_note: >-
   A small model of a drinking water system. Chlorine leaves the plant and decays as it travels;
   hover or tap any node, pump or valve to inspect it.
 
+# Photo used on the new home page (the old pages keep profile.yml's portrait)
+portrait: /assets/images/photos/portrait-studio.jpg
+
 # ---------- What I do ----------
 services:
   - title: Hydraulic and water quality modeling

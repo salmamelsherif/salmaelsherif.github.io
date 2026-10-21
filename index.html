@@ -56,7 +56,7 @@ title: Homepage
 <section class="band band-tint" id="sides">
     <div class="wrap sides">
         <div class="sides-photo">
-            <img src="{{ p.portrait_url | relative_url }}" alt="Portrait of {{ p.primary_name }}" loading="lazy">
+            <img src="{{ b.portrait | default: p.portrait_url | relative_url }}" alt="Portrait of {{ p.primary_name }}" loading="lazy">
         </div>
         <div class="sides-body">
             <h2>Two sides of the same work</h2>
