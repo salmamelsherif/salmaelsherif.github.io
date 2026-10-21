@@ -40,7 +40,10 @@ title: Homepage
             <img src="{{ b.portrait | default: p.portrait_url | relative_url }}" alt="Portrait of {{ p.primary_name }}" loading="lazy">
         </div>
         <div class="sides-body">
-            <h2>Two sides of the same work</h2>
+            <div class="sides-head">
+                <h2>{{ b.sides_title }}</h2>
+                {% if b.sides_subtitle %}<p>{{ b.sides_subtitle }}</p>{% endif %}
+            </div>
             <div class="switch" role="tablist" aria-label="Choose a perspective">
                 <button role="tab" id="tab-industry" aria-selected="true" aria-controls="panel-industry">{{ b.sides.industry.label }}</button>
                 <button role="tab" id="tab-research" aria-selected="false" aria-controls="panel-research" tabindex="-1">{{ b.sides.research.label }}</button>
