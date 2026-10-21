@@ -114,8 +114,12 @@
   var ctx = canvas.getContext("2d");
   var W = 0, H = 0, dpr = 1, nodes = [], pipes = [], particles = [], source = null, running = true, hover = null;
   var links = [];      // pumps and valves placed on pipes
-  var C0 = 1.8;        // mg/L dosed at the plant
-  var KDECAY = 0.09;   // first-order decay per hop (illustrative)
+  // Illustrative water quality, kept in realistic ranges:
+  // age = travel time along pipes (+ stagnation at dead ends, + residence in tanks)
+  // chlorine = first-order decay on that age, C = C0 * exp(-K * age)
+  var C0 = 2.5;        // mg/L free chlorine leaving the plant
+  var K = 0.8;         // 1/day, combined bulk + wall decay (typical range ~0.1 to 1+)
+  var C_LOW = 0.2;     // mg/L, common minimum residual
 
   function rng(seed) { return function () { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }; }
   function other(p, n) { return p.a === n ? p.b : p.a; }
@@ -156,7 +160,12 @@
     };
 
     // treatment plant: right of centre on desktop, low on phones (clear of the text)
-    var tx = narrow ? W * 0.91 : W * 0.72, ty = narrow ? H * 0.675 : H * 0.42, best = null, bd = Infinity;
+    var tx = W * 0.72, ty = H * 0.42, best = null, bd = Infinity;
+    var act = document.querySelector(".hero .actions");
+    if (narrow && act) {   // on phones, sit just right of the buttons
+      var ar = act.getBoundingClientRect();
+      tx = W * 0.9; ty = ar.top - rect.top + ar.height / 2;
+    }
     nodes.forEach(function (n) { var d = Math.hypot(n.x - tx, n.y - ty); if (d < bd) { bd = d; best = n; } });
     source = best; source.kind = "plant";
 
@@ -183,7 +192,7 @@
 
     // 3) a few junctions left disconnected on purpose
     var isolatedWanted = narrow ? 1 : 3, picked = [];
-    var leaves = nodes.filter(function (n) { return n.kind === "junction" && n.adj.length === 1 && (narrow ? n.x > W * 0.72 && n.y > H * 0.3 && n.y < H * 0.62 : n.x > W * 0.5) && n.y > 30 && n.y < H - 30; });
+    var leaves = nodes.filter(function (n) { return n.kind === "junction" && n.adj.length === 1 && (narrow ? n.x > W * 0.7 && n.y > H * 0.3 : n.x > W * 0.5) && n.y > 30 && n.y < H - 30; });
     leaves.sort(function () { return rand() - 0.5; });
     leaves.forEach(function (n) {
       if (picked.length >= isolatedWanted) return;
@@ -195,17 +204,13 @@
       n.kind = "isolated"; picked.push(n);
     });
 
-    // hops from the plant set flow direction, residual and age
+    // hops from the plant: used to lay out mains and pick tank sites
     source.d = 0;
     var q = [source];
     while (q.length) {
       var cur = q.shift();
       cur.adj.forEach(function (p) { var o = other(p, cur); if (o.d === Infinity) { o.d = cur.d + 1; q.push(o); } });
     }
-    nodes.forEach(function (n) {
-      n.c = n.d === Infinity ? 0 : C0 * Math.exp(-KDECAY * n.d * (1 + (n.id % 7) / 20));
-      n.age = n.d === Infinity ? null : n.d * 0.9 + (n.id % 5) * 0.13;
-    });
     pipes.forEach(function (p) { if (p.b.d < p.a.d) { var tmp = p.a; p.a = p.b; p.b = tmp; } });
 
     // trunk mains: follow the pipes from the plant outward a few hops
@@ -256,6 +261,31 @@
       var mid = { x: (p.a.x + p.b.x) / 2, y: (p.a.y + p.b.y) / 2 };
       if (!spaced(mid, placed.concat(tanks, [source]), gap * 1.6)) return;
       addLink(p, "valve", "V" + (v + 1), valveTypes[v]); v++;
+    });
+
+    // travel time per pipe (hours): fast trunk mains, slow distribution pipes
+    pipes.forEach(function (p) { p.hours = p.dia > 2 ? 0.4 + rand() * 0.6 : 1.2 + rand() * 2.4; });
+    // water age: fastest arrival from the plant (Dijkstra)
+    nodes.forEach(function (n) { n.age = Infinity; });
+    source.age = 0;
+    var open = [source], done = new Set();
+    while (open.length) {
+      open.sort(function (a, b) { return a.age - b.age; });
+      var u = open.shift();
+      if (done.has(u)) continue;
+      done.add(u);
+      u.adj.forEach(function (p) {
+        var o = other(p, u), t = u.age + p.hours;
+        if (t < o.age) { o.age = t; open.push(o); }
+      });
+    }
+    // flow runs from younger to older water
+    pipes.forEach(function (p) { if (p.b.age < p.a.age) { var tmp = p.a; p.a = p.b; p.b = tmp; } });
+    nodes.forEach(function (n) {
+      if (n.age === Infinity) { n.age = null; n.cl = 0; return; }
+      if (n.kind === "tank") n.age += 30 + rand() * 24;                     // tank residence time
+      else if (n.kind === "junction" && n.adj.length === 1) n.age += 6 + rand() * 14;   // dead-end stagnation
+      n.cl = C0 * Math.exp(-K * n.age / 24);
     });
 
     particles = [];
@@ -314,7 +344,7 @@
     ctx.fillStyle = NAVY; ctx.strokeStyle = EQUIP; ctx.lineWidth = 1.6;
     ctx.beginPath(); ctx.rect(n.x - w / 2, n.y - h / 2, w, h); ctx.fill(); ctx.stroke();
     // water level, about two thirds full
-    ctx.fillStyle = colorFor(n.c, 0.95);
+    ctx.fillStyle = colorFor(n.cl, 0.95);
     ctx.fillRect(n.x - w / 2 + 2.5, n.y - h / 2 + h * 0.36, w - 5, h * 0.64 - 2.5);
   }
 
@@ -339,7 +369,7 @@
         q.from = q.to; q.to = p.b; q.t = 0;
       }
       var x = q.from.x + (q.to.x - q.from.x) * q.t, y = q.from.y + (q.to.y - q.from.y) * q.t;
-      var c = q.from.c + (q.to.c - q.from.c) * q.t;
+      var c = q.from.cl + (q.to.cl - q.from.cl) * q.t;
       ctx.fillStyle = colorFor(c, 0.9 * textShade(x));
       ctx.beginPath(); ctx.arc(x, y, 2.1, 0, 6.283); ctx.fill();
     });
@@ -360,7 +390,7 @@
         return;
       }
       var rad = (n.adj.length > 2 ? 3.6 : 2.8) + (isHover ? 3 : 0);
-      ctx.fillStyle = colorFor(n.c, (isHover ? 1 : 0.85) * s);
+      ctx.fillStyle = colorFor(n.cl, (isHover ? 1 : 0.85) * s);
       ctx.beginPath(); ctx.arc(n.x, n.y, rad, 0, 6.283); ctx.fill();
       if (isHover) { ctx.strokeStyle = "#fff"; ctx.lineWidth = 1.5; ctx.stroke(); }
     });
@@ -376,13 +406,15 @@
     if (!reduceMotion) requestAnimationFrame(loop);
   }
 
+  function fmtAge(h) { return h < 36 ? Math.round(h) + " h" : (h / 24).toFixed(1) + " days"; }
+
   function showProbe(n) {
     if (!n) { probe.hidden = true; return; }
     var html;
     if (n.type === "pump" || n.type === "valve") html = "<strong>" + (n.type === "pump" ? "Pump " : "Valve ") + n.tag + "</strong><br>" + n.detail;
-    else if (n.kind === "plant") html = "<strong>Treatment plant</strong><br>Chlorine dosed: " + C0.toFixed(2) + " mg/L";
+    else if (n.kind === "plant") html = "<strong>Water treatment plant</strong><br>Chlorine leaving: " + C0.toFixed(1) + " mg/L";
     else if (n.kind === "isolated") html = "<strong>Junction J" + n.id + "</strong><br>Not connected to the network";
-    else html = "<strong>" + (n.kind === "tank" ? "Storage tank " + n.tag : "Junction J" + n.id) + "</strong><br>Chlorine: " + n.c.toFixed(2) + " mg/L" + (n.c < 0.2 ? " (low)" : "") + "<br>Water age: " + n.age.toFixed(1) + " h";
+    else html = "<strong>" + (n.kind === "tank" ? "Storage tank " + n.tag : "Junction J" + n.id) + "</strong><br>Chlorine: " + n.cl.toFixed(2) + " mg/L" + (n.cl < C_LOW ? " (below 0.2)" : "") + "<br>Water age: " + fmtAge(n.age);
     probe.innerHTML = html;
     probe.hidden = false;
     var px = Math.max(8, Math.min(n.x + 14, W - probe.offsetWidth - 8)), py = n.y - probe.offsetHeight - 12;
