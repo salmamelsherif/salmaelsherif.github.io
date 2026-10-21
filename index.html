@@ -34,29 +34,7 @@ title: Homepage
     <div class="probe" id="probe" hidden></div>
 </section>
 
-<section class="band" id="work">
-    <div class="wrap">
-        <div class="section-head">
-            <h2>What I do</h2>
-            <p>Four areas, one goal: water that arrives safe, at the right pressure, from infrastructure that lasts.</p>
-        </div>
-        <div class="services">
-            {% for s in b.services %}
-            <details class="service"{% if forloop.first %} open{% endif %}>
-                <summary>
-                    <span class="service-title">{{ s.title }}</span>
-                    <span class="service-sum">{{ s.summary }}</span>
-                </summary>
-                <ul>
-                    {% for e in s.examples %}<li>{{ e }}</li>{% endfor %}
-                </ul>
-            </details>
-            {% endfor %}
-        </div>
-    </div>
-</section>
-
-<section class="band band-tint" id="sides">
+<section class="band" id="sides">
     <div class="wrap sides">
         <div class="sides-photo">
             <img src="{{ b.portrait | default: p.portrait_url | relative_url }}" alt="Portrait of {{ p.primary_name }}" loading="lazy">
@@ -76,6 +54,28 @@ title: Homepage
                 <p>{{ side.text }}</p>
                 <ul>{% for pt in side.points %}<li>{{ pt }}</li>{% endfor %}</ul>
             </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="band band-tint" id="work">
+    <div class="wrap">
+        <div class="section-head">
+            <h2>What I do</h2>
+            <p>Four areas, one goal: water that arrives safe, at the right pressure, from infrastructure that lasts.</p>
+        </div>
+        <div class="services">
+            {% for s in b.services %}
+            <details class="service"{% if forloop.first %} open{% endif %}>
+                <summary>
+                    <span class="service-title">{{ s.title }}</span>
+                    <span class="service-sum">{{ s.summary }}</span>
+                </summary>
+                <ul>
+                    {% for e in s.examples %}<li>{{ e }}</li>{% endfor %}
+                </ul>
+            </details>
             {% endfor %}
         </div>
     </div>
