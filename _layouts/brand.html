@@ -25,8 +25,8 @@
             <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
             <nav id="site-nav" class="site-nav">
                 <a href="{{ '/' | relative_url }}#sides">More about me</a>
-                <a href="{{ '/' | relative_url }}#work">What I do</a>
-                <a href="{{ '/' | relative_url }}#projects">Projects</a>
+                <a href="{{ '/what-i-do' | relative_url }}"{% if page.nav == "work" %} aria-current="page"{% endif %}>What I do</a>
+                <a href="{{ '/projects' | relative_url }}"{% if page.nav == "projects" %} aria-current="page"{% endif %}>Projects</a>
                 <a href="{{ '/publications' | relative_url }}">Publications</a>
                 <a href="{{ '/presentations' | relative_url }}">Talks</a>
                 <a href="{{ '/about' | relative_url }}">About</a>

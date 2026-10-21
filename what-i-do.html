@@ -1,0 +1,31 @@
+---
+layout: brand
+title: What I do
+nav: work
+---
+{% assign b = site.data.brand %}
+
+<section class="page-hero">
+    <div class="wrap">
+        <h1>{{ b.work_page.title }}</h1>
+        <p>{{ b.work_page.intro }}</p>
+    </div>
+</section>
+
+<section class="band" id="work">
+    <div class="wrap">
+        <div class="services">
+            {% for s in b.services %}
+            <details class="service" open>
+                <summary>
+                    <span class="service-title">{{ s.title }}</span>
+                    <span class="service-sum">{{ s.summary }}</span>
+                </summary>
+                <ul>
+                    {% for e in s.examples %}<li>{{ e }}</li>{% endfor %}
+                </ul>
+            </details>
+            {% endfor %}
+        </div>
+    </div>
+</section>

@@ -25,7 +25,12 @@ hero_note_fine: "Illustrative values, not an actual calibrated simulation. Numbe
 # Photo used on the new home page (the old pages keep profile.yml's portrait)
 portrait: /assets/images/photos/portrait-studio.jpg
 
-# ---------- What I do ----------
+# ---------- What I do (its own page) ----------
+work_page:
+  title: What I do
+  intro: >-
+    Four areas, one goal: water that arrives safe, at the right pressure,
+    from infrastructure that lasts.
 services:
   - title: Hydraulic and water quality modeling
     summary: Building and calibrating network models that show how water and disinfectant actually move.
@@ -56,28 +61,39 @@ sides_subtitle: "Bridging research and practice."
 sides:
   industry:
     label: Industry
-    role: Staff Water Resources Engineer, Arcadis
-    since: "2025"
+    role: Staff Water Resources Engineer
+    org: Arcadis U.S., Inc.
+    period: 2025 – present
     text: >-
-      I support utilities and municipalities with modeling, asset management and planning,
-      bringing a research toolkit to day-to-day engineering decisions.
+      As a licensed Professional Engineer (P.E.) and consultant, I support utilities and
+      municipalities with planning, modeling, calibration, and asset management, turning
+      complex system data into decisions they can act on.
+    list_title: Expertise and responsibilities
     points:
-      - "PLACEHOLDER: types of clients you serve"
-      - "PLACEHOLDER: the deliverables you own"
-      - "Tools: EPANET, InfoWater, Python, GIS (PLACEHOLDER: edit)"
+      - "<strong>Advanced water quality modeling and calibration:</strong> multi-species chlorine decay, water age, and disinfection byproduct analyses that support regulatory compliance and day-to-day operations"
+      - "<strong>Hydraulic modeling and calibration:</strong> building, updating, and calibrating distribution system models against field and SCADA data for pressure, flow, and fire-flow analyses"
+      - "<strong>Field data analysis:</strong> planning and interpreting hydrant flow tests, pressure logging, and chlorine sampling so models reflect how the system really behaves"
+      - "<strong>Capital improvement planning (CIP):</strong> identifying, prioritizing, and phasing pipe, pump, and storage projects based on performance, risk, and condition"
   research:
     label: Research
-    role: "Ph.D., Civil and Infrastructure Systems, Vanderbilt University"
-    since: "2021"
+    role: Ph.D., Civil and Infrastructure Systems
+    org: Vanderbilt University, Nashville, TN
+    period: 2021 – 2025
     text: >-
-      My research designs monitoring and control algorithms for drinking water networks,
-      linking hydraulics and water quality so both can be managed together.
+      My dissertation, <a href="https://ir.vanderbilt.edu/items/c49b5d69-a819-42d2-b7b5-4c6dcceac6a1" target="_blank" rel="noopener"><em>Monitoring and Control of Quantity-Quality Dynamics for Resilient Drinking Water Networks</em></a>,
+      developed a framework that manages hydraulics and water quality together, from multi-species
+      chlorine modeling to the placement of sensors and booster stations.
+    list_title: Research interests I continue to explore independently
     points:
-      - Published in Water Research, Water Resources Research and Annual Reviews in Control
-      - Collaborations with Louisville Water Company
-      - Mentoring students applying to graduate programs
+      - Control and monitoring of water distribution networks through integrated hydraulic and water quality dynamics
+      - Stormwater management and flood control systems
+      - Sustainable water resources management under a changing climate
+      - Cyber-physical systems, urban infrastructure, and optimization of dynamic systems
 
-# ---------- Projects ----------
+# ---------- Projects (its own page) ----------
+projects_page:
+  title: Projects
+  intro: Selected work from practice and research.
 # kind: industry or research. image is optional.
 projects:
   - title: Where to put chlorine booster stations
