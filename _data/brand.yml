@@ -4,7 +4,11 @@
 # ------------------------------------------------------------------
 
 # Short line shown after your name in the top bar (hidden on small phones)
-header_tagline: "Keeping water safe, end to end"
+header_tagline:
+  - text: "Keeping Water Safe"
+    icon: drop
+  - text: "End-to-End"
+    icon: network
 
 headline: "I keep water systems safe, reliable and ready for what's next."
 intro: >-

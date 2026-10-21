@@ -20,7 +20,7 @@
         <div class="wrap head-inner">
             <a class="brand" href="{{ '/' | relative_url }}" aria-label="Home">
                 <img src="{{ '/assets/images/brand/logo-white.svg' | relative_url }}" alt="" width="34" height="34">
-                <span class="brand-name">{{ site.data.profile.primary_name }}</span>{% if site.data.brand.header_tagline %}<span class="brand-tag">{{ site.data.brand.header_tagline }}</span>{% endif %}
+                <span class="brand-name">{{ site.data.profile.primary_name }}</span>{% if site.data.brand.header_tagline %}<span class="brand-tag">{% for part in site.data.brand.header_tagline %}<span class="tag-part">{{ part.text }}{% if part.icon == "drop" %}<svg class="tag-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8c-.3.4-6.6 7.9-6.6 12.4a6.6 6.6 0 0 0 13.2 0c0-4.5-6.3-12-6.6-12.4z" fill="currentColor"/><path d="M9 15.5a3 3 0 0 0 2.6 2.8" fill="none" stroke="#032141" stroke-width="1.6" stroke-linecap="round" opacity=".55"/></svg>{% elsif part.icon == "network" %}<svg class="tag-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6.5 12 12l7-6.5M12 12v7M5 6.5 5 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="5" cy="6.5" r="2.6" fill="currentColor"/><circle cx="19" cy="6.5" r="2.6" fill="currentColor"/><circle cx="12" cy="12" r="2.2" fill="currentColor"/><circle cx="12" cy="19.5" r="2.6" fill="currentColor"/><circle cx="5" cy="17" r="1.9" fill="currentColor"/></svg>{% endif %}</span>{% endfor %}</span>{% endif %}
             </a>
             <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
             <nav id="site-nav" class="site-nav">
