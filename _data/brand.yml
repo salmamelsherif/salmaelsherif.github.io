@@ -11,8 +11,8 @@ intro: >-
   disinfectant where it needs to be.
 
 hero_note: >-
-  The network behind this text is a small model of a drinking water system.
-  Chlorine leaves the treatment plant and decays as it travels; hover or tap a node to read its residual.
+  A small model of a drinking water system. Chlorine leaves the plant and decays as it travels;
+  hover or tap any node, pump or valve to inspect it.
 
 # ---------- What I do ----------
 services:

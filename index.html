@@ -17,7 +17,16 @@ title: Homepage
                 <a class="btn btn-ghost" href="#contact">Get in touch</a>
             </div>
         </div>
-        <p class="hero-note" id="network-note">{{ b.hero_note }}</p>
+        <div class="hero-note" id="network-note">
+            <p>{{ b.hero_note }}</p>
+            <ul class="legend" aria-label="Map legend">
+                <li><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="6" fill="#E9A23B"/></svg>Treatment plant</li>
+                <li><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="4" width="15" height="12" fill="#032141" stroke="#DCEAF3" stroke-width="1.5"/><rect x="4.5" y="8.5" width="11" height="5.5" fill="#3CC0D8"/></svg>Tank</li>
+                <li><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.5" fill="#032141" stroke="#DCEAF3" stroke-width="1.6"/><path d="M14.5 10 L7 6 L7 14 Z" fill="#DCEAF3"/></svg>Pump</li>
+                <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5.5 L17 14.5 L17 5.5 L3 14.5 Z" fill="#DCEAF3"/></svg>Valve</li>
+                <li><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="5" fill="none" stroke="#9FB8CA" stroke-width="1.5" stroke-dasharray="2.5 2.5"/></svg>Disconnected</li>
+            </ul>
+        </div>
     </div>
     <div class="probe" id="probe" hidden></div>
 </section>
