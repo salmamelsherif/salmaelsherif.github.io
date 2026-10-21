@@ -3,6 +3,9 @@
 # Items marked "PLACEHOLDER" are examples for you to replace.
 # ------------------------------------------------------------------
 
+# Short line shown after your name in the top bar (hidden on small phones)
+header_tagline: "Water systems, connected"
+
 headline: "I keep water systems safe, reliable and ready for what's next."
 intro: >-
   Water resources engineer at Arcadis with a Ph.D. from Vanderbilt.

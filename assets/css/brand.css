@@ -81,6 +81,8 @@ a:hover { color: var(--tide); }
 .head-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
 .brand { display: flex; align-items: center; gap: 10px; color: var(--on-deep); text-decoration: none; font-family: var(--display); font-weight: 600; }
 .brand img { width: 34px; height: 34px; }
+.brand-tag { font-family: var(--body); font-weight: 400; color: var(--on-deep-muted); display: inline-flex; align-items: center; gap: 10px; }
+.brand-tag::before { content: ""; width: 14px; height: 1.5px; background: var(--tide); }
 .brand:hover { color: #fff; }
 .site-nav { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
 .site-nav a { color: var(--on-deep-muted); text-decoration: none; padding: 8px 12px; border-radius: 999px; font-size: var(--step--1); font-weight: 500; }
@@ -232,6 +234,9 @@ a:hover { color: var(--tide); }
 .fine { font-size: 0.8rem; color: var(--on-deep-muted); }
 
 /* ---------- Responsive ---------- */
+@media (max-width: 1060px) and (min-width: 861px) {
+  .brand-tag { display: none; }
+}
 @media (max-width: 860px) {
   .nav-toggle { display: inline-block; }
   .site-nav { display: none; position: absolute; left: 0; right: 0; top: 100%; background: var(--abyss); padding: 8px max(20px, env(safe-area-inset-left, 0px)) 16px; flex-direction: column; align-items: stretch; }
@@ -247,6 +252,7 @@ a:hover { color: var(--tide); }
   .hero-note { margin-left: 0; }
 }
 @media (max-width: 480px) {
+  .brand-tag { display: none; }
   .news li { grid-template-columns: minmax(0, 1fr); gap: 4px; }
   .switch button { padding: 10px 18px; }
 }
