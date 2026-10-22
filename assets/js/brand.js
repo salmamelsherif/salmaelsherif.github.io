@@ -67,6 +67,19 @@
     });
   });
 
+  /* ---------- Timelines: a finished track stops at its last marker ---------- */
+  var setTails = function () {
+    document.querySelectorAll(".timeline").forEach(function (tl) {
+      var last = tl.lastElementChild;
+      if (!last) return;
+      // ongoing track (current role) runs past the last marker; finished ones end on it
+      tl.style.setProperty("--tail", last.classList.contains("is-current") ? "8px" : (last.offsetHeight - 14) + "px");
+    });
+  };
+  setTails();
+  window.addEventListener("resize", setTails);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(setTails);
+
   /* ---------- Counting figures + timeline fill ---------- */
   if (!reduceMotion && "IntersectionObserver" in window) {
     var figs = document.querySelectorAll(".fig[data-count]");
