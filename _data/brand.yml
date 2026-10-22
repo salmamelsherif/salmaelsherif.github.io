@@ -35,7 +35,7 @@ services:
   - title: Hydraulic and water quality modeling
     summary: Building and calibrating network models that show how water and disinfectant actually move.
     examples:
-      - Multi-species chlorine and disinfection byproduct models
+      - Multi-species chlorine and chloramine models, including blending zones and disinfection byproducts
       - Pressure, flow and water age analysis for distribution networks
       - "Open-source tools such as X-WHAT, a looped network design model in Excel"
   - title: Asset management and capital planning
@@ -70,10 +70,10 @@ sides:
       complex system data into decisions they can act on.
     list_title: Expertise and responsibilities
     points:
-      - "<strong>Advanced water quality modeling and calibration:</strong> multi-species chlorine decay, water age, and disinfection byproduct analyses that support regulatory compliance and day-to-day operations"
-      - "<strong>Hydraulic modeling and calibration:</strong> building, updating, and calibrating distribution system models against field and SCADA data for pressure, flow, and fire-flow analyses"
-      - "<strong>Field data analysis:</strong> planning and interpreting hydrant flow tests, pressure logging, and chlorine sampling so models reflect how the system really behaves"
-      - "<strong>Capital improvement planning (CIP):</strong> identifying, prioritizing, and phasing pipe, pump, and storage projects based on performance, risk, and condition"
+      - "<strong>Hydraulic modeling and calibration:</strong> building, updating, and calibrating distribution system models against field and SCADA data, then testing how the system performs across demand and operating scenarios, from everyday conditions to peak demand"
+      - "<strong>Advanced water quality modeling and calibration:</strong> multi-species chlorine and chloramine dynamics, blending zones where different source waters meet, water age, and disinfection byproduct analyses that support regulatory compliance and day-to-day operations"
+      - "<strong>Field data analysis:</strong> planning and interpreting hydrant flow tests, pressure logging, water quality sampling, and bottle tests so models reflect how the system really behaves"
+      - "<strong>Capital improvement planning (CIP):</strong> identifying, prioritizing, and phasing pipe, pump, and storage projects based on current performance, future development, and realistic operating scenarios"
   research:
     label: Research
     role: Ph.D., Civil and Infrastructure Systems
