@@ -178,6 +178,38 @@ a:hover { color: var(--tide); }
 @media (prefers-reduced-motion: reduce) { .ra-r { opacity: 0.35; transform: scale(2.2); } .ra-r2 { transform: scale(3.4); opacity: 0.2; } .ra-r3, .ra-r4 { display: none; } }
 @media (max-width: 860px) { .pipe-art { opacity: 0.25; width: 90vw; right: -20vw; } .ripple-art { opacity: 0.3; width: 90vw; right: -25vw; } }
 
+/* ---------- Page header art: shared placement ---------- */
+.art { position: absolute; right: max(0px, calc((100vw - 1160px) / 2 - 20px)); top: 50%; width: min(44vw, 540px); height: auto; transform: translateY(-50%); pointer-events: none; }
+/* blueprint */
+.bp-grid { stroke: rgba(120, 170, 205, 0.09); stroke-width: 1; fill: none; }
+.bp-major { stroke: rgba(120, 170, 205, 0.18); stroke-width: 1; fill: none; }
+.bp-wall, .bp-draw { fill: none; stroke: #9FD3E6; stroke-width: 1.8; }
+.bp-water { fill: rgba(60, 192, 216, 0.12); }
+.bp-center { stroke: rgba(159, 211, 230, 0.55); stroke-width: 1; stroke-dasharray: 10 4 2 4; fill: none; }
+.bp-dim { stroke: rgba(159, 211, 230, 0.7); stroke-width: 1; fill: none; }
+.bp-arrow { fill: rgba(159, 211, 230, 0.85); }
+.bp-flow { stroke: var(--tide); stroke-width: 2; stroke-dasharray: 3 12; fill: none; animation: pa-flow 2.4s linear infinite; }
+.bp-label { fill: #9FD3E6; font-family: var(--body); font-size: 13px; letter-spacing: 0.04em; }
+.bp-small { font-size: 11px; opacity: 0.8; }
+/* contour */
+.ct { fill: none; stroke-linejoin: round; }
+.ct-minor { stroke: rgba(120, 170, 205, 0.22); stroke-width: 1.2; }
+.ct-major { stroke: rgba(120, 170, 205, 0.42); stroke-width: 1.8; }
+.ct-stream { fill: none; stroke: rgba(60, 192, 216, 0.5); stroke-width: 2.4; stroke-linecap: round; }
+.ct-flow { stroke: var(--tide); stroke-dasharray: 2 14; animation: pa-flow 2.4s linear infinite reverse; }
+.ct-peak { fill: var(--signal); }
+/* rising levels */
+.lv path { transform-box: fill-box; animation: lv-drift 14s ease-in-out infinite alternate; }
+.lv1 path { fill: rgba(60, 192, 216, 0.55); animation-duration: 11s; }
+.lv2 path { fill: rgba(60, 192, 216, 0.36); animation-duration: 13s; animation-direction: alternate-reverse; }
+.lv3 path { fill: rgba(90, 166, 230, 0.24); animation-duration: 15s; }
+.lv4 path { fill: rgba(90, 166, 230, 0.14); animation-duration: 17s; animation-direction: alternate-reverse; }
+@keyframes lv-drift { from { transform: translateX(0); } to { transform: translateX(-180px); } }
+.lv-staff { stroke: rgba(230, 240, 246, 0.35); stroke-width: 1.5; }
+.lv-tick { stroke: rgba(230, 240, 246, 0.5); stroke-width: 1.5; }
+.lv-dot { fill: var(--signal); }
+@media (max-width: 860px) { .art { opacity: 0.3; width: 90vw; right: -25vw; } }
+
 /* ---------- Bands ---------- */
 .band { padding-block: clamp(48px, 6.5vw, 84px); }
 .band-tint { background: var(--foam); }
