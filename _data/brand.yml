@@ -82,7 +82,7 @@ sides:
     text: >-
       My dissertation, <a href="https://ir.vanderbilt.edu/items/c49b5d69-a819-42d2-b7b5-4c6dcceac6a1" target="_blank" rel="noopener"><em>Monitoring and Control of Quantity-Quality Dynamics for Resilient Drinking Water Networks</em></a>,
       developed a framework that manages hydraulics and water quality together, from multi-species
-      chlorine modeling to the placement of sensors and booster stations.
+      chlorine modeling and pump operations to the placement of sensors and booster stations.
     list_title: Research interests I continue to explore independently
     points:
       - Control and monitoring of water distribution networks through integrated hydraulic and water quality dynamics
