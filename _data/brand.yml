@@ -179,10 +179,10 @@ memberships:
 tools:
   - group: Hydraulic and water quality modeling
     icon: network
-    names: [EPANET, EPANET-MSX, WaterGEMS, InfoWater, AquaTwin]
+    names: [EPANET, EPANET-MSX, Autodesk InfoWater Pro, Bentley WaterGEMS, Bentley HAMMER, Aquanuity AquaTwin]
   - group: Programming
     icon: code
-    names: [Python, MATLAB]
+    names: [Python, MATLAB, R]
   - group: Data analysis and visualization
     icon: chart
     names: [Tableau, Power BI]
