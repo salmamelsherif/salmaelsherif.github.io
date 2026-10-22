@@ -16,10 +16,6 @@
     });
   }
 
-  /* ---------- Hero note: open on desktop, collapsed on smaller screens ---------- */
-  var note = document.getElementById("network-note");
-  if (note && window.matchMedia("(max-width: 999px)").matches) note.open = false;
-
   /* ---------- Industry / Research switch ---------- */
   var sw = document.querySelector(".switch");
   if (sw) {
@@ -201,6 +197,8 @@
       inTree.forEach(function (m) { var d = Math.hypot(n.x - m.x, n.y - m.y); if (d < nd) { nd = d; near = m; } });
       link(n, near, false); inTree.add(n);
     });
+    // the plant feeds every neighbouring junction, so water leaves on several mains
+    neighbours(source).forEach(function (m) { if (!has(source, m)) link(source, m, true); });
     // 2) extra pipes close loops, like a real gridded distribution system
     nodes.forEach(function (n) {
       neighbours(n).forEach(function (m) { if (m.id > n.id && !has(n, m) && rand() < 0.4) link(n, m, false); });
@@ -235,6 +233,7 @@
       n.adj.filter(function (p) { return p.a === n; }).slice(0, 2).forEach(function (p) { p.dia = 2.6; markMain(p.b, steps - 1); });
     };
     markMain(source, narrow ? 3 : 4);
+    source.adj.forEach(function (p) { p.dia = 2.6; });
 
     var clear = function (x, y) { return narrow ? (x > W * 0.72 && y > H * 0.3 && y < H * 0.62) : x > W * 0.55; };
     var usable = function (n) { return n.kind === "junction" && clear(n.x, n.y) && n.x > 24 && n.x < W - 24 && n.y > 24 && n.y < H - 24; };
@@ -439,6 +438,8 @@
   }
 
   function onPoint(e) {
+    // no junction labels while pointing at the text, buttons or the note
+    if (e.target.closest && e.target.closest(".hero-text, .hero-note")) { if (hover) { hover = null; if (reduceMotion) draw(); } probe.hidden = true; return; }
     var r = hero.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top, best = null, bd = 22;
     nodes.concat(links).forEach(function (n) { var d = Math.hypot(n.x - x, n.y - y); if (d < bd) { bd = d; best = n; } });
     if (best !== hover) { hover = best; if (reduceMotion) draw(); }
