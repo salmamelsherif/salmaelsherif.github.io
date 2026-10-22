@@ -1,32 +1,59 @@
 ---
-layout: default
-title : Presentations
-navbar_title: Presentations
-body_attr: >-
-  data-spy="scroll" data-target="#navbar-year" data-offset="100"
+layout: brand
+title: Talks
+nav: talks
 ---
+{% assign b = site.data.brand %}
+{% assign talks = site.presentations | sort: "date" | reverse %}
 
-{% assign pubs_by_year = site.presentations | sort: "date" | reverse | group_by_exp: "item", "item.date | date: '%Y'" %}
+<section class="page-hero">
+    <div class="wrap">
+        <h1>{{ b.talks_page.title }}</h1>
+        <p>{{ b.talks_page.intro }}</p>
+    </div>
+</section>
 
-<div class="row">
-    <div class="col-12 col-lg-10">
-        {% for year in pubs_by_year %}
-        {% assign num_papers = year.items | size %}
-        <h3 class="pt-4" id="year-{{ year.name }}">{{ year.name }}</h3>
-        <div class="my-0 p-0 bg-white shadow-sm rounded-sm">
-            {% for item in year.items %}
-                {% include widgets/publication_item.html item=item hide_bottom_border=forloop.last first=forloop.first last=forloop.last %}
-            {% endfor %}
-        </div>
+<section class="band">
+    <div class="wrap">
+        {% for pub in talks %}
+        {% assign y = pub.date | date: "%Y" %}
+        {% if forloop.first %}
+        <div class="pub-year"><h2>{{ y }}</h2><ol class="pub-list">
+        {% else %}
+        {% assign pi = forloop.index0 | minus: 1 %}
+        {% assign prev = talks[pi] %}
+        {% assign py = prev.date | date: "%Y" %}
+        {% if y != py %}
+        </ol></div>
+        <div class="pub-year"><h2>{{ y }}</h2><ol class="pub-list">
+        {% endif %}
+        {% endif %}
+
+        {% assign kind = "conference" %}
+        {% assign kind_label = "Conference talk" %}
+        {% if pub.pub contains "Talk at" %}{% assign kind = "invited" %}{% assign kind_label = "Invited talk" %}{% endif %}
+
+            <li class="pub-item" data-kind="{{ kind }}">
+                {% if pub.cover %}<div class="pub-cover"><img src="{{ pub.cover | relative_url }}" alt="" loading="lazy"></div>{% endif %}
+                <div class="pub-body">
+                    <p class="pub-tags"><span class="tag tag-{{ kind }}">{{ kind_label }}</span></p>
+                    <h3>{{ pub.title }}</h3>
+                    <p class="pub-authors">{% for a in pub.authors %}{% assign info = site.data.authors[a] %}{% if info.bold %}<strong>{{ info.name | default: a }}</strong>{% elsif info.url %}<a href="{{ info.url }}" target="_blank" rel="noopener">{{ info.name | default: a }}</a>{% else %}{{ a }}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}</p>
+                    {% if pub.pub %}<p class="pub-venue">{{ pub.pub | remove: "Talk at " }}</p>{% endif %}
+                    <div class="pub-actions">
+                        {% for link in pub.links %}<a class="pill" href="{{ link[1] }}" target="_blank" rel="noopener">{{ link[0] }}</a>{% endfor %}
+                        {% if pub.detailed_abstract %}
+                        <details class="abstract">
+                            <summary class="pill">{{ pub.toggle_text | default: "Abstract" }}</summary>
+                            <p>{{ pub.detailed_abstract }}</p>
+                        </details>
+                        {% endif %}
+                    </div>
+                </div>
+            </li>
+        {% if forloop.last %}
+        </ol></div>
+        {% endif %}
         {% endfor %}
     </div>
-
-    <div class="col-2 d-none d-lg-block">
-        <div id="navbar-year" class="nav nav-pills flex-column sticky-top" style="top: 80px">
-            {% for year in pubs_by_year %}
-            <a class="nav-link d-block" href="#year-{{ year.name }}">{{ year.name }}</a>
-            {% endfor %}
-        </div>
-    </div>
-
-</div>
+</section>

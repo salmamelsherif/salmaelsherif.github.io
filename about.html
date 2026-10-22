@@ -1,13 +1,75 @@
 ---
-layout: default
-title : About
-navbar_title: About
+layout: brand
+title: About
+nav: about
 ---
+{% assign b = site.data.brand %}
+{% assign p = site.data.profile %}
 
-{% if site.data.display.homepage.show_experience %}
-    {% include widgets/experience_card.html %}
-{% endif %}
+<section class="page-hero">
+    <div class="wrap">
+        <h1>{{ b.about_page.title }}</h1>
+        <p>{{ b.about_page.intro }}</p>
+    </div>
+</section>
 
-{% include widgets/research_card.html %}
+<section class="band">
+    <div class="wrap about-intro">
+        <div class="about-photo">
+            <img src="{{ b.portrait | default: p.portrait_url | relative_url }}" alt="Portrait of {{ p.primary_name }}" loading="lazy">
+        </div>
+        <div class="about-bio">
+            {% for para in b.about_page.bio %}<p>{{ para }}</p>{% endfor %}
+        </div>
+    </div>
+</section>
 
-{% include widgets/teachingExp_card.html %}
+<section class="band band-tint">
+    <div class="wrap about-cols">
+        <div class="about-block">
+            <h2>Education</h2>
+            <ul class="entry-list">
+                {% assign edu = b.education | reverse %}
+                {% for e in edu %}
+                <li>
+                    <span class="entry-years">{{ e.years }}</span>
+                    <h3>{{ e.title }}</h3>
+                    <p>{{ e.place }}</p>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="about-block">
+            <h2>Teaching</h2>
+            <ul class="entry-list">
+                {% for t in p.teaching_experience %}
+                <li>
+                    <span class="entry-years">{{ t.date | replace: " - ", "–" }}</span>
+                    <h3>{{ t.header }}</h3>
+                    <p>{{ t.dept }}</p>
+                    <ul class="courses">{% for c in t.courses %}<li>{{ c }}</li>{% endfor %}</ul>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="band">
+    <div class="wrap about-cols">
+        <div class="about-block">
+            <h2>Honors and awards</h2>
+            <ul class="award-list">
+                {% for a in p.awards %}
+                <li><span class="entry-years">{{ a.date }}</span><span>{{ a.name }}</span></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="about-block">
+            <h2>Research interests</h2>
+            <ul class="interest-list">
+                {% for r in b.sides.research.points %}<li>{{ r }}</li>{% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>

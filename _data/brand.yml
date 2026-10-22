@@ -141,6 +141,39 @@ highlights:
     title: International fellowships and awards
     detail: Including the ASCE Freeman Fellowship, the ASCE J. Waldo Smith Hydraulic Fellowship and AWWA scholarships
 
+# ---------- Inner pages ----------
+publications_page:
+  title: Publications
+  intro: >-
+    Journal papers, conference papers, preprints and my Ph.D. dissertation on modeling,
+    monitoring and control of drinking water networks.
+talks_page:
+  title: Talks
+  intro: Conference presentations and invited talks on water quality modeling, sensing and control.
+
+about_page:
+  title: About me
+  intro: My story, background, and what I do when I'm not working on water systems.
+  # Each item is a paragraph. Edit freely.
+  bio:
+    - >-
+      I'm a licensed Professional Engineer (PE) and Staff Water Resources Engineer at Arcadis,
+      with a Ph.D. in Civil and Infrastructure Systems from Vanderbilt University. My work spans
+      hydraulic and water quality modeling, asset management, and capital planning, and my research
+      focuses on the monitoring and control of drinking water networks.
+    - >-
+      I started my career in Egypt, designing infrastructure, working on hydrology and water resources
+      projects, and teaching at Cairo University, before moving to the U.S. for my doctorate. That path,
+      from design office to classroom to research lab to consulting, shapes how I work: rigorous about
+      the science and practical about what utilities need.
+    - >-
+      Over the past few years, I have also helped graduate students, especially from Egypt, apply to
+      Ph.D. programs and find their way in research. If you are thinking about studying in the U.S.,
+      feel free to reach out. I'm happy to help.
+    - >-
+      When I'm not on my laptop (and, unfortunately, sometimes even when I am!), I love exploring new
+      coffee shops, cooking, spending time with family and friends, taking long walks, and hiking.
+
 contact_line: >-
   Working on a water system problem, or applying to graduate school and want advice?
   I'm glad to hear from you.

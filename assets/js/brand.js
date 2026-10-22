@@ -46,8 +46,12 @@
     chip.addEventListener("click", function () {
       var f = chip.getAttribute("data-filter");
       chips.forEach(function (c) { c.setAttribute("aria-pressed", c === chip ? "true" : "false"); });
-      document.querySelectorAll(".project").forEach(function (p) {
+      document.querySelectorAll(".project, .pub-item").forEach(function (p) {
         p.hidden = !(f === "all" || p.getAttribute("data-kind") === f);
+      });
+      // hide year groups that have nothing left to show
+      document.querySelectorAll(".pub-year").forEach(function (g) {
+        g.hidden = !g.querySelector(".pub-item:not([hidden])");
       });
     });
   });
