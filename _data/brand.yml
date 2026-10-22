@@ -186,6 +186,9 @@ tools:
   - group: GIS, data analysis and visualization
     icon: chart
     names: [ArcGIS Pro, Tableau, Power BI]
+  - group: Design and drafting
+    icon: design
+    names: [AutoCAD, Civil 3D]
 
 contact_line: >-
   Working on a water system problem, or applying to graduate school and want advice?

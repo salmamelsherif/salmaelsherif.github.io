@@ -372,7 +372,8 @@ a:hover { color: var(--tide); }
 .member p { color: var(--muted); font-size: 0.92rem; line-height: 1.35; }
 .monogram { width: 56px; height: 56px; flex: none; border-radius: 14px; display: grid; place-items: center; font-family: var(--display); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.01em; color: #fff; background: linear-gradient(140deg, var(--current), var(--abyss)); }
 .member:nth-child(2n) .monogram { background: linear-gradient(140deg, var(--tide), #0B5394); }
-.tool-groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 28px 40px; }
+.tool-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 48px; }
+@media (max-width: 700px) { .tool-groups { grid-template-columns: minmax(0, 1fr); } }
 .tool-group { display: grid; gap: 14px; align-content: start; }
 .tool-title { display: flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 600; font-size: 1.05rem; color: #fff; }
 .tool-title svg { width: 20px; height: 20px; color: var(--tide); display: block; }
