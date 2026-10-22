@@ -167,15 +167,33 @@ a:hover { color: var(--tide); }
 .pa-drop { fill: var(--tide); opacity: 0.85; }
 .ripple-art { position: absolute; right: max(0px, calc((100vw - 1160px) / 2 - 20px)); top: 50%; width: min(44vw, 540px); height: auto; transform: translateY(-50%); pointer-events: none; }
 .ra-still ellipse { stroke: rgba(120, 170, 205, 0.22); stroke-width: 1.5; }
-.ra-r { stroke: var(--tide); stroke-width: 2; transform-origin: 300px 190px; opacity: 0; animation: ra-spread 6s ease-out infinite; }
-.ra-r2 { animation-delay: 1.5s; } .ra-r3 { animation-delay: 3s; } .ra-r4 { animation-delay: 4.5s; }
-@keyframes ra-spread { 0% { transform: scale(0.6); opacity: 0.9; } 100% { transform: scale(5.4); opacity: 0; } }
+/* one 3.6s cycle: the drop falls, hits the surface at 36%, then splash and ripples spread */
+.ra-drop { animation: ra-fall 3.6s cubic-bezier(.55, 0, .9, .5) infinite; transform-box: view-box; transform-origin: 300px 121px; }
+@keyframes ra-fall {
+  0% { transform: translateY(-110px); opacity: 0; }
+  8% { opacity: 1; }
+  34% { transform: translateY(74px) scale(1, 1.06); opacity: 1; }
+  37% { transform: translateY(84px) scale(1.35, 0.4); opacity: 0; }
+  100% { transform: translateY(84px); opacity: 0; }
+}
+.ra-r { stroke: var(--tide); stroke-width: 2; transform-origin: 300px 190px; transform-box: view-box; opacity: 0; animation: ra-spread 3.6s ease-out infinite; }
+.ra-r2 { animation-name: ra-spread2; } .ra-r3 { animation-name: ra-spread3; }
+@keyframes ra-spread { 0%, 35% { transform: scale(0.3); opacity: 0; } 36% { opacity: 0.95; } 100% { transform: scale(5.2); opacity: 0; } }
+@keyframes ra-spread2 { 0%, 45% { transform: scale(0.3); opacity: 0; } 46% { opacity: 0.75; } 100% { transform: scale(4); opacity: 0; } }
+@keyframes ra-spread3 { 0%, 55% { transform: scale(0.3); opacity: 0; } 56% { opacity: 0.55; } 100% { transform: scale(2.8); opacity: 0; } }
 .ra-surface { stroke: rgba(120, 170, 205, 0.3); stroke-width: 2; stroke-linecap: round; }
 .ra-surface2 { stroke: rgba(120, 170, 205, 0.18); }
 .ra-drop path:first-child { fill: var(--tide); }
 .ra-shine { stroke: rgba(255, 255, 255, 0.7); stroke-width: 3; stroke-linecap: round; }
-.ra-splash { fill: #3CC0D8; opacity: 0.8; }
-@media (prefers-reduced-motion: reduce) { .ra-r { opacity: 0.35; transform: scale(2.2); } .ra-r2 { transform: scale(3.4); opacity: 0.2; } .ra-r3, .ra-r4 { display: none; } }
+.ra-splash { fill: #3CC0D8; opacity: 0; transform-box: view-box; animation: ra-s1 3.6s ease-out infinite; }
+.ra-s2 { animation-name: ra-s2; } .ra-s3 { animation-name: ra-s3; }
+@keyframes ra-s1 { 0%, 35% { transform: translate(0, 0); opacity: 0; } 37% { opacity: 0.9; } 52% { transform: translate(-22px, -30px); opacity: 0.7; } 62%, 100% { transform: translate(-30px, -6px); opacity: 0; } }
+@keyframes ra-s2 { 0%, 35% { transform: translate(0, 0); opacity: 0; } 37% { opacity: 0.9; } 52% { transform: translate(20px, -34px); opacity: 0.7; } 62%, 100% { transform: translate(28px, -8px); opacity: 0; } }
+@keyframes ra-s3 { 0%, 35% { transform: translate(0, 0); opacity: 0; } 37% { opacity: 0.9; } 50% { transform: translate(2px, -44px); opacity: 0.6; } 60%, 100% { transform: translate(3px, -20px); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .ra-drop { transform: none; opacity: 1; }
+  .ra-r1 { opacity: 0.4; transform: scale(2.2); } .ra-r2 { opacity: 0.25; transform: scale(3.4); } .ra-r3, .ra-splash { display: none; }
+}
 @media (max-width: 860px) { .pipe-art { opacity: 0.25; width: 90vw; right: -20vw; } .ripple-art { opacity: 0.3; width: 90vw; right: -25vw; } }
 
 /* ---------- Page header art: shared placement ---------- */
