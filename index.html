@@ -107,7 +107,7 @@ title: Homepage
         </div>
         <ul class="news">
             {% assign items = site.news | sort: "date" | reverse %}
-            {% for n in items limit: 4 %}
+            {% for n in items limit: 3 %}
             <li>
                 <time datetime="{{ n.date | date: '%Y-%m-%d' }}">{{ n.date | date: "%b %Y" }}</time>
                 <p>{{ n.title }}</p>
