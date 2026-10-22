@@ -25,11 +25,10 @@
             <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
             <nav id="site-nav" class="site-nav">
                 <a href="{{ '/' | relative_url }}#sides">More about me</a>
-                <a href="{{ '/what-i-do' | relative_url }}"{% if page.nav == "work" %} aria-current="page"{% endif %}>What I do</a>
                 <a href="{{ '/projects' | relative_url }}"{% if page.nav == "projects" %} aria-current="page"{% endif %}>Projects</a>
-                <a href="{{ '/publications' | relative_url }}">Publications</a>
-                <a href="{{ '/presentations' | relative_url }}">Talks</a>
-                <a href="{{ '/about' | relative_url }}">About</a>
+                <a href="{{ '/publications' | relative_url }}"{% if page.nav == "pubs" %} aria-current="page"{% endif %}>Publications</a>
+                <a href="{{ '/presentations' | relative_url }}"{% if page.nav == "talks" %} aria-current="page"{% endif %}>Talks</a>
+                <a href="{{ '/about' | relative_url }}"{% if page.nav == "about" %} aria-current="page"{% endif %}>About</a>
                 <a class="nav-cta" href="{{ '/' | relative_url }}#contact">Contact</a>
             </nav>
         </div>

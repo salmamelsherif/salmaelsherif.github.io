@@ -26,36 +26,6 @@ hero_note_fine: "Illustrative values, not an actual calibrated simulation. Numbe
 # Photo used on the new home page (the old pages keep profile.yml's portrait)
 portrait: /assets/images/photos/portrait-studio.jpg
 
-# ---------- What I do (its own page) ----------
-work_page:
-  title: What I do
-  intro: >-
-    Four areas, one goal: water that arrives safe, at the right pressure,
-    from infrastructure that lasts.
-services:
-  - title: Hydraulic and water quality modeling
-    summary: Building and calibrating network models that show how water and disinfectant actually move.
-    examples:
-      - Multi-species chlorine and chloramine models, including blending zones and disinfection byproducts
-      - Pressure, flow and water age analysis for distribution networks
-      - "Open-source tools such as X-WHAT, a looped network design model in Excel"
-  - title: Asset management and capital planning
-    summary: Turning condition, risk and performance data into investment plans utilities can defend.
-    examples:
-      - "PLACEHOLDER: risk-based pipe renewal prioritization"
-      - "PLACEHOLDER: multi-year capital improvement programs"
-  - title: Resilience and strategic planning
-    summary: Helping systems prepare for demand growth, aging assets, contamination events and climate stress.
-    examples:
-      - "PLACEHOLDER: master planning and long-term supply scenarios"
-      - Contamination event response through sensor and booster placement
-  - title: Research and algorithm development
-    summary: Control and network theory applied to real water infrastructure problems.
-    examples:
-      - Booster station and sensor placement with controllability and observability metrics
-      - Joint hydraulic and water quality control, including quality-aware pump scheduling
-      - Model order reduction for large nonlinear water quality models
-
 # ---------- Industry / Research switch ----------
 sides_title: "Two Sides, One Mission"
 sides_subtitle: "Bridging research and practice."
