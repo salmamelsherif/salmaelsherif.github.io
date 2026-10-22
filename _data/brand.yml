@@ -131,25 +131,29 @@ projects:
 path:
   - years: "2011–2016"
     title: B.Sc. Civil Engineering
-    place: Cairo University
+    place: Faculty of Engineering, Cairo University, Egypt
   - years: "2017–2020"
     title: M.Sc. Water Resources and Environmental Engineering
-    place: Cairo University
+    place: Faculty of Engineering, Cairo University, Egypt
   - years: "2021–2025"
     title: Ph.D. Civil and Infrastructure Systems
-    place: Vanderbilt University
+    place: Civil and Environmental Engineering Department, Vanderbilt University
   - years: "2025–now"
     title: Staff Water Resources Engineer
-    place: Arcadis
+    place: Arcadis U.S., Inc.
 
-# ---------- Figures ----------
-figures:
-  - value: 11
-    label: papers and preprints
-  - value: 6
-    label: conference talks
-  - value: 5
-    label: fellowships and awards
+# ---------- Highlights (next to the path) ----------
+# icon: paper, talk or award
+highlights:
+  - icon: paper
+    title: Peer-reviewed research
+    detail: Journal papers in Water Research, Water Resources Research, Annual Reviews in Control and more
+  - icon: talk
+    title: Conference talks
+    detail: Presentations at ASCE EWRI, the American Control Conference and water industry events
+  - icon: award
+    title: International fellowships and awards
+    detail: Including the ASCE Freeman Fellowship, the ASCE J. Waldo Smith Hydraulic Fellowship and AWWA scholarships
 
 contact_line: >-
   Working on a water system problem, or applying to graduate school and want advice?
