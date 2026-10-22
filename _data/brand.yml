@@ -128,34 +128,34 @@ projects:
     link: ""
 
 # ---------- Path (shown in order) ----------
-# Two timelines, most recent first. "current: true" gets the highlighted marker.
+# Two timelines, oldest first. "current: true" gets the highlighted marker.
 education:
-  - years: "2021–2025"
-    title: Ph.D. Civil and Infrastructure Systems
-    place: Civil and Environmental Engineering Department, Vanderbilt University, USA
-  - years: "2017–2020"
-    title: M.Sc. Water Resources and Environmental Engineering
-    place: Faculty of Engineering, Cairo University, Egypt
   - years: "2011–2016"
     title: B.Sc. Civil Engineering
     place: Faculty of Engineering, Cairo University, Egypt
+  - years: "2017–2020"
+    title: M.Sc. Water Resources and Environmental Engineering
+    place: Faculty of Engineering, Cairo University, Egypt
+  - years: "2021–2025"
+    title: Ph.D. Civil and Infrastructure Systems
+    place: Civil and Environmental Engineering Department, Vanderbilt University, USA
 
 experience:
-  - years: "2025–now"
-    title: Staff Water Resources Engineer
-    place: Arcadis U.S., Inc.
-    current: true
-  - years: "2018–2021"
-    title: Water and Environment Engineer (Hydrology)
-    place: CEEG – Civil and Environmental Engineering Group, Egypt
-    note: Part-time
+  - years: "2016–2017"
+    title: Infrastructure Design Engineer
+    place: EGEC – Engineering House of Expertise, Egypt
   - years: "2017–2021"
     title: Business Development, Tendering and Proposals Engineer
     place: EGEC – Engineering House of Expertise, Egypt
     note: Part-time
-  - years: "2016–2017"
-    title: Infrastructure Design Engineer
-    place: EGEC – Engineering House of Expertise, Egypt
+  - years: "2018–2021"
+    title: Water and Environment Engineer (Hydrology)
+    place: CEEG – Civil and Environmental Engineering Group, Egypt
+    note: Part-time
+  - years: "2025–now"
+    title: Staff Water Resources Engineer
+    place: Arcadis U.S., Inc.
+    current: true
 
 # ---------- Highlights (next to the path) ----------
 # icon: paper, talk or award

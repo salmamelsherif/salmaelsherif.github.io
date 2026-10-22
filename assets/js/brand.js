@@ -67,13 +67,13 @@
     });
   });
 
-  /* ---------- Timelines: the line stops at the last marker ---------- */
+  /* ---------- Timelines: a finished track stops at its last marker ---------- */
   var setTails = function () {
     document.querySelectorAll(".timeline").forEach(function (tl) {
       var last = tl.lastElementChild;
       if (!last) return;
-      // newest first: the line ends on the oldest (last) marker
-      tl.style.setProperty("--tail", (last.offsetHeight - 14) + "px");
+      // ongoing track (current role) runs past the last marker; finished ones end on it
+      tl.style.setProperty("--tail", last.classList.contains("is-current") ? "8px" : (last.offsetHeight - 14) + "px");
     });
   };
   setTails();
