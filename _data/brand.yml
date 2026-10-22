@@ -183,9 +183,9 @@ tools:
   - group: Programming
     icon: code
     names: [Python, MATLAB, R]
-  - group: Data analysis and visualization
+  - group: GIS, data analysis and visualization
     icon: chart
-    names: [Tableau, Power BI]
+    names: [ArcGIS Pro, Tableau, Power BI]
 
 contact_line: >-
   Working on a water system problem, or applying to graduate school and want advice?
