@@ -165,7 +165,18 @@ a:hover { color: var(--tide); }
 .pa-equip path:only-child { fill: #DCEAF3; stroke: var(--abyss); stroke-width: 1.4; }
 .pa-level { fill: #3CC0D8; }
 .pa-drop { fill: var(--tide); opacity: 0.85; }
-@media (max-width: 860px) { .pipe-art { opacity: 0.25; width: 90vw; right: -20vw; } }
+.ripple-art { position: absolute; right: max(0px, calc((100vw - 1160px) / 2 - 20px)); top: 50%; width: min(44vw, 540px); height: auto; transform: translateY(-50%); pointer-events: none; }
+.ra-still ellipse { stroke: rgba(120, 170, 205, 0.22); stroke-width: 1.5; }
+.ra-r { stroke: var(--tide); stroke-width: 2; transform-origin: 300px 190px; opacity: 0; animation: ra-spread 6s ease-out infinite; }
+.ra-r2 { animation-delay: 1.5s; } .ra-r3 { animation-delay: 3s; } .ra-r4 { animation-delay: 4.5s; }
+@keyframes ra-spread { 0% { transform: scale(0.6); opacity: 0.9; } 100% { transform: scale(5.4); opacity: 0; } }
+.ra-surface { stroke: rgba(120, 170, 205, 0.3); stroke-width: 2; stroke-linecap: round; }
+.ra-surface2 { stroke: rgba(120, 170, 205, 0.18); }
+.ra-drop path:first-child { fill: var(--tide); }
+.ra-shine { stroke: rgba(255, 255, 255, 0.7); stroke-width: 3; stroke-linecap: round; }
+.ra-splash { fill: #3CC0D8; opacity: 0.8; }
+@media (prefers-reduced-motion: reduce) { .ra-r { opacity: 0.35; transform: scale(2.2); } .ra-r2 { transform: scale(3.4); opacity: 0.2; } .ra-r3, .ra-r4 { display: none; } }
+@media (max-width: 860px) { .pipe-art { opacity: 0.25; width: 90vw; right: -20vw; } .ripple-art { opacity: 0.3; width: 90vw; right: -25vw; } }
 
 /* ---------- Bands ---------- */
 .band { padding-block: clamp(48px, 6.5vw, 84px); }
@@ -278,6 +289,7 @@ a:hover { color: var(--tide); }
 /* ---------- Footer ---------- */
 .site-foot { background: var(--abyss); color: var(--on-deep); position: relative; padding-bottom: 32px; }
 .wave { display: block; width: 100%; height: 60px; fill: var(--abyss); background: var(--paper); }
+main:has(> section:last-child.band-tint) + .site-foot .wave { background: var(--foam); }
 .foot-inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; padding-block: 40px 56px; align-items: end; }
 .foot-text { display: grid; gap: 14px; }
 .foot-text h2 { color: #fff; font-size: var(--step-4); }
@@ -369,16 +381,18 @@ a:hover { color: var(--tide); }
 .member-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 16px; }
 .member { display: flex; align-items: center; gap: 14px; padding: 16px 18px; border-radius: 14px; background: var(--surface); box-shadow: 0 0 0 1px var(--line); }
 .member h3 { font-size: 1.05rem; }
-.member p { color: var(--muted); font-size: 0.92rem; line-height: 1.35; }
+.member p { color: var(--ink); font-weight: 700; font-size: 0.98rem; line-height: 1.35; }
 .monogram { width: 56px; height: 56px; flex: none; border-radius: 14px; display: grid; place-items: center; font-family: var(--display); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.01em; color: #fff; background: linear-gradient(140deg, var(--current), var(--abyss)); }
 .member:nth-child(2n) .monogram { background: linear-gradient(140deg, var(--tide), #0B5394); }
 .tool-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 48px; }
 @media (max-width: 700px) { .tool-groups { grid-template-columns: minmax(0, 1fr); } }
 .tool-group { display: grid; gap: 14px; align-content: start; }
-.tool-title { display: flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 600; font-size: 1.05rem; color: #fff; }
+.tool-title { display: flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 600; font-size: 1.05rem; color: var(--ink); }
 .tool-title svg { width: 20px; height: 20px; color: var(--tide); display: block; }
 .tool-chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
-.tool-chips li { padding: 7px 14px; border-radius: 999px; font-weight: 700; font-size: 0.92rem; color: var(--on-deep); background: rgba(230, 240, 246, 0.08); box-shadow: inset 0 0 0 1px rgba(60, 192, 216, 0.35); }
+.tool-chips li { padding: 7px 14px; border-radius: 999px; font-weight: 700; font-size: 0.92rem; color: var(--ink); background: var(--surface); box-shadow: inset 0 0 0 1px var(--line); }
+.band-deep .tool-title { color: #fff; }
+.band-deep .tool-chips li { color: var(--on-deep); background: rgba(230, 240, 246, 0.08); box-shadow: inset 0 0 0 1px rgba(60, 192, 216, 0.35); }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1120px) {

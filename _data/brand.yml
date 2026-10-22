@@ -155,7 +155,7 @@ talks_page:
 # Add "logo: /path/to/file.png" to any item to show an official logo instead of the lettered badge.
 credentials_page:
   title: Credentials
-  intro: Licenses, recognition, teaching, professional memberships, and the tools I work with.
+  intro: Licenses, recognition, teaching, and professional memberships.
 
 licenses:
   - title: Professional Engineer (PE)
@@ -164,6 +164,7 @@ licenses:
     badge: PE
   - title: Certificate in College Teaching
     issuer: Vanderbilt University
+    year: "2024"
     logo: /assets/images/badges/VLogo.png
 
 memberships:
