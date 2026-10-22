@@ -16,6 +16,10 @@
     });
   }
 
+  /* ---------- Hero note: open on desktop, collapsed on smaller screens ---------- */
+  var note = document.getElementById("network-note");
+  if (note && window.matchMedia("(max-width: 999px)").matches) note.open = false;
+
   /* ---------- Industry / Research switch ---------- */
   var sw = document.querySelector(".switch");
   if (sw) {
@@ -454,6 +458,15 @@
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(function () { build(); draw(); }, 150);
   });
+
+  // redraw when the hero changes size (e.g. the note opens on a phone)
+  if ("ResizeObserver" in window) {
+    var lastH = 0;
+    new ResizeObserver(function () {
+      var h = hero.offsetHeight;
+      if (Math.abs(h - lastH) > 2) { lastH = h; build(); draw(); }
+    }).observe(hero);
+  }
 
   build(); draw(); loop();
 })();
