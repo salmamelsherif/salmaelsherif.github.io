@@ -89,8 +89,7 @@
       if (r.top > window.innerHeight) io.observe(f);
     });
 
-    var tl = document.querySelector(".timeline");
-    if (tl) {
+    document.querySelectorAll(".timeline").forEach(function (tl) {
       var fill = function () {
         var r = tl.getBoundingClientRect();
         var v = (window.innerHeight * 0.75 - r.top) / r.height;
@@ -101,7 +100,7 @@
         window.addEventListener("scroll", fill, { passive: true });
         window.addEventListener("resize", fill);
       }
-    }
+    });
   }
 
   /* ---------- Hero: a small drinking water network ---------- */

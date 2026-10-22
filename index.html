@@ -67,10 +67,9 @@ title: Homepage
 </section>
 
 <section class="band band-deep" id="path">
-    <div class="wrap path-grid">
-        <div>
-            <h2>The path so far</h2>
-            <ul class="highlights">
+    <div class="wrap">
+        <h2>The path so far</h2>
+        <ul class="highlights">
                 {% for h in b.highlights %}
                 <li>
                     <span class="hl-icon" aria-hidden="true">{% if h.icon == "paper" %}<svg viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M14 3v4h4M9.5 11h6M9.5 14h6M9.5 17h4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>{% elsif h.icon == "talk" %}<svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M8.5 21h7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>{% else %}<svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="5.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M8.6 13.4 7 21l5-2.6 5 2.6-1.6-7.6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>{% endif %}</span>
@@ -81,16 +80,23 @@ title: Homepage
                 </li>
                 {% endfor %}
             </ul>
-        </div>
-        <ol class="timeline">
-            {% for step in b.path %}
-            <li>
-                <span class="tl-years">{{ step.years }}</span>
-                <span class="tl-title">{{ step.title }}</span>
-                <span class="tl-place">{{ step.place }}</span>
-            </li>
+        <div class="tracks">
+            {% assign tracks = "education,experience" | split: "," %}
+            {% for t in tracks %}
+            <div class="track">
+                <h3 class="track-title">{% if t == "education" %}Education{% else %}Experience{% endif %}</h3>
+                <ol class="timeline">
+                    {% for step in b[t] %}
+                    <li{% if step.current %} class="is-current"{% endif %}>
+                        <span class="tl-years">{{ step.years }}{% if step.note %}<span class="tl-note">{{ step.note }}</span>{% endif %}</span>
+                        <span class="tl-title">{{ step.title }}</span>
+                        <span class="tl-place">{{ step.place }}</span>
+                    </li>
+                    {% endfor %}
+                </ol>
+            </div>
             {% endfor %}
-        </ol>
+        </div>
     </div>
 </section>
 
