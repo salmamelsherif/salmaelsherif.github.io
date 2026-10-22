@@ -70,10 +70,10 @@ sides:
       complex system data into decisions they can act on.
     list_title: Expertise and responsibilities
     points:
-      - "<strong>Hydraulic modeling and calibration:</strong> building, updating, and calibrating distribution system models against field and SCADA data, then testing how the system performs across demand and operating scenarios, from everyday conditions to peak demand"
+      - "<strong>Hydraulic modeling and calibration:</strong> building, updating, and calibrating distribution system models against field and SCADA data, then testing how the system performs across demand and operating scenarios, from everyday conditions to peak demand, to support sound operational and planning decisions"
       - "<strong>Advanced water quality modeling and calibration:</strong> multi-species chlorine and chloramine dynamics, blending zones where different source waters meet, water age, and disinfection byproduct analyses that support regulatory compliance and day-to-day operations"
       - "<strong>Field data analysis:</strong> planning and interpreting hydrant flow tests, pressure logging, water quality sampling, and bottle tests so models reflect how the system really behaves"
-      - "<strong>Capital improvement planning (CIP):</strong> identifying, prioritizing, and phasing pipe, pump, and storage projects based on current performance, future development, and realistic operating scenarios"
+      - "<strong>Asset management and capital improvement planning (CIP):</strong> combining hydraulic criticality from network models with condition and risk data, including the likelihood and consequence of pipe failure, to decide which assets matter most and when to act, then turning those priorities into replacement programs and capital plans phased around current performance, future development, and realistic operating scenarios"
   research:
     label: Research
     role: Ph.D., Civil and Infrastructure Systems
@@ -86,7 +86,7 @@ sides:
     list_title: Research interests I continue to explore independently
     points:
       - Control and monitoring of water distribution networks through integrated hydraulic and water quality dynamics
-      - Stormwater management and flood control systems
+      - Resilience of water infrastructure to extreme events and long-term stresses
       - Sustainable water resources management under a changing climate
       - Cyber-physical systems, urban infrastructure, and optimization of dynamic systems
 
