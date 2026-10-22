@@ -26,7 +26,7 @@ hero_note_fine: "Illustrative values, not an actual calibrated simulation. Numbe
 # Photo used on the new home page (the old pages keep profile.yml's portrait)
 portrait: /assets/images/photos/portrait-studio.jpg
 
-# ---------- Industry / Research switch ----------
+# ---------- Industry / Research switch (the "About" section) ----------
 sides_title: "Two Sides, One Mission"
 sides_subtitle: "Bridging research and practice."
 sides:
@@ -151,28 +151,41 @@ talks_page:
   title: Talks
   intro: Conference presentations and invited talks on water quality modeling, sensing and control.
 
-about_page:
-  title: About me
-  intro: My story, background, and what I do when I'm not working on water systems.
-  # Each item is a paragraph. Edit freely.
-  bio:
-    - >-
-      I'm a licensed Professional Engineer (PE) and Staff Water Resources Engineer at Arcadis,
-      with a Ph.D. in Civil and Infrastructure Systems from Vanderbilt University. My work spans
-      hydraulic and water quality modeling, asset management, and capital planning, and my research
-      focuses on the monitoring and control of drinking water networks.
-    - >-
-      I started my career in Egypt, designing infrastructure, working on hydrology and water resources
-      projects, and teaching at Cairo University, before moving to the U.S. for my doctorate. That path,
-      from design office to classroom to research lab to consulting, shapes how I work: rigorous about
-      the science and practical about what utilities need.
-    - >-
-      Over the past few years, I have also helped graduate students, especially from Egypt, apply to
-      Ph.D. programs and find their way in research. If you are thinking about studying in the U.S.,
-      feel free to reach out. I'm happy to help.
-    - >-
-      When I'm not on my laptop (and, unfortunately, sometimes even when I am!), I love exploring new
-      coffee shops, cooking, spending time with family and friends, taking long walks, and hiking.
+# ---------- Credentials page ----------
+# Add "logo: /path/to/file.png" to any item to show an official logo instead of the lettered badge.
+credentials_page:
+  title: Credentials
+  intro: Licenses, recognition, teaching, professional memberships, and the tools I work with.
+
+licenses:
+  - title: Professional Engineer (PE)
+    issuer: Commonwealth of Kentucky
+    year: "2026"
+    badge: PE
+  - title: Certificate in College Teaching
+    issuer: Vanderbilt University
+    logo: /assets/images/badges/VLogo.png
+
+memberships:
+  - short: AWWA
+    name: American Water Works Association
+  - short: WEF
+    name: Water Environment Federation
+  - short: ASCE
+    name: American Society of Civil Engineers
+  - short: NSPE
+    name: National Society of Professional Engineers
+
+tools:
+  - group: Hydraulic and water quality modeling
+    icon: network
+    names: [EPANET, EPANET-MSX, WaterGEMS, InfoWater, AquaTwin]
+  - group: Programming
+    icon: code
+    names: [Python, MATLAB]
+  - group: Data analysis and visualization
+    icon: chart
+    names: [Tableau, Power BI]
 
 contact_line: >-
   Working on a water system problem, or applying to graduate school and want advice?

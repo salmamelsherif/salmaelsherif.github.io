@@ -8,6 +8,7 @@ nav: pubs
 {% assign pubs = site.publications | sort: "date" | reverse %}
 
 <section class="page-hero">
+    {% include brand/pipe-art.html %}
     <div class="wrap">
         <h1>{{ b.publications_page.title }}</h1>
         <p>{{ b.publications_page.intro }}</p>

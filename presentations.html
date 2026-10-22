@@ -7,6 +7,7 @@ nav: talks
 {% assign talks = site.presentations | sort: "date" | reverse %}
 
 <section class="page-hero">
+    {% include brand/pipe-art.html %}
     <div class="wrap">
         <h1>{{ b.talks_page.title }}</h1>
         <p>{{ b.talks_page.intro }}</p>
