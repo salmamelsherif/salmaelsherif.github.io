@@ -220,10 +220,12 @@ reviewer:
     - Water Resources Research
     - Journal of Water Resources Planning and Management
     - Journal of Hydroinformatics
+    - Water Resources Management
     - Annual Reviews in Control
     - IEEE Transactions on Control of Network Systems
   conferences:
     - American Control Conference (ACC)
+    - IEEE Conference on Decision and Control (CDC)
 
 memberships:
   - short: AWWA
