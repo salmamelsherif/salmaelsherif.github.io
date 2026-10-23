@@ -1,0 +1,86 @@
+---
+layout: brand
+title: Identity & Life
+nav: identity
+---
+{% assign b = site.data.brand %}
+{% assign ip = b.identity_page %}
+
+<section class="page-hero">
+    {% include brand/art-geo.html %}
+    <div class="wrap">
+        <h1>{{ ip.title }}</h1>
+        <p>{{ ip.intro }}</p>
+    </div>
+</section>
+
+<section class="band">
+    <div class="wrap">
+        <div class="identity-story">
+            {% for para in ip.story %}<p>{{ para }}</p>{% endfor %}
+        </div>
+    </div>
+</section>
+
+{% assign photos = b.photos %}
+{% if photos and photos.size > 0 %}
+{% assign limit = b.photos_limit | default: 6 %}
+{% assign extra = photos.size | minus: limit %}
+<section class="band band-tint">
+    <div class="wrap">
+        <h2 class="life-title">{{ b.photos_title | default: "Life in pictures" }}</h2>
+        <ul class="photo-grid">
+            {% for ph in photos limit: limit %}
+            <li>
+                <button type="button" class="photo-tile" data-gallery-open="{{ forloop.index0 }}">
+                    <img src="{{ ph.src | relative_url }}" alt="{{ ph.alt | default: ph.caption }}" loading="lazy">
+                    {% if forloop.last and extra > 0 %}<span class="photo-more">+{{ extra }} more</span>{% endif %}
+                </button>
+                <p class="photo-cap">{{ ph.caption }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+        {% if extra > 0 %}<button type="button" class="pill photo-all" data-gallery-open="grid">See all {{ photos.size }} photos</button>{% endif %}
+    </div>
+</section>
+
+<dialog class="gallery" id="gallery" aria-label="Photo gallery">
+    <div class="gallery-bar">
+        <button type="button" class="gallery-btn" data-gallery-grid hidden>All photos</button>
+        <span class="gallery-count" id="gallery-count"></span>
+        <button type="button" class="gallery-close" data-gallery-close aria-label="Close gallery">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+    </div>
+    <ul class="gallery-grid" id="gallery-grid">
+        {% for ph in photos %}
+        <li><button type="button" data-gallery-show="{{ forloop.index0 }}"><img src="{{ ph.src | relative_url }}" alt="{{ ph.alt | default: ph.caption }}" loading="lazy"><span>{{ ph.caption }}</span></button></li>
+        {% endfor %}
+    </ul>
+    <figure class="gallery-view" id="gallery-view" hidden>
+        <button type="button" class="gallery-nav prev" data-gallery-step="-1" aria-label="Previous photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <img id="gallery-img" src="" alt="">
+        <button type="button" class="gallery-nav next" data-gallery-step="1" aria-label="Next photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <figcaption id="gallery-cap"></figcaption>
+    </figure>
+</dialog>
+{% endif %}
+
+{% if b.life and b.life.size > 0 %}
+<section class="band band-tint">
+    <div class="wrap">
+        <h2 class="life-title">Life</h2>
+        <ol class="life-list">
+            {% for e in b.life %}
+            <li class="life-card">
+                <div class="life-body">
+                    <p class="life-meta"><time>{{ e.date | date: "%B %Y" }}</time>{% for t in e.tags %}<span class="tag tag-conference">{{ t }}</span>{% endfor %}</p>
+                    {% if e.title %}<h3>{{ e.title }}</h3>{% endif %}
+                    <p>{{ e.text }}</p>
+                </div>
+            </li>
+            {% endfor %}
+        </ol>
+    </div>
+</section>
+{% endif %}
