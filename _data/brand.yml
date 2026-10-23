@@ -72,7 +72,7 @@ projects_page:
 # image: optional, shown inside the open project.
 projects:
   - title: Distribution System Model and Capital Plan, City of Steubenville, OH, USA
-    summary: A calibrated hydraulic model and a prioritized capital plan spanning more than 10 years.
+    summary: A calibrated hydraulic model and a prioritized capital investment plan.
     year: "2026"
     tags: [Hydraulic modeling, Hydraulic calibration, Scenario setup, Fire flow, Capital investment planning, Autodesk InfoWater Pro]
     sections:
