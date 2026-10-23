@@ -98,15 +98,14 @@ projects:
           - Coordinating with EPA on the development of the multi-species chloramine model, then feeding it into the MSX model, running it on the system, exporting the results, and building a calibration dashboard
           - Working with Aquanuity to add new features to its newly released MSX tools, streamlining our workflow and future work for utilities
   - title: Water Modeling and Field Support, City of Houston, TX
-    summary: Hydraulic and water quality modeling that pinpoints high water age areas and supports drinking water planning for a large city.
+    summary: Hydraulic and water quality modeling of a large, complex system where free chlorine and chloramine sources mix, from blending analysis to model calibration.
     year: "2023–present"
     tags: [Hydraulic modeling, Water quality modeling, Water age, Demand forecasting, WaterGEMS]
     sections:
       - label: Description
         text: >-
           Professional engineering services supporting the City of Houston's drinking water planning
-          through modeling and field support. Because Houston's distribution network is so large,
-          new modeling approaches are tested first and then applied to the full system.
+          through modeling, field testing, and calibration.
       - label: Scope
         points:
           - Model assessment, data review and analysis, and model updates
@@ -114,11 +113,9 @@ projects:
           - Demand forecasting and technical support for drinking water planning
       - label: Responsibilities
         points:
-          - Built a dashboard bringing together all water quality field sampling data, and analyzed it quantitatively and qualitatively
-          - Ran water age simulations in WaterGEMS and made maps highlighting zones with high water age, to guide operational decisions and interventions
-          - Tested the MSX tool in WaterGEMS to confirm that a multi-species model of free chlorine and monochloramine could run on a network of Houston's size
-          - Support development of that MSX model to trace disinfectant behavior across the system and lay the groundwork for its calibration
-          - Present findings and deliverables at client progress meetings
+          - Building a dashboard that brings together all water quality field sampling data, with quantitative and qualitative analyses
+          - Running water age and source trace analyses, and developing maps that highlight zones with high water age
+          - Supporting development of an MSX model of free chlorine and monochloramine that traces disinfectant behavior across the system and lays the groundwork for its calibration
 
 # ---------- Path (shown in order) ----------
 # Two timelines, oldest first. "current: true" gets the highlighted marker.
