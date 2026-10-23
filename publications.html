@@ -1,75 +1,13 @@
 ---
-layout: brand
-title: Publications
-nav: pubs
+layout: null
 ---
-{% assign b = site.data.brand %}
-{% assign p = site.data.profile %}
-{% assign pubs = site.publications | sort: "date" | reverse %}
-
-<section class="page-hero">
-    {% include brand/pipe-art.html %}
-    <div class="wrap">
-        <h1>{{ b.publications_page.title }}</h1>
-        <p>{{ b.publications_page.intro }}</p>
-        {% if p.gscholar %}<p class="page-hero-link"><a href="https://scholar.google.com/citations?user={{ p.gscholar }}" target="_blank" rel="noopener">Google Scholar profile</a></p>{% endif %}
-    </div>
-</section>
-
-<section class="band">
-    <div class="wrap">
-        <div class="filters filters-row" role="group" aria-label="Filter publications">
-            <span class="filter-label">Show</span>
-            <button type="button" class="chip" data-filter="all" aria-pressed="true">All</button>
-            <button type="button" class="chip" data-filter="journal" aria-pressed="false">Journal papers</button>
-            <button type="button" class="chip" data-filter="conference" aria-pressed="false">Conference papers</button>
-            <button type="button" class="chip" data-filter="dissertation" aria-pressed="false">Dissertation</button>
-        </div>
-
-        {% for pub in pubs %}
-        {% assign y = pub.date | date: "%Y" %}
-        {% if forloop.first %}
-        <div class="pub-year"><h2>{{ y }}</h2><ol class="pub-list">
-        {% else %}
-        {% assign pi = forloop.index0 | minus: 1 %}
-        {% assign prev = pubs[pi] %}
-        {% assign py = prev.date | date: "%Y" %}
-        {% if y != py %}
-        </ol></div>
-        <div class="pub-year"><h2>{{ y }}</h2><ol class="pub-list">
-        {% endif %}
-        {% endif %}
-
-        {% assign kind = "journal" %}
-        {% assign kind_label = "Journal paper" %}
-        {% if pub.pub_last contains "Conference" %}{% assign kind = "conference" %}{% assign kind_label = "Conference paper" %}{% endif %}
-        {% if pub.pub_last contains "Dissertation" %}{% assign kind = "dissertation" %}{% assign kind_label = "Ph.D. dissertation" %}{% endif %}
-
-            <li class="pub-item" data-kind="{{ kind }}">
-                {% if pub.cover %}<div class="pub-cover"><img src="{{ pub.cover | relative_url }}" alt="" loading="lazy"></div>{% endif %}
-                <div class="pub-body">
-                    <p class="pub-tags">
-                        <span class="tag tag-{{ kind }}">{{ kind_label }}</span>
-                        {% if pub.pub_last contains "Spotlight" %}<span class="tag tag-spotlight">Spotlight</span>{% endif %}
-                        {% if pub.pub_post contains "review" %}<span class="tag tag-status">Under review</span>{% endif %}
-                    </p>
-                    <h3>{{ pub.title }}</h3>
-                    <p class="pub-authors">{% for a in pub.authors %}{% assign info = site.data.authors[a] %}{% if info.bold %}<strong>{{ info.name | default: a }}</strong>{% elsif info.url %}<a href="{{ info.url }}" target="_blank" rel="noopener">{{ info.name | default: a }}</a>{% else %}{{ a }}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}</p>
-                    {% if pub.pub %}<p class="pub-venue">{{ pub.pub }}</p>{% elsif kind == "dissertation" %}<p class="pub-venue">Ph.D. dissertation, Vanderbilt University</p>{% endif %}
-                    <div class="pub-actions">
-                        {% for link in pub.links %}<a class="pill" href="{{ link[1] }}" target="_blank" rel="noopener">{{ link[0] }}</a>{% endfor %}
-                        {% if pub.detailed_abstract %}
-                        <details class="abstract">
-                            <summary class="pill">{{ pub.toggle_text | default: "Abstract" }}</summary>
-                            <p>{{ pub.detailed_abstract }}</p>
-                        </details>
-                        {% endif %}
-                    </div>
-                </div>
-            </li>
-        {% if forloop.last %}
-        </ol></div>
-        {% endif %}
-        {% endfor %}
-    </div>
-</section>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Research - Salma M. Elsherif</title>
+<link rel="canonical" href="{{ '/research' | absolute_url }}">
+<meta http-equiv="refresh" content="0; url={{ '/research' | relative_url }}">
+</head>
+<body><p><a href="{{ '/research' | relative_url }}">Go to Research</a></p></body>
+</html>

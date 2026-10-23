@@ -160,14 +160,11 @@ highlights:
     detail: Including the ASCE Freeman Fellowship, the ASCE J. Waldo Smith Hydraulic Fellowship and AWWA scholarships
 
 # ---------- Inner pages ----------
-publications_page:
-  title: Publications
+research_page:
+  title: Research
   intro: >-
-    Journal papers, conference papers, preprints and my Ph.D. dissertation on modeling,
+    Journal papers, conference papers, my Ph.D. dissertation, and talks on modeling,
     monitoring and control of drinking water networks.
-talks_page:
-  title: Talks
-  intro: Conference presentations and invited talks on water quality modeling, sensing and control.
 
 # ---------- Credentials page ----------
 # Add "logo: /path/to/file.png" to any item to show an official logo instead of the lettered badge.

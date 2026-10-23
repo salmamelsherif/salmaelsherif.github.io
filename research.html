@@ -1,0 +1,128 @@
+---
+layout: brand
+title: Research
+nav: research
+---
+{% assign b = site.data.brand %}
+{% assign p = site.data.profile %}
+{% assign pubs = site.publications | sort: "date" | reverse %}
+{% assign talks = site.presentations | sort: "date" | reverse %}
+
+<section class="page-hero">
+    {% include brand/art-contour.html %}
+    <div class="wrap">
+        <h1>{{ b.research_page.title }}</h1>
+        <p>{{ b.research_page.intro }}</p>
+        {% if p.gscholar %}<p class="page-hero-link"><a href="https://scholar.google.com/citations?user={{ p.gscholar }}" target="_blank" rel="noopener">Google Scholar profile</a></p>{% endif %}
+    </div>
+</section>
+
+<section class="band">
+    <div class="wrap">
+        <div class="switch research-switch" role="tablist" aria-label="Papers or talks">
+            <button role="tab" id="tab-papers" aria-selected="true" aria-controls="panel-papers">Papers <span class="tab-count">{{ pubs | size }}</span></button>
+            <button role="tab" id="tab-talks" aria-selected="false" aria-controls="panel-talks" tabindex="-1">Talks <span class="tab-count">{{ talks | size }}</span></button>
+            <span class="switch-thumb" aria-hidden="true"></span>
+        </div>
+
+        <div class="research-panel" role="tabpanel" id="panel-papers" aria-labelledby="tab-papers">
+            <div class="filters filters-row" role="group" aria-label="Filter papers">
+                <span class="filter-label">Show</span>
+                <button type="button" class="chip" data-filter="all" aria-pressed="true">All</button>
+                <button type="button" class="chip" data-filter="journal" aria-pressed="false">Journal papers</button>
+                <button type="button" class="chip" data-filter="conference" aria-pressed="false">Conference papers</button>
+                <button type="button" class="chip" data-filter="dissertation" aria-pressed="false">Dissertation</button>
+            </div>
+            {% for pub in pubs %}
+        {% assign y = pub.date | date: "%Y" %}
+        {% if forloop.first %}
+        <div class="pub-year"><h2>{{ y }}</h2><ol class="pub-list">
+        {% else %}
+        {% assign pi = forloop.index0 | minus: 1 %}
+        {% assign prev = pubs[pi] %}
+        {% assign py = prev.date | date: "%Y" %}
+        {% if y != py %}
+        </ol></div>
+        <div class="pub-year"><h2>{{ y }}</h2><ol class="pub-list">
+        {% endif %}
+        {% endif %}
+        {% assign kind = "journal" %}
+        {% assign kind_label = "Journal paper" %}
+        {% if pub.pub_last contains "Conference" %}{% assign kind = "conference" %}{% assign kind_label = "Conference paper" %}{% endif %}
+        {% if pub.pub_last contains "Dissertation" %}{% assign kind = "dissertation" %}{% assign kind_label = "Ph.D. dissertation" %}{% endif %}
+            <li class="pub-item" data-kind="{{ kind }}">
+                {% if pub.image %}{% assign thumb = pub.image %}{% else %}{% assign thumb = "/assets/images/tiles/" | append: pub.collection | append: "/" | append: pub.slug | append: ".svg" %}{% endif %}
+                <div class="pub-cover{% if pub.image %} is-photo{% endif %}"><img src="{{ thumb | relative_url }}" alt="" loading="lazy"></div>
+                <div class="pub-body">
+                    <p class="pub-tags">
+                        <span class="tag tag-{{ kind }}">{{ kind_label }}</span>
+                        {% if pub.pub_last contains "Spotlight" %}<span class="tag tag-spotlight">Spotlight</span>{% endif %}
+                        {% if pub.pub_post contains "review" %}<span class="tag tag-status">Under review</span>{% endif %}
+                    </p>
+                    <h3>{{ pub.title }}</h3>
+                    <p class="pub-authors">{% for a in pub.authors %}{% assign info = site.data.authors[a] %}{% if info.bold %}<strong>{{ info.name | default: a }}</strong>{% elsif info.url %}<a href="{{ info.url }}" target="_blank" rel="noopener">{{ info.name | default: a }}</a>{% else %}{{ a }}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}</p>
+                    {% if pub.pub %}<p class="pub-venue">{{ pub.pub | remove: "Talk at " }}</p>{% elsif kind == "dissertation" %}<p class="pub-venue">Ph.D. dissertation, Vanderbilt University</p>{% endif %}
+                    <div class="pub-actions">
+                        {% for link in pub.links %}<a class="pill" href="{{ link[1] }}" target="_blank" rel="noopener">{{ link[0] }}</a>{% endfor %}
+                        {% if pub.detailed_abstract %}
+                        <details class="abstract">
+                            <summary class="pill">{{ pub.toggle_text | default: "Abstract" }}</summary>
+                            <p>{{ pub.detailed_abstract }}</p>
+                        </details>
+                        {% endif %}
+                    </div>
+                </div>
+            </li>
+        {% if forloop.last %}
+        </ol></div>
+        {% endif %}
+            {% endfor %}
+        </div>
+
+        <div class="research-panel" role="tabpanel" id="panel-talks" aria-labelledby="tab-talks" hidden>
+            {% for pub in talks %}
+        {% assign y = pub.date | date: "%Y" %}
+        {% if forloop.first %}
+        <div class="pub-year"><h2>{{ y }}</h2><ol class="pub-list">
+        {% else %}
+        {% assign pi = forloop.index0 | minus: 1 %}
+        {% assign prev = talks[pi] %}
+        {% assign py = prev.date | date: "%Y" %}
+        {% if y != py %}
+        </ol></div>
+        <div class="pub-year"><h2>{{ y }}</h2><ol class="pub-list">
+        {% endif %}
+        {% endif %}
+        {% assign kind = "conference" %}
+        {% assign kind_label = "Conference talk" %}
+        {% if pub.pub contains "Talk at" %}{% assign kind = "invited" %}{% assign kind_label = "Invited talk" %}{% endif %}
+            <li class="pub-item" data-kind="{{ kind }}">
+                {% if pub.image %}{% assign thumb = pub.image %}{% else %}{% assign thumb = "/assets/images/tiles/" | append: pub.collection | append: "/" | append: pub.slug | append: ".svg" %}{% endif %}
+                <div class="pub-cover{% if pub.image %} is-photo{% endif %}"><img src="{{ thumb | relative_url }}" alt="" loading="lazy"></div>
+                <div class="pub-body">
+                    <p class="pub-tags">
+                        <span class="tag tag-{{ kind }}">{{ kind_label }}</span>
+                        {% if pub.pub_last contains "Spotlight" %}<span class="tag tag-spotlight">Spotlight</span>{% endif %}
+                        {% if pub.pub_post contains "review" %}<span class="tag tag-status">Under review</span>{% endif %}
+                    </p>
+                    <h3>{{ pub.title }}</h3>
+                    <p class="pub-authors">{% for a in pub.authors %}{% assign info = site.data.authors[a] %}{% if info.bold %}<strong>{{ info.name | default: a }}</strong>{% elsif info.url %}<a href="{{ info.url }}" target="_blank" rel="noopener">{{ info.name | default: a }}</a>{% else %}{{ a }}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}</p>
+                    {% if pub.pub %}<p class="pub-venue">{{ pub.pub | remove: "Talk at " }}</p>{% elsif kind == "dissertation" %}<p class="pub-venue">Ph.D. dissertation, Vanderbilt University</p>{% endif %}
+                    <div class="pub-actions">
+                        {% for link in pub.links %}<a class="pill" href="{{ link[1] }}" target="_blank" rel="noopener">{{ link[0] }}</a>{% endfor %}
+                        {% if pub.detailed_abstract %}
+                        <details class="abstract">
+                            <summary class="pill">{{ pub.toggle_text | default: "Abstract" }}</summary>
+                            <p>{{ pub.detailed_abstract }}</p>
+                        </details>
+                        {% endif %}
+                    </div>
+                </div>
+            </li>
+        {% if forloop.last %}
+        </ol></div>
+        {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>

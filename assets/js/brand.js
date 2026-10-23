@@ -16,29 +16,33 @@
     });
   }
 
-  /* ---------- Industry / Research switch ---------- */
-  var sw = document.querySelector(".switch");
-  if (sw) {
-    var tabs = sw.querySelectorAll('[role="tab"]');
-    var select = function (tab) {
+  /* ---------- Two-way switches (Industry / Research, Papers / Talks) ---------- */
+  document.querySelectorAll(".switch").forEach(function (sw) {
+    var tabs = Array.prototype.slice.call(sw.querySelectorAll('[role="tab"]'));
+    var select = function (tab, updateHash) {
       tabs.forEach(function (t) {
         var on = t === tab;
         t.setAttribute("aria-selected", on ? "true" : "false");
         t.tabIndex = on ? 0 : -1;
         document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
       });
-      sw.classList.toggle("is-research", tab.id === "tab-research");
+      sw.classList.toggle("is-second", tabs.indexOf(tab) === 1);
+      if (updateHash && sw.classList.contains("research-switch")) {
+        try { history.replaceState(null, "", tabs.indexOf(tab) === 1 ? "#talks" : "#papers"); } catch (e) {}
+      }
     };
     tabs.forEach(function (t, i) {
-      t.addEventListener("click", function () { select(t); });
+      t.addEventListener("click", function () { select(t, true); });
       t.addEventListener("keydown", function (e) {
         if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
           var next = tabs[(i + (e.key === "ArrowRight" ? 1 : tabs.length - 1)) % tabs.length];
-          select(next); next.focus(); e.preventDefault();
+          select(next, true); next.focus(); e.preventDefault();
         }
       });
     });
-  }
+    // open the Talks tab directly from a #talks link
+    if (sw.classList.contains("research-switch") && location.hash === "#talks" && tabs[1]) select(tabs[1], false);
+  });
 
   /* ---------- Project filters ---------- */
   var chips = document.querySelectorAll(".chip[data-filter]");
@@ -46,11 +50,12 @@
     chip.addEventListener("click", function () {
       var f = chip.getAttribute("data-filter");
       chips.forEach(function (c) { c.setAttribute("aria-pressed", c === chip ? "true" : "false"); });
-      document.querySelectorAll(".project, .pub-item").forEach(function (p) {
+      var scope = chip.closest('[role="tabpanel"]') || document;
+      scope.querySelectorAll(".project, .pub-item").forEach(function (p) {
         p.hidden = !(f === "all" || p.getAttribute("data-kind") === f);
       });
       // hide year groups that have nothing left to show
-      document.querySelectorAll(".pub-year").forEach(function (g) {
+      scope.querySelectorAll(".pub-year").forEach(function (g) {
         g.hidden = !g.querySelector(".pub-item:not([hidden])");
       });
     });
