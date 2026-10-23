@@ -34,6 +34,7 @@ ICONS = {
     "design": '<path d="M12 3.5 6 20.5M12 3.5l6 17M8.2 14.5h7.6"/><circle cx="12" cy="3.5" r="1.4"/>',
     "model": '<path d="M12 3.5 21 8l-9 4.5L3 8z"/><path d="M3 12l9 4.5 9-4.5M3 16l9 4.5 9-4.5"/>',
     "control": '<path d="M5.5 9a7 7 0 0 1 12.2-2.4M18.5 15a7 7 0 0 1-12.2 2.4"/><path d="M18.2 3.6v3.6h-3.6M5.8 20.4v-3.6h3.6"/><circle cx="12" cy="12" r="2"/>',
+    "pipe": '<path d="M2.5 9.5h6v5h-6M21.5 9.5h-6v5h6M8.5 8v8M15.5 8v8"/><path d="M8.5 12h7"/><path d="M12 4.5l.9 2.1M15.6 5.6l-1.1 1.8M8.4 5.6l1.1 1.8"/>',
     "book": '<path d="M12 6.2C9.8 4.6 6.5 4.2 3.5 4.8v13.6c3-.6 6.3-.2 8.5 1.4 2.2-1.6 5.5-2 8.5-1.4V4.8c-3-.6-6.3-.2-8.5 1.4zM12 6.2v13.6"/>',
     "tower": '<path d="M6 7.5 12 3.5l6 4"/><rect x="6" y="7.5" width="12" height="6" rx="1.6"/><path d="M8.2 13.5 7 21M15.8 13.5 17 21M7.6 17.3h8.8M12 13.5V21"/>',
 }
@@ -71,6 +72,7 @@ def topic_of(fm, collection):
     venue = str(fm.get("pub", "")).lower()
     rules = [
         ("climate", ["climate"]),
+        ("pipe", ["influential pipe", "vulnerab", "centrality"]),
         ("design", ["excel", "design optimization"]),
         ("sensor", ["sensor", "observab"]),
         ("chlorine", ["byproduct", "disinfectant control"]),

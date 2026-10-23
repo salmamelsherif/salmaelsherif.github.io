@@ -61,6 +61,40 @@
     });
   });
 
+  /* ---------- Research filters (type and year dropdowns) ---------- */
+  var rList = document.querySelector(".research-list");
+  if (rList) {
+    var rItems = Array.prototype.slice.call(rList.querySelectorAll(".pub-item"));
+    var typeSel = document.querySelector("[data-filter-type]");
+    var yearSel = document.querySelector("[data-filter-year]");
+    var countEl = document.getElementById("rf-count");
+    var resetBtn = document.getElementById("rf-reset");
+    var emptyEl = document.getElementById("rf-empty");
+    // fill the year menu from the items themselves
+    var years = [];
+    rItems.forEach(function (it) { var y = it.getAttribute("data-year"); if (years.indexOf(y) < 0) years.push(y); });
+    years.sort().reverse().forEach(function (y) {
+      var o = document.createElement("option"); o.value = y; o.textContent = y; yearSel.appendChild(o);
+    });
+    var apply = function () {
+      var t = typeSel.value, y = yearSel.value, shown = 0;
+      rItems.forEach(function (it) {
+        var ok = (t === "all" || it.getAttribute("data-kind") === t) && (y === "all" || it.getAttribute("data-year") === y);
+        it.hidden = !ok; if (ok) shown++;
+      });
+      countEl.textContent = shown === rItems.length ? rItems.length + " items" : "Showing " + shown + " of " + rItems.length;
+      resetBtn.hidden = t === "all" && y === "all";
+      emptyEl.hidden = shown > 0;
+    };
+    var reset = function () { typeSel.value = "all"; yearSel.value = "all"; apply(); };
+    typeSel.addEventListener("change", apply);
+    yearSel.addEventListener("change", apply);
+    resetBtn.addEventListener("click", reset);
+    document.querySelectorAll("[data-reset-filters]").forEach(function (b) { b.addEventListener("click", reset); });
+    if (location.hash === "#talks") typeSel.value = "talk";
+    apply();
+  }
+
   /* ---------- Contact form ---------- */
   var dialog = document.getElementById("contact-dialog");
   var form = document.getElementById("contact-form");

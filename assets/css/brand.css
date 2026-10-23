@@ -230,6 +230,30 @@ a:hover { color: var(--tide); }
 .lv-staff { stroke: rgba(230, 240, 246, 0.35); stroke-width: 1.5; }
 .lv-tick { stroke: rgba(230, 240, 246, 0.5); stroke-width: 1.5; }
 .lv-dot { fill: var(--signal); }
+/* monitoring and control (Research header) */
+.mo-pipes { fill: none; stroke: rgba(159, 211, 230, 0.32); stroke-width: 3; stroke-linecap: round; }
+.mo-flow { fill: none; stroke: var(--tide); stroke-width: 2.4; stroke-dasharray: 3 13; stroke-linecap: round; animation: pa-flow 2.4s linear infinite; }
+.mo-node { fill: #9FD3E6; opacity: 0.75; }
+.mo-plant { fill: var(--signal); }
+.mo-plant-glow { fill: var(--signal); opacity: 0.2; }
+.mo-sensor-core { fill: var(--abyss); stroke: #3CC0D8; stroke-width: 2; }
+.mo-sensor-dot { fill: #3CC0D8; }
+.mo-ping { fill: none; stroke: #3CC0D8; stroke-width: 1.6; transform-box: fill-box; transform-origin: center; animation: mo-ping 2.8s ease-out infinite; }
+.mo-ping2 { animation-delay: 1.4s; }
+@keyframes mo-ping { from { transform: scale(1); opacity: 0.8; } to { transform: scale(2.8); opacity: 0; } }
+.mo-booster circle { fill: var(--abyss); stroke: #DCEAF3; stroke-width: 1.8; }
+.mo-booster path { fill: #DCEAF3; }
+.mo-link { fill: none; stroke: rgba(60, 192, 216, 0.55); stroke-width: 1.4; stroke-dasharray: 2 6; animation: pa-flow 1.8s linear infinite; }
+.mo-band { fill: rgba(60, 192, 216, 0.08); }
+.mo-limit { stroke: rgba(233, 162, 59, 0.6); stroke-width: 1.2; stroke-dasharray: 6 5; fill: none; }
+.mo-axis { stroke: rgba(159, 211, 230, 0.45); stroke-width: 1.4; fill: none; }
+.mo-series { fill: none; stroke-width: 2; stroke-linejoin: round; }
+.mo-s1 { stroke: #3CC0D8; stroke-dasharray: 900; stroke-dashoffset: 900; animation: mo-draw 7s ease-in-out infinite; }
+.mo-s2 { stroke: rgba(90, 166, 230, 0.75); }
+.mo-s3 { stroke: rgba(159, 211, 230, 0.4); }
+@keyframes mo-draw { 0% { stroke-dashoffset: 900; } 60%, 100% { stroke-dashoffset: 0; } }
+.mo-label { fill: #9FD3E6; font-family: var(--body); font-size: 12px; opacity: 0.85; }
+@media (prefers-reduced-motion: reduce) { .mo-s1 { stroke-dashoffset: 0; } }
 @media (max-width: 860px) { .art { opacity: 0.3; width: 90vw; right: -25vw; } }
 
 /* ---------- Bands ---------- */
@@ -408,6 +432,37 @@ main:has(> section:last-child.band-tint) + .site-foot .wave { background: var(--
 .research-switch button { padding: 11px 30px; font-size: 1.02rem; }
 .tab-count { display: inline-block; margin-left: 6px; min-width: 1.6em; padding: 0 7px; border-radius: 999px; font-size: 0.78rem; line-height: 1.6; background: color-mix(in srgb, currentColor 16%, transparent); }
 
+/* ---------- Research list ---------- */
+.research-filters { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 14px 18px; padding: 16px 18px; margin-bottom: clamp(26px, 4vw, 40px); background: var(--foam); border-radius: 14px; }
+.select-field { display: grid; gap: 5px; }
+.select-field label { font-size: var(--step--1); font-weight: 700; color: var(--muted); }
+.select-field select { font: inherit; font-weight: 700; color: var(--ink); background-color: var(--surface); border: 1.5px solid var(--line); border-radius: 10px; padding: 9px 40px 9px 14px; min-width: 190px; cursor: pointer; appearance: none; -webkit-appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%);
+  background-position: calc(100% - 20px) 52%, calc(100% - 14px) 52%; background-size: 6px 6px; background-repeat: no-repeat; }
+.select-field select:focus-visible { outline: 3px solid var(--tide); outline-offset: 2px; }
+.rf-count { margin-left: auto; color: var(--muted); font-weight: 700; font-size: 0.95rem; padding-bottom: 10px; }
+.rf-reset { font: inherit; font-weight: 700; font-size: 0.92rem; color: var(--current); background: none; border: 0; padding: 0 0 10px; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.research-list { gap: 0; }
+.research-list > .pub-item { padding-block: 24px; border-bottom: 1px solid var(--line); }
+.research-list > .pub-item:first-child { padding-top: 0; }
+.pub-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
+.pub-year-inline { font-weight: 700; font-size: 0.9rem; color: var(--current); font-variant-numeric: tabular-nums; }
+.tag-talk { background: color-mix(in srgb, var(--tide) 16%, transparent); color: var(--tide); }
+.photo figure { margin: 12px 0 0; max-width: 34rem; }
+.photo figure img { width: 100%; border-radius: 12px; }
+.photo figcaption { margin-top: 6px; color: var(--muted); font-size: 0.9rem; }
+.rf-empty { display: grid; justify-items: start; gap: 12px; padding: 24px 0; color: var(--muted); }
+.rf-empty[hidden] { display: none; }
+/* alternative layouts, kept ready: add is-grid or is-compact to .research-list */
+.research-list.is-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 22px; }
+.research-list.is-grid > .pub-item { grid-template-columns: minmax(0, 1fr); align-content: start; padding: 0 0 18px; border: 0; border-radius: 16px; overflow: hidden; background: var(--surface); box-shadow: 0 0 0 1px var(--line); }
+.research-list.is-grid .pub-cover { border-radius: 0; aspect-ratio: 16 / 9; }
+.research-list.is-grid .pub-body { padding: 0 18px; }
+.research-list.is-compact > .pub-item { grid-template-columns: 72px minmax(0, 1fr); gap: 16px; padding-block: 16px; }
+.research-list.is-compact .pub-cover { aspect-ratio: 1 / 1; border-radius: 10px; }
+.research-list.is-compact .pub-body h3 { font-size: 1.05rem; }
+.research-list.is-compact .pub-authors, .research-list.is-compact .pub-venue { font-size: 0.9rem; }
+
 /* ---------- About ---------- */
 .about-intro { display: grid; grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr); gap: clamp(32px, 6vw, 80px); align-items: start; }
 .about-photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 48% 52% 46% 54% / 38% 40% 60% 62%; }
@@ -514,6 +569,9 @@ main:has(> section:last-child.band-tint) + .site-foot .wave { background: var(--
   .brand-tag { display: none; }
 }
 @media (max-width: 480px) {
+  .rf-count { margin-left: 0; width: 100%; padding: 0; }
+  .select-field { flex: 1 1 140px; }
+  .select-field select { min-width: 0; width: 100%; }
   .pub-item { grid-template-columns: 88px minmax(0, 1fr); gap: 14px; }
   .news li { grid-template-columns: minmax(0, 1fr); gap: 4px; }
   .switch button { padding: 10px 18px; }
