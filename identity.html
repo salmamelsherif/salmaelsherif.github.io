@@ -7,7 +7,6 @@ nav: identity
 {% assign ip = b.identity_page %}
 
 <section class="page-hero">
-    {% include brand/ripple-art.html %}
     <div class="wrap">
         <h1>{{ ip.title }}</h1>
         <p>{{ ip.intro }}</p>
@@ -15,10 +14,8 @@ nav: identity
 </section>
 
 <section class="band">
-    <div class="wrap identity-intro{% if ip.photo != "" %} has-photo{% endif %}">
-        {% if ip.photo != "" %}<div class="about-photo"><img src="{{ ip.photo | relative_url }}" alt="Salma M. Elsherif" loading="lazy"></div>{% endif %}
+    <div class="wrap">
         <div class="identity-story">
-            <p class="name-ar" lang="ar" dir="rtl">{{ ip.name_ar }}</p>
             {% for para in ip.story %}<p>{{ para }}</p>{% endfor %}
         </div>
     </div>
@@ -31,7 +28,6 @@ nav: identity
         <ol class="life-list">
             {% for e in b.life %}
             <li class="life-card">
-                {% if e.photo %}<img src="{{ e.photo | relative_url }}" alt="" loading="lazy">{% endif %}
                 <div class="life-body">
                     <p class="life-meta"><time>{{ e.date | date: "%B %Y" }}</time>{% for t in e.tags %}<span class="tag tag-conference">{{ t }}</span>{% endfor %}</p>
                     {% if e.title %}<h3>{{ e.title }}</h3>{% endif %}
