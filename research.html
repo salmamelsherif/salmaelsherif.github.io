@@ -50,9 +50,7 @@ nav: research
                 {% if pub.pub_last contains "Conference" %}{% assign kind = "conference" %}{% assign kind_label = "Conference paper" %}{% endif %}
                 {% if pub.pub_last contains "Dissertation" %}{% assign kind = "dissertation" %}{% assign kind_label = "Ph.D. dissertation" %}{% endif %}
             {% endif %}
-            {% if pub.image %}{% assign thumb = pub.image %}{% else %}{% assign thumb = "/assets/images/tiles/" | append: pub.collection | append: "/" | append: pub.slug | append: ".svg" %}{% endif %}
             <li class="pub-item" data-kind="{{ kind }}" data-year="{{ y }}">
-                <div class="pub-cover"><img src="{{ thumb | relative_url }}" alt="" loading="lazy"></div>
                 <div class="pub-body">
                     <p class="pub-meta">
                         <span class="tag tag-{{ kind }}">{{ kind_label }}</span>

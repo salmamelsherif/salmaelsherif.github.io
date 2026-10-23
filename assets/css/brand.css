@@ -443,7 +443,12 @@ main:has(> section:last-child.band-tint) + .site-foot .wave { background: var(--
 .rf-count { margin-left: auto; color: var(--muted); font-weight: 700; font-size: 0.95rem; padding-bottom: 10px; }
 .rf-reset { font: inherit; font-weight: 700; font-size: 0.92rem; color: var(--current); background: none; border: 0; padding: 0 0 10px; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
 .research-list { gap: 0; }
-.research-list > .pub-item { padding-block: 24px; border-bottom: 1px solid var(--line); }
+.research-list > .pub-item { grid-template-columns: minmax(0, 1fr); padding-block: 18px; border-bottom: 1px solid var(--line); }
+.research-list .pub-body { gap: 4px; max-width: 58rem; }
+.research-list .pub-body h3 { font-size: 1.08rem; }
+.research-list .pub-authors, .research-list .pub-venue { font-size: 0.93rem; }
+.research-list .pub-actions { margin-top: 4px; }
+.research-list .pill { font-size: 0.8rem; padding: 3px 12px; }
 .research-list > .pub-item:first-child { padding-top: 0; }
 .pub-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
 .pub-year-inline { font-weight: 700; font-size: 0.9rem; color: var(--current); font-variant-numeric: tabular-nums; }
