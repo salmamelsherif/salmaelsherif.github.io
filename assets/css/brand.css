@@ -274,6 +274,25 @@ a:hover { color: var(--tide); }
 .cn-node circle { fill: var(--abyss); stroke: #3CC0D8; stroke-width: 1.8; }
 .cn-node g { fill: none; stroke: #DCEAF3; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 .cn-main circle { stroke: var(--signal); stroke-width: 2.2; }
+/* projects header options */
+.wc-line, .wc-line * { fill: none; stroke: #9FD3E6; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
+.wc-faint { fill: none; stroke: rgba(159, 211, 230, 0.3); stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+.wc-rain { stroke: #3CC0D8; stroke-width: 2; stroke-linecap: round; stroke-dasharray: 6 8; animation: wc-rain 1.2s linear infinite; }
+@keyframes wc-rain { to { stroke-dashoffset: -28; } }
+.wc-river { fill: none; stroke: rgba(60, 192, 216, 0.6); stroke-width: 3; stroke-linecap: round; }
+.wc-pipe { fill: none; stroke: rgba(159, 211, 230, 0.55); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.wc-sewer { fill: none; stroke: rgba(233, 162, 59, 0.55); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.wc-flow { fill: none; stroke: #3CC0D8; stroke-width: 2.4; stroke-dasharray: 2 14; stroke-linecap: round; animation: pa-flow 2.4s linear infinite; }
+.wc-flow2 { stroke: var(--signal); }
+.wc-axis { fill: none; stroke: rgba(159, 211, 230, 0.45); stroke-width: 1.4; }
+.wc-hydro { fill: none; stroke: #3CC0D8; stroke-width: 2.2; stroke-dasharray: 300; stroke-dashoffset: 300; animation: mo-draw 6s ease-in-out infinite; }
+.wc-bars { stroke: rgba(90, 166, 230, 0.7); stroke-width: 6; }
+.wc-lvl { stroke: rgba(60, 192, 216, 0.75); stroke-width: 1.6; stroke-dasharray: 6 5; }
+.wc-lvl2 { stroke: rgba(90, 166, 230, 0.55); } .wc-lvl3 { stroke: rgba(233, 162, 59, 0.6); }
+.wc-water { fill: rgba(60, 192, 216, 0.18); }
+.wc-tags path { stroke: rgba(159, 211, 230, 0.4); stroke-width: 1.2; }
+.wc-wave { fill: none; stroke: rgba(60, 192, 216, 0.6); stroke-width: 1.4; stroke-linecap: round; animation: py-bob 4s ease-in-out infinite alternate; }
+@media (prefers-reduced-motion: reduce) { .wc-hydro { stroke-dashoffset: 0; } }
 @media (max-width: 860px) { .art { opacity: 0.3; width: 90vw; right: -25vw; } }
 
 /* ---------- Bands ---------- */
