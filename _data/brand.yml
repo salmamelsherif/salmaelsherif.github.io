@@ -119,31 +119,25 @@ projects:
           - Coordinating with EPA on the development of the multi-species chloramine model
           - Supporting development of an MSX model of free chlorine and monochloramine that traces disinfectant behavior across the system and lays the groundwork for its calibration
   - title: Distribution System Model and Capital Plan, City of Steubenville, OH
-    summary: A calibrated hydraulic model and a prioritized capital plan spanning more than 10 years for a city water system with three pressure zones.
+    summary: A calibrated hydraulic model and a prioritized capital plan spanning more than 10 years.
     tags: [Hydraulic modeling, Calibration, Fire flow, Capital improvement planning]
     sections:
       - label: Description
         text: >-
-          The City of Steubenville commissioned a water prioritization study to guide long-term
-          investment in its distribution system. The study updated and calibrated the City's hydraulic
-          model, evaluated how the existing system performs, and identified infrastructure and
-          operational constraints. It produced a prioritized list of capital improvements spanning
-          more than 10 years, giving the City a basis for directing limited capital toward projects
-          that improve reliability, hydraulic performance, fire protection, and service to customers
-          across its three pressure zones.
+          A prioritization study to guide long-term investment in the City's water distribution system.
       - label: Scope
         points:
-          - Hydraulic model update and calibration
+          - Model update and calibration
           - Evaluation of existing system performance
-          - Identification of infrastructure and operational constraints
-          - Prioritized capital improvement plan (CIP) covering more than 10 years
+          - Infrastructure and operational constraints
+          - Prioritized capital improvement plan (CIP)
       - label: Responsibilities
         points:
           - Updating and calibrating the hydraulic model
           - Building a calibration dashboard that compares model results with field data, with KPIs and visualizations
           - Validating fire flow and hydrant test data and recommending next steps based on the results
-          - Modeling the proposed improvements to confirm they deliver the expected outcomes
-          - Helping draft the CIP report
+          - Modeling proposed improvements to verify their hydraulic benefits
+          - Contributing to the CIP report
 
 # ---------- Path (shown in order) ----------
 # Two timelines, oldest first. "current: true" gets the highlighted marker.
