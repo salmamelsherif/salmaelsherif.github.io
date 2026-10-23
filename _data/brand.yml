@@ -120,7 +120,7 @@ projects:
           - Supporting development of an MSX model of free chlorine and monochloramine that traces disinfectant behavior across the system and lays the groundwork for its calibration
   - title: Distribution System Model and Capital Plan, City of Steubenville, OH
     summary: A calibrated hydraulic model and a prioritized capital plan spanning more than 10 years.
-    tags: [Hydraulic modeling, Calibration, Fire flow, Capital improvement planning]
+    tags: [Hydraulic modeling, Calibration, Fire flow, Capital improvement planning, InfoWater]
     sections:
       - label: Description
         text: >-
