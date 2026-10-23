@@ -234,6 +234,12 @@ identity_page:
 photos_title: Life in pictures
 photos_limit: 6
 photos:
+  - src: /assets/images/life/new-orleans-2026-1.jpg
+    caption: New Orleans, 2026
+    alt: A cozy café corner with a carved wooden table, a lamp and a large painting of a family on porch steps
+  - src: /assets/images/life/new-orleans-2026-2.jpg
+    caption: New Orleans, 2026
+    alt: A towering plate of fried fish, shrimp, fries and hush puppies
   - src: /assets/images/life/colorado-2026-1.jpg
     caption: Colorado, 2026
     alt: Looking out over an alpine lake and pine trees under a bright sun
