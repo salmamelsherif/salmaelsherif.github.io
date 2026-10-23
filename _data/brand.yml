@@ -170,7 +170,7 @@ research_page:
 # Add "logo: /path/to/file.png" to any item to show an official logo instead of the lettered badge.
 credentials_page:
   title: Credentials
-  intro: Licenses, recognition, teaching, and professional memberships.
+  intro: Licenses, leadership, recognition, teaching, and professional memberships.
 
 licenses:
   - title: Professional Engineer (PE)
@@ -181,6 +181,33 @@ licenses:
     issuer: Vanderbilt University
     year: "2024"
     logo: /assets/images/badges/VLogo.png
+
+# Leadership and service, newest first
+leadership:
+  - title: Member, New Professionals Committee
+    org: National Society of Professional Engineers (NSPE)
+    years: "Sep 2026 – present"
+    points:
+      - The committee guides NSPE's efforts to make membership more useful and attractive to early-career engineers, including PEs and EIs/EITs under 35.
+      - I help enhance NSPE's online community and encourage active member engagement.
+      - I help identify ways to involve young professionals, including Emerging Leaders Program alumni, in NSPE programs and leadership roles, and bring their input into the committee's work.
+  - title: Student Committee Vice Chair
+    org: American Water Works Association (AWWA), Kentucky Tennessee Section
+    years: "Apr 2026 – present"
+    points:
+      - The committee provides resources for undergraduate and graduate students in Kentucky and Tennessee who are interested in careers in the water industry.
+  - title: Office Lead, Roots of Arcadis
+    org: Arcadis U.S., Inc.
+    years: "Oct 2025 – present"
+    points:
+      - I lead the office chapter of Roots of Arcadis, a professional development and networking group for early-career staff (0–10 years of industry experience).
+      - The group creates leadership and growth opportunities for its members and fosters networking and culture-sharing across the office.
+  - title: International Student Liaison
+    org: Graduate Student Council, Civil and Environmental Engineering, Vanderbilt University
+    years: "Oct 2021 – May 2025"
+    points:
+      - Built a buddy system for international students in the department, and organized academic and social events to help them settle into the city and the country and connect across cultures and backgrounds.
+      - Created and maintained an accessible resource hub for international students, covering health insurance, visas, fellowship opportunities, and more.
 
 memberships:
   - short: AWWA

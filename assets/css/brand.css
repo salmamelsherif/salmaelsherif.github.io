@@ -620,6 +620,13 @@ a.pill[target="_blank"]::after, .btn[target="_blank"]::after { content: ""; disp
 .gallery-nav.prev { left: 24px; } .gallery-nav.next { right: 24px; }
 .gallery-nav[hidden], .gallery-view[hidden], .gallery-grid[hidden] { display: none; }
 
+.lead-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.lead-item { display: grid; gap: 4px; align-content: start; padding: 20px 22px; background: var(--surface); border-radius: 16px; box-shadow: 0 0 0 1px var(--line); }
+.lead-item h3 { font-size: 1.12rem; line-height: 1.3; }
+.lead-org { color: var(--muted); }
+.lead-points { margin: 8px 0 0; padding-left: 1.1em; display: grid; gap: 6px; font-size: 0.97rem; }
+@media (max-width: 860px) { .lead-list { grid-template-columns: minmax(0, 1fr); } }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 1120px) {
   .nav-toggle { display: inline-block; }
