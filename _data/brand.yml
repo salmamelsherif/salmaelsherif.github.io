@@ -209,6 +209,13 @@ tools:
     icon: design
     names: [AutoCAD, Civil 3D]
 
+# ---------- Contact form (delivered by Web3Forms to your inbox) ----------
+# Get a free access key at https://web3forms.com (enter your email, the key arrives by email)
+# and paste it below. The key is safe to publish; it only lets the form send messages to you.
+contact_form:
+  access_key: ""
+  button: Send me a message
+
 contact_line: >-
   Working on a water system problem, or applying to graduate school and want advice?
   I'm glad to hear from you.

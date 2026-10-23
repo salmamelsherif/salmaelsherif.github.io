@@ -56,20 +56,57 @@
     });
   });
 
-  /* ---------- Copy email ---------- */
-  document.querySelectorAll(".copy[data-copy]").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      var el = document.querySelector(btn.getAttribute("data-copy"));
-      var text = el ? el.textContent.trim() : "";
-      var done = function () { btn.textContent = "Copied"; setTimeout(function () { btn.textContent = "Copy email"; }, 1800); };
-      var fallback = function () {
-        var r = document.createRange(); r.selectNodeContents(el);
-        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
-        btn.textContent = "Selected, press Ctrl+C";
-      };
-      try { navigator.clipboard.writeText(text).then(done, fallback); } catch (e) { fallback(); }
+  /* ---------- Contact form ---------- */
+  var dialog = document.getElementById("contact-dialog");
+  var form = document.getElementById("contact-form");
+  if (dialog && form && typeof dialog.showModal === "function") {
+    var status = document.getElementById("cf-status");
+    var send = document.getElementById("cf-send");
+    var setStatus = function (msg, kind) { status.textContent = msg; status.className = "cd-status" + (kind ? " is-" + kind : ""); };
+    document.querySelectorAll("[data-open-contact]").forEach(function (el) {
+      el.addEventListener("click", function (e) {
+        e.preventDefault();
+        setStatus("", "");
+        dialog.showModal();
+        var first = document.getElementById("cf-name"); if (first) first.focus();
+      });
     });
-  });
+    document.querySelectorAll("[data-close-contact]").forEach(function (el) {
+      el.addEventListener("click", function () { dialog.close(); });
+    });
+    // click on the dimmed backdrop closes the form
+    dialog.addEventListener("click", function (e) { if (e.target === dialog) dialog.close(); });
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) {
+        var bad = form.querySelector(":invalid");
+        setStatus(bad && bad.type === "email" && bad.value ? "Please enter a valid email address." : "Please fill in all four fields.", "error");
+        if (bad) bad.focus();
+        return;
+      }
+      if (form.botcheck && form.botcheck.checked) return;
+      var key = form.access_key ? form.access_key.value : "";
+      if (!key) { setStatus("The contact form isn't connected yet. Please reach out on LinkedIn for now.", "error"); return; }
+      var data = {};
+      new FormData(form).forEach(function (v, k) { if (k !== "botcheck") data[k] = v; });
+      send.disabled = true; send.textContent = "Sending…"; setStatus("", "");
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(data)
+      }).then(function (r) { return r.json(); }).then(function (res) {
+        if (res && res.success) {
+          form.reset();
+          setStatus("Message sent. Thank you, I'll get back to you soon.", "ok");
+        } else {
+          setStatus("Your message didn't go through. Please try again in a moment.", "error");
+        }
+      }).catch(function () {
+        setStatus("Your message didn't go through. Check your connection and try again.", "error");
+      }).then(function () { send.disabled = false; send.textContent = "Send message"; });
+    });
+  }
 
   /* ---------- Timelines: a finished track stops at its last marker ---------- */
   var setTails = function () {

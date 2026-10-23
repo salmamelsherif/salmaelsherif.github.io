@@ -29,7 +29,7 @@
                 <a href="{{ '/publications' | relative_url }}"{% if page.nav == "pubs" %} aria-current="page"{% endif %}>Publications</a>
                 <a href="{{ '/presentations' | relative_url }}"{% if page.nav == "talks" %} aria-current="page"{% endif %}>Talks</a>
                 <a href="{{ '/credentials' | relative_url }}"{% if page.nav == "creds" %} aria-current="page"{% endif %}>Credentials</a>
-                <a class="nav-cta" href="{{ '/' | relative_url }}#contact">Contact</a>
+                <a class="nav-cta" href="{{ '/' | relative_url }}#contact" data-open-contact>Contact</a>
             </nav>
         </div>
     </header>
@@ -48,10 +48,7 @@
                 <p>{{ site.data.brand.contact_line }}</p>
             </div>
             <div class="foot-links">
-                <p class="email-row">
-                    <span class="email" id="email">{{ site.data.profile.email }}</span>
-                    <button type="button" class="copy" data-copy="#email">Copy email</button>
-                </p>
+                <button type="button" class="btn btn-signal" data-open-contact>{{ site.data.brand.contact_form.button | default: "Send me a message" }}</button>
                 <ul>
                     {% if site.data.profile.linkedin %}<li><a href="https://www.linkedin.com/in/{{ site.data.profile.linkedin }}" target="_blank" rel="noopener">LinkedIn</a></li>{% endif %}
                     {% if site.data.profile.gscholar %}<li><a href="https://scholar.google.com/citations?user={{ site.data.profile.gscholar }}" target="_blank" rel="noopener">Google Scholar</a></li>{% endif %}
@@ -62,6 +59,44 @@
         </div>
         <p class="wrap fine">&copy; {{ site.time | date: "%Y" }} {{ site.data.profile.primary_name }}</p>
     </footer>
+
+    <dialog class="contact-dialog" id="contact-dialog" aria-labelledby="contact-title">
+        <form class="contact-form" id="contact-form" novalidate>
+            <div class="cd-head">
+                <h2 id="contact-title">Send me a message</h2>
+                <button type="button" class="cd-close" data-close-contact aria-label="Close">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </button>
+            </div>
+            <p class="cd-intro">I read every message and usually reply within a few days.</p>
+            <input type="hidden" name="access_key" value="{{ site.data.brand.contact_form.access_key }}">
+            <input type="hidden" name="from_name" value="salmaelsherif.com">
+            <input type="checkbox" name="botcheck" class="cd-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <div class="cd-row">
+                <div class="cd-field">
+                    <label for="cf-name">Name</label>
+                    <input id="cf-name" name="name" type="text" autocomplete="name" required>
+                </div>
+                <div class="cd-field">
+                    <label for="cf-email">Email</label>
+                    <input id="cf-email" name="email" type="email" autocomplete="email" required>
+                </div>
+            </div>
+            <div class="cd-field">
+                <label for="cf-subject">Subject</label>
+                <input id="cf-subject" name="subject" type="text" required>
+            </div>
+            <div class="cd-field">
+                <label for="cf-message">Message</label>
+                <textarea id="cf-message" name="message" rows="6" required></textarea>
+            </div>
+            <p class="cd-status" id="cf-status" role="status" aria-live="polite"></p>
+            <div class="cd-actions">
+                <button type="button" class="btn btn-quiet" data-close-contact>Cancel</button>
+                <button type="submit" class="btn btn-primary-solid" id="cf-send">Send message</button>
+            </div>
+        </form>
+    </dialog>
 
     <script src="{{ '/assets/js/brand.js' | relative_url }}"></script>
 </body>
