@@ -74,7 +74,7 @@ projects:
   - title: Distribution System Model and Capital Plan, City of Steubenville, OH, USA
     summary: A calibrated hydraulic model and a prioritized capital plan spanning more than 10 years.
     year: "2026"
-    tags: [Hydraulic modeling, Calibration, Fire flow, Capital improvement planning, Autodesk InfoWater Pro]
+    tags: [Hydraulic modeling, Hydraulic calibration, Scenario setup, Fire flow, Capital investment planning, Autodesk InfoWater Pro]
     sections:
       - label: Description
         text: >-
@@ -96,7 +96,7 @@ projects:
   - title: Water Quality and Hydraulic Modeling for Chlorine Residual, San Jose Water, CA, USA
     summary: Working with San Jose Water to build and calibrate a model that tracks free chlorine, chloramine, and the blending between them.
     year: "2025–present"
-    tags: [Water quality modeling, Multi-species (MSX), Chloramine blending, Calibration, AquaTwin Pro]
+    tags: [Multi-species water quality modeling and calibration, Water age, Multi-source trace, Chlorine & chloramine blending, Aquanuity AquaTwin]
     sections:
       - label: Description
         text: >-
@@ -122,7 +122,7 @@ projects:
   - title: Water Modeling and Field Support, City of Houston, TX, USA
     summary: Hydraulic and water quality modeling of a large, complex system with free chlorine and chloramine blending zones, from source tracing to model calibration.
     year: "2025–present"
-    tags: [Hydraulic modeling, Water quality modeling, Water age, Demand forecasting, WaterGEMS]
+    tags: [Hydraulic modeling and calibration, Multi-species water quality modeling and calibration, Water age, Multi-source trace, Chlorine & chloramine blending, Bentley WaterGEMS]
     sections:
       - label: Description
         text: >-
@@ -143,7 +143,7 @@ projects:
   - title: Fayoum Wastewater Expansion Programme Bid, Fayoum, Egypt
     summary: Tender documents and proposals for a winning bid to bring sanitation to 119 villages.
     year: "2019–2020"
-    tags: [Sanitation, Sewer networks, Pump stations, Tendering, Proposals]
+    tags: [Business development, Tendering and proposals, Sanitation, Sewer networks]
     sections:
       - label: Description
         text: >-
@@ -159,7 +159,7 @@ projects:
   - title: Feasibility Study for Bahr ElBaqar Wastewater Treatment Plant, Sinai, Egypt
     summary: Early-stage feasibility work for a 5.6 million m³/day plant that treats drain water for irrigation reuse.
     year: "2019"
-    tags: [Wastewater treatment, Feasibility study, Water reuse, Process selection]
+    tags: [Feasibility study, Wastewater treatment plant]
     sections:
       - label: Description
         text: >-
@@ -175,7 +175,7 @@ projects:
   - title: Flood Risk and Hydrological Assessment, AlMadinah, AlJouf, and Tabouk Regions, Saudi Arabia
     summary: Hydrologic and hydraulic modeling across 99 locations to map flood risk zones and test flood protection schemes.
     year: "2018–2020"
-    tags: [Hydrology, Flood risk, Watershed modeling, WMS, AutoLISP]
+    tags: [Hydrology, Flood risk, Flood protection and control, Watershed modeling, WMS, AutoCAD]
     sections:
       - label: Description
         text: >-
