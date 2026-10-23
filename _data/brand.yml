@@ -133,7 +133,7 @@ projects:
           - Prioritized capital improvement plan (CIP)
       - label: Responsibilities
         points:
-          - Updating and calibrating the hydraulic model
+          - Updating the hydraulic model with the City's latest GIS data, and calibrating it
           - Building a calibration dashboard that compares model results with field data, with KPIs and visualizations
           - Validating fire flow and hydrant test data and recommending next steps based on the results
           - Modeling proposed improvements to showcase their hydraulic benefits
