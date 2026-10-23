@@ -172,6 +172,25 @@ projects:
         points:
           - Working as part of the engineering team preparing the feasibility study in the project's early planning stages
           - Developing feasibility study inputs for capacity, land requirements, and process selection
+  - title: Flood Risk and Hydrological Assessment, AlMadinah, AlJouf, and Tabouk Regions, Saudi Arabia
+    summary: Hydrologic and hydraulic modeling across 99 locations to map flood risk zones and test flood protection schemes.
+    year: "2018–2020"
+    tags: [Hydrology, Flood risk, Watershed modeling, WMS, AutoLISP]
+    sections:
+      - label: Description
+        text: >-
+          A regional flood risk assessment that evaluated 99 locations across the AlMadinah, AlJouf,
+          and Tabouk regions to identify flood-prone zones and develop practical flood protection
+          schemes. The work covered field investigations, infrastructure assessment, watershed
+          delineation, hydrologic and hydraulic modeling, flood risk mapping, and evaluation of
+          mitigation alternatives.
+      - label: Responsibilities
+        points:
+          - Analyzing field data from site investigations to assess existing hydraulic structures and flood-control infrastructure
+          - Developing AutoLISP automation tools in AutoCAD to categorize, cluster, and organize infrastructure data into a database for engineering analysis, improving consistency and efficiency across the project areas
+          - Delineating watersheds and building hydrologic models in the Watershed Modeling System (WMS) to simulate runoff and identify flood risk zones under varying storm conditions
+          - Processing and exporting simulation results for flood mapping and later design stages
+          - Rerunning watershed and flood simulations with the proposed protection schemes to measure how well they reduce flood risk under design events
 
 # ---------- Path (shown in order) ----------
 # Two timelines, oldest first. "current: true" gets the highlighted marker.
