@@ -691,7 +691,7 @@ a.pill[target="_blank"]::after, .btn[target="_blank"]::after { content: ""; disp
 @media (max-width: 860px) { .review-groups { grid-template-columns: minmax(0, 1fr); } }
 
 /* ---------- Projects (expandable list) ---------- */
-.proj-list { display: grid; gap: 12px; max-width: 64rem; }
+.proj-list { display: grid; gap: 12px; }
 .proj { background: var(--surface); border-radius: 14px; box-shadow: 0 0 0 1px var(--line); }
 .proj[open] { box-shadow: 0 0 0 1.5px color-mix(in srgb, var(--current) 40%, transparent); }
 .proj summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 18px; padding: 18px 22px; }
