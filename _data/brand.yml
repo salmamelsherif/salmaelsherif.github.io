@@ -191,6 +191,56 @@ projects:
           - Delineating watersheds and building hydrologic models in the Watershed Modeling System (WMS) to simulate runoff and identify flood risk zones under varying storm conditions
           - Processing and exporting simulation results for flood mapping and later design stages
           - Rerunning watershed and flood simulations with the proposed protection schemes to measure how well they reduce flood risk under design events
+  - title: Integrated Sanitation Technologies in Upper Egypt (63 Villages), Egypt
+    summary: From feasibility to detailed design and tender documents for full sewerage systems serving 63 rural villages.
+    year: "2016–2017"
+    tags: [Sanitation, Sewer networks, Preliminary and detailed design, Hydraulic calculations, Tender documents, FIDIC]
+    sections:
+      - label: Description
+        text: >-
+          Sanitation services for unserved rural villages in Upper Egypt, funded by the Korea–Africa
+          Economic Cooperation Trust Fund under the supervision of the African Development Bank (AfDB).
+          The project covers 63 villages in 9 clusters across five governorates (Minya, Assiut, Sohag,
+          Qena, and Luxor), each with a full sewerage system of networks, pump stations, and wastewater
+          treatment plants. Estimated value: USD 198 million.
+      - label: Scope
+        points:
+          - Data collection and feasibility study
+          - Topographic survey and geotechnical works
+          - Preliminary and detailed design
+          - Tender documents in line with AfDB standards and FIDIC guidelines
+      - label: Responsibilities
+        points:
+          - Preparing feasibility study inputs and evaluating wastewater system alternatives for rural villages based on technical and implementation considerations
+          - Developing preliminary sewer network designs, including pipe alignment, sizing, and system configuration
+          - Preparing detailed design drawings, including plans, profiles, and standard details
+          - Performing hydraulic calculations to verify system capacity under projected demand
+          - Preparing tender documents in line with FIDIC guidelines
+  - title: Second Integrated Sanitation and Sewerage Infrastructure Project (ISSIP 2), Assiut, Egypt
+    summary: Detailed design review and tender documents for 400 km of sewers, 24 pump stations, and two treatment plants serving 24 villages.
+    year: "2016"
+    tags: [Sanitation, Sewer networks, Design review, Hydraulic checks, Tender documents, FIDIC]
+    sections:
+      - label: Description
+        text: >-
+          EGEC's engineering work to bring wastewater services to 24 villages in the Sedfa, Ghanayim,
+          Badary, Dayrout, and Quseya districts of Assiut Governorate, funded by the World Bank. The
+          project includes about 400 km of sewer networks (150–1,200 mm), 24 pump stations with force
+          mains (200–1,000 mm), the Shotob WWTP (26,000–39,000 m³/day), and the Nawawra WWTP
+          (12,000 m³/day).
+      - label: Scope
+        points:
+          - Environmental and socio-economic assessment
+          - Feasibility study and investment plan
+          - Geotechnical investigations and topographic survey
+          - Detailed design and tender documents for sewer networks and pump stations (FIDIC Red Book)
+          - Detailed design and tender documents for the treatment plants (FIDIC Yellow Book)
+      - label: Responsibilities
+        points:
+          - Working as part of the design team during the project's final stage
+          - Reviewing and refining detailed design drawings for the wastewater networks, including plans and profiles
+          - Verifying pipe sizing and alignment against design flows, with hydraulic checks to confirm system performance
+          - Preparing tender documents and reviewing quantities and specifications
 
 # ---------- Path (shown in order) ----------
 # Two timelines, oldest first. "current: true" gets the highlighted marker.
