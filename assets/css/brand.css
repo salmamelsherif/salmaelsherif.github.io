@@ -627,6 +627,12 @@ a.pill[target="_blank"]::after, .btn[target="_blank"]::after { content: ""; disp
 .lead-points { margin: 8px 0 0; padding-left: 1.1em; display: grid; gap: 6px; font-size: 0.97rem; }
 @media (max-width: 860px) { .lead-list { grid-template-columns: minmax(0, 1fr); } }
 
+.review-block { margin-top: 10px; padding: 20px 22px; background: var(--surface); border-radius: 16px; box-shadow: 0 0 0 1px var(--line); display: grid; gap: 14px; }
+.review-block h3 { font-size: 1.12rem; }
+.review-groups { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 1fr); gap: 16px 28px; }
+.review-label { font-size: var(--step--1); font-weight: 700; color: var(--muted); margin-bottom: 8px; }
+@media (max-width: 860px) { .review-groups { grid-template-columns: minmax(0, 1fr); } }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 1120px) {
   .nav-toggle { display: inline-block; }

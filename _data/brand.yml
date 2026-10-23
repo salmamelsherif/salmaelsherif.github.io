@@ -213,6 +213,18 @@ leadership:
       - Built a buddy system for international students in the department, and organized academic and social events to help them settle into the city and the country and connect across cultures and backgrounds.
       - Created and maintained an accessible resource hub for international students, covering health insurance, visas, fellowship opportunities, and more.
 
+# Peer review
+reviewer:
+  journals:
+    - Water Research
+    - Water Resources Research
+    - Journal of Water Resources Planning and Management
+    - Journal of Hydroinformatics
+    - Annual Reviews in Control
+    - IEEE Transactions on Control of Network Systems
+  conferences:
+    - American Control Conference (ACC)
+
 memberships:
   - short: AWWA
     name: American Water Works Association
