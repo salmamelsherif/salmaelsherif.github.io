@@ -95,8 +95,8 @@ projects:
           - Running water age simulations and comparing the results with field sampling data
           - Developing an MSX model in AquaTwin Pro that traces each water source (surface water and groundwater) and disinfectant, used to produce blending exhibits
           - Analyzing hold studies and developing disinfectant decay curves
-          - Coordinating with EPA on the development of the multi-species chloramine model
-          - Working with Aquanuity to resolve issues and limitations in its newly released MSX tools
+          - Coordinating with EPA on the development of the multi-species chloramine model, then feeding it into the MSX model, running it on the system, exporting the results, and building a calibration dashboard
+          - Working with Aquanuity to add new features to its newly released MSX tools, streamlining our workflow and future work for utilities
   - title: Water Modeling and Field Support, City of Houston, TX
     summary: Hydraulic and water quality modeling that pinpoints high water age areas and supports drinking water planning for a large city.
     year: "2023–present"
