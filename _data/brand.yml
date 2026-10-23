@@ -229,6 +229,18 @@ identity_page:
       On this page, I share more about me as a person and what I enjoy in life: quality time with
       family and friends, cooking, traveling, coffee, food, hiking, and more.
 
+# Photos on the Identity & Life page, newest first. Only the first `photos_limit`
+# show on the page; the rest open in a pop-up gallery ("+ more" tile).
+photos_title: Life in pictures
+photos_limit: 6
+photos:
+  - src: /assets/images/life/miami-2026-1.jpg
+    caption: Miami, FL, 2026
+    alt: Palm trees against a blue sky with soft clouds
+  - src: /assets/images/life/miami-2026-2.jpg
+    caption: Miami, FL, 2026
+    alt: Two blue and white striped beach umbrellas on white sand by a turquoise sea
+
 # Life entries, newest first. Each needs a date and text; title, tags and photo are optional.
 # Example:
 #  - date: 2026-10-20

@@ -93,6 +93,48 @@
     apply();
   }
 
+  /* ---------- Photo gallery (Identity & Life) ---------- */
+  var gal = document.getElementById("gallery");
+  if (gal && typeof gal.showModal === "function") {
+    var gGrid = document.getElementById("gallery-grid"), gView = document.getElementById("gallery-view");
+    var gImg = document.getElementById("gallery-img"), gCap = document.getElementById("gallery-cap");
+    var gCount = document.getElementById("gallery-count"), gGridBtn = gal.querySelector("[data-gallery-grid]");
+    var shots = Array.prototype.map.call(gGrid.querySelectorAll("button"), function (b) {
+      var im = b.querySelector("img"); return { src: im.src, alt: im.alt, cap: b.querySelector("span").textContent };
+    });
+    var cur = 0;
+    var showGrid = function () { gView.hidden = true; gGrid.hidden = false; gGridBtn.hidden = true; gCount.textContent = shots.length + (shots.length === 1 ? " photo" : " photos"); };
+    var show = function (i) {
+      cur = (i + shots.length) % shots.length;
+      gImg.src = shots[cur].src; gImg.alt = shots[cur].alt; gCap.textContent = shots[cur].cap;
+      gGrid.hidden = true; gView.hidden = false; gGridBtn.hidden = shots.length < 2;
+      gCount.textContent = (cur + 1) + " / " + shots.length;
+      gView.querySelectorAll(".gallery-nav").forEach(function (b) { b.hidden = shots.length < 2; });
+    };
+    document.querySelectorAll("[data-gallery-open]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var v = b.getAttribute("data-gallery-open");
+        var isMore = b.querySelector(".photo-more");
+        if (v === "grid" || isMore) showGrid(); else show(parseInt(v, 10));
+        gal.showModal();
+      });
+    });
+    gGrid.querySelectorAll("[data-gallery-show]").forEach(function (b) {
+      b.addEventListener("click", function () { show(parseInt(b.getAttribute("data-gallery-show"), 10)); });
+    });
+    gal.querySelectorAll("[data-gallery-step]").forEach(function (b) {
+      b.addEventListener("click", function () { show(cur + parseInt(b.getAttribute("data-gallery-step"), 10)); });
+    });
+    gGridBtn.addEventListener("click", showGrid);
+    gal.querySelector("[data-gallery-close]").addEventListener("click", function () { gal.close(); });
+    gal.addEventListener("click", function (e) { if (e.target === gal) gal.close(); });
+    gal.addEventListener("keydown", function (e) {
+      if (gView.hidden) return;
+      if (e.key === "ArrowRight") show(cur + 1);
+      if (e.key === "ArrowLeft") show(cur - 1);
+    });
+  }
+
   /* ---------- Contact form ---------- */
   var dialog = document.getElementById("contact-dialog");
   var form = document.getElementById("contact-form");
