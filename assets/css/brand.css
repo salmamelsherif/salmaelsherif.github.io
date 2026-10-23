@@ -554,6 +554,22 @@ a.pill[target="_blank"]::after, .btn[target="_blank"]::after { content: ""; disp
 .btn-primary-solid:disabled { opacity: 0.6; cursor: progress; }
 @media (max-width: 560px) { .cd-row { grid-template-columns: minmax(0, 1fr); } .contact-form { padding: 22px 18px 18px; } }
 
+/* ---------- Identity & Life ---------- */
+.identity-intro { display: grid; gap: clamp(32px, 6vw, 80px); }
+.identity-story { max-width: 46rem; }
+.identity-intro.has-photo { grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr); max-width: none; align-items: start; }
+.identity-story { display: grid; gap: 18px; font-size: 1.12rem; line-height: 1.7; }
+.name-ar { font-family: "Reem Kufi", "Noto Kufi Arabic", "Geeza Pro", "Segoe UI", sans-serif; font-weight: 600; font-size: clamp(2.6rem, 2rem + 3vw, 4rem); line-height: 1.2; color: var(--current); justify-self: start; }
+.life-title { font-size: var(--step-3); margin-bottom: 24px; }
+.life-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 20px; }
+.life-card { background: var(--surface); border-radius: 16px; overflow: hidden; box-shadow: 0 0 0 1px var(--line); display: grid; align-content: start; }
+.life-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.life-body { padding: 18px 20px 20px; display: grid; gap: 8px; }
+.life-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
+.life-meta time { font-weight: 700; font-size: 0.9rem; color: var(--current); }
+.life-body h3 { font-size: 1.15rem; }
+@media (max-width: 860px) { .identity-intro.has-photo { grid-template-columns: minmax(0, 1fr); } }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 1120px) {
   .nav-toggle { display: inline-block; }
