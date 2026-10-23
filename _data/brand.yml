@@ -148,13 +148,9 @@ projects:
       - label: Description
         text: >-
           A large-scale sanitation program delivered in two phases: Phase 1 covers 119 villages and
-          Phase 2 covers 41. EGEC was awarded Phase 1, which is now under implementation.
-      - label: Scope
-        points:
-          - About 2,340 km of sewer networks
-          - 99 pump stations
-          - 260 km of force mains
-          - 18 wastewater treatment plants, from 3,000 to 120,000 m³/day
+          Phase 2 covers 41. EGEC was awarded Phase 1, which includes about 2,340 km of sewer networks,
+          99 pump stations, 260 km of force mains, and 18 wastewater treatment plants ranging from
+          3,000 to 120,000 m³/day. Phase 1 is now under implementation.
       - label: Responsibilities
         points:
           - Working as part of the bidding team for Phase 1
@@ -172,12 +168,6 @@ projects:
           sewage, and agricultural runoff, through coagulation, flocculation, settling, filtration, and
           disinfection. The treated water is carried under the Suez Canal and reused to irrigate newly
           created agricultural land. The total project value is about $739 million.
-      - label: Scope
-        points:
-          - Evaluation of treatment alternatives
-          - Capacity assessment
-          - Land requirements
-          - Process selection
       - label: Responsibilities
         points:
           - Working as part of the engineering team preparing the feasibility study in the project's early planning stages
