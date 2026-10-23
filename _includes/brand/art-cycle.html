@@ -1,0 +1,46 @@
+<svg class="art art-cycle" viewBox="0 0 560 300" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="cy-g" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="0.14" stop-color="#fff"/><stop offset="1" stop-color="#fff"/></linearGradient>
+    <mask id="cy-m"><rect width="560" height="300" fill="url(#cy-g)"/></mask>
+  </defs>
+  <g mask="url(#cy-m)">
+    <!-- sky: cloud and rain -->
+    <path class="cy-cloud" d="M78 66 a16 16 0 0 1 26 -14 a22 22 0 0 1 40 4 a15 15 0 0 1 3 30 H82 a14 14 0 0 1 -4 -20z"/>
+    <path class="cy-rain" d="M92 96 l-7 18 M110 96 l-7 18 M128 96 l-7 18 M146 96 l-7 18"/>
+    <!-- mountains -->
+    <path class="cy-mtn" d="M30 214 L92 140 L122 172 L158 126 L222 214"/>
+    <path class="cy-snow" d="M80 154 L92 140 L104 154 M146 140 L158 126 L170 140"/>
+    <!-- river from the mountains to the right edge -->
+    <path class="cy-river" d="M120 214 C 150 236, 200 250, 260 252 S 380 246, 440 256 S 520 262, 556 258"/>
+    <path class="cy-river-flow" d="M120 214 C 150 236, 200 250, 260 252 S 380 246, 440 256 S 520 262, 556 258"/>
+    <!-- intake to water treatment plant -->
+    <path class="cy-pipe" d="M214 250 V214"/>
+    <g class="cy-struct">
+      <rect x="194" y="186" width="56" height="28" rx="3"/><path d="M194 200 H250 M222 186 V214"/>
+      <circle cx="268" cy="200" r="13"/><circle cx="268" cy="200" r="4"/>
+    </g>
+    <!-- clean water to the tower and the city -->
+    <path class="cy-pipe" d="M281 200 H312 V132 M312 200 H352"/>
+    <g class="cy-struct">
+      <path d="M302 132 L298 96 M322 132 L326 96 M300 116 H324"/>
+      <rect x="290" y="74" width="44" height="24" rx="11"/>
+    </g>
+    <g class="cy-struct">
+      <path d="M352 210 V178 L366 166 L380 178 V210"/>
+      <path d="M384 210 V162 H408 V210 M390 172 h4 M398 172 h4 M390 184 h4 M398 184 h4 M390 196 h4 M398 196 h4"/>
+      <path d="M412 210 V182 L426 170 L440 182 V210"/>
+      <path d="M346 210 H446"/>
+    </g>
+    <path class="cy-flow" d="M281 200 H312 V132"/>
+    <path class="cy-flow" d="M312 200 H352"/>
+    <!-- sewer to wastewater treatment and back to the river -->
+    <path class="cy-sewer" d="M396 210 V230 H462"/>
+    <g class="cy-struct">
+      <circle cx="480" cy="226" r="16"/><circle cx="480" cy="226" r="5"/>
+      <circle cx="520" cy="226" r="16"/><circle cx="520" cy="226" r="5"/>
+      <path d="M496 226 H504"/>
+    </g>
+    <path class="cy-pipe" d="M536 226 H546 V256"/>
+    <path class="cy-flow cy-flow-waste" d="M396 210 V230 H462"/>
+  </g>
+</svg>
