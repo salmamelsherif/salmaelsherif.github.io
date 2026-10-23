@@ -585,6 +585,19 @@ a.pill[target="_blank"]::after, .btn[target="_blank"]::after { content: ""; disp
 .py-sun { fill: color-mix(in srgb, var(--signal) 35%, transparent); stroke: color-mix(in srgb, var(--signal) 70%, transparent); stroke-width: 1.4; }
 .py-dune { fill: none; stroke: color-mix(in srgb, var(--current) 22%, transparent); stroke-width: 1.4; stroke-linecap: round; }
 .py-dune2 { stroke: color-mix(in srgb, var(--current) 12%, transparent); }
+.py-water { stroke: color-mix(in srgb, var(--current) 40%, transparent); stroke-width: 1.4; }
+.py-refl { stroke: color-mix(in srgb, var(--tide) 30%, transparent); stroke-width: 2; stroke-linecap: round; }
+.py-wave { fill: none; stroke: color-mix(in srgb, var(--tide) 45%, transparent); stroke-width: 1.4; stroke-linecap: round; }
+.py-boat path { fill: none; stroke: color-mix(in srgb, var(--current) 55%, transparent); stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+.py-boat .py-sail { fill: color-mix(in srgb, var(--signal) 18%, transparent); stroke: color-mix(in srgb, var(--signal) 65%, transparent); }
+.py-boat { animation: py-bob 5s ease-in-out infinite alternate; transform-box: fill-box; }
+@keyframes py-bob { from { translate: 0 0; } to { translate: 6px -3px; } }
+.py-pattern path { fill: none; stroke: color-mix(in srgb, var(--tide) 40%, transparent); stroke-width: 1.1; }
+.py-edge-strong { stroke: color-mix(in srgb, var(--current) 60%, transparent); stroke-width: 2; }
+.py-mosque path, .py-mosque circle { fill: none; stroke: color-mix(in srgb, var(--current) 45%, transparent); stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }
+.py-dot { fill: color-mix(in srgb, var(--tide) 70%, transparent); animation: cn-twinkle 4s ease-in-out infinite alternate; }
+.py-dot:nth-child(odd) { animation-delay: 2s; }
+.py-moon { fill: color-mix(in srgb, var(--signal) 30%, transparent); stroke: color-mix(in srgb, var(--signal) 70%, transparent); stroke-width: 1.4; }
 @media (max-width: 860px) { .identity-intro { grid-template-columns: minmax(0, 1fr); } .py-art { max-width: 360px; opacity: 0.8; } }
 .identity-story { max-width: 46rem; }
 .identity-intro.has-photo { grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr); max-width: none; align-items: start; }
