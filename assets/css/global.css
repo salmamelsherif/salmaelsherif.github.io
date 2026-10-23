@@ -1,17 +1,13 @@
 @charset "utf-8";
-/* Same type as the redesigned pages: Bricolage Grotesque for headings, Atkinson Hyperlegible for text */
 body {
-    font-family: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+    font-family: "Lato", sans-serif;
     font-weight: 400;
     padding-top: 5.0rem;
 }
 
 h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6,
-.navbar-brand, .card-title {
-    font-family: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
-    font-weight: 600;
-    letter-spacing: -0.01em;
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-weight: 700;
 }
 
 .text-profile-position {
@@ -19,6 +15,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .text-profile-bio {
+    /* font-family: "Raleway"; */
     font-weight: 400;
 }
 
