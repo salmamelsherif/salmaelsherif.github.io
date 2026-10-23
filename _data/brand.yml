@@ -71,7 +71,29 @@ projects_page:
 #   Each section has a label and either text: (a paragraph) or points: (a list).
 # image: optional, shown inside the open project.
 projects:
-  - title: Water Quality and Hydraulic Modeling for Chlorine Residual, San Jose Water, CA
+  - title: Distribution System Model and Capital Plan, City of Steubenville, OH, USA
+    summary: A calibrated hydraulic model and a prioritized capital plan spanning more than 10 years.
+    year: "2026"
+    tags: [Hydraulic modeling, Calibration, Fire flow, Capital improvement planning, Autodesk InfoWater Pro]
+    sections:
+      - label: Description
+        text: >-
+          A prioritization study to guide long-term investment in the City's water distribution system.
+      - label: Scope
+        points:
+          - Model update and calibration
+          - Evaluation of existing system performance
+          - Infrastructure and operational constraints
+          - Prioritized capital improvement plan (CIP)
+      - label: Responsibilities
+        points:
+          - Updating the hydraulic model with the City's latest GIS data
+          - Calibrating the hydraulic model against field data
+          - Building a calibration dashboard that compares model results with field data, with KPIs and visualizations
+          - Validating fire flow and hydrant test data and recommending next steps based on the results
+          - Modeling proposed improvements to showcase their hydraulic benefits
+          - Working on the CIP report
+  - title: Water Quality and Hydraulic Modeling for Chlorine Residual, San Jose Water, CA, USA
     summary: Working with San Jose Water to build and calibrate a model that tracks free chlorine, chloramine, and the blending between them.
     year: "2025–present"
     tags: [Water quality modeling, Multi-species (MSX), Chloramine blending, Calibration, AquaTwin Pro]
@@ -97,7 +119,7 @@ projects:
           - Analyzing hold studies and developing disinfectant decay curves
           - Coordinating with EPA on the development of the multi-species chloramine model, then feeding it into the MSX model, running it on the system, exporting the results, and building a calibration dashboard
           - Working with Aquanuity to add new features to its newly released MSX tools, streamlining our workflow and future work for utilities
-  - title: Water Modeling and Field Support, City of Houston, TX
+  - title: Water Modeling and Field Support, City of Houston, TX, USA
     summary: Hydraulic and water quality modeling of a large, complex system with free chlorine and chloramine blending zones, from source tracing to model calibration.
     year: "2023–present"
     tags: [Hydraulic modeling, Water quality modeling, Water age, Demand forecasting, WaterGEMS]
@@ -118,27 +140,6 @@ projects:
           - Identifying blending zones where water disinfected with free chlorine meets water disinfected with monochloramine
           - Coordinating with EPA on the development of the multi-species chloramine model
           - Supporting development of an MSX model of free chlorine and monochloramine that traces disinfectant behavior across the system and lays the groundwork for its calibration
-  - title: Distribution System Model and Capital Plan, City of Steubenville, OH
-    summary: A calibrated hydraulic model and a prioritized capital plan spanning more than 10 years.
-    tags: [Hydraulic modeling, Calibration, Fire flow, Capital improvement planning, InfoWater]
-    sections:
-      - label: Description
-        text: >-
-          A prioritization study to guide long-term investment in the City's water distribution system.
-      - label: Scope
-        points:
-          - Model update and calibration
-          - Evaluation of existing system performance
-          - Infrastructure and operational constraints
-          - Prioritized capital improvement plan (CIP)
-      - label: Responsibilities
-        points:
-          - Updating the hydraulic model with the City's latest GIS data
-          - Calibrating the hydraulic model against field data
-          - Building a calibration dashboard that compares model results with field data, with KPIs and visualizations
-          - Validating fire flow and hydrant test data and recommending next steps based on the results
-          - Modeling proposed improvements to showcase their hydraulic benefits
-          - Working on the CIP report
 
 # ---------- Path (shown in order) ----------
 # Two timelines, oldest first. "current: true" gets the highlighted marker.
