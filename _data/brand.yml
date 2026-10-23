@@ -107,22 +107,39 @@ education:
   - years: "2017–2020"
     title: M.Sc. Water Resources and Environmental Engineering
     place: Faculty of Engineering, Cairo University, Egypt
+    details:
+      - "Thesis: <em>Spatial-Temporal Analysis of Rainfall Distribution. Case Study: Kingdom of Saudi Arabia (KSA)</em>"
   - years: "2021–2025"
     title: Ph.D. Civil and Infrastructure Systems
     place: Civil and Environmental Engineering Department, Vanderbilt University, USA
+    details:
+      - "Dissertation: <a href=\"https://ir.vanderbilt.edu/items/c49b5d69-a819-42d2-b7b5-4c6dcceac6a1\" target=\"_blank\" rel=\"noopener\"><em>Monitoring and Control of Quantity-Quality Dynamics for Resilient Drinking Water Networks</em></a>"
+      - "Advisor: <a href=\"https://ahmadstatespace.github.io\" target=\"_blank\" rel=\"noopener\">Ahmad F. Taha</a>"
 
 experience:
   - years: "2016–2017"
     title: Infrastructure Design Engineer
     place: EGEC – Engineering House of Expertise, Egypt
+    details:
+      - Designed water and sewer networks
+      - Prepared master plans, network profiles, and construction details
+      - Prepared the feasibility studies and final reports needed to initiate projects
+      - Prepared bills of quantities (BOQs)
   - years: "2017–2021"
     title: Business Development, Tendering and Proposals Engineer
     place: EGEC – Engineering House of Expertise, Egypt
     note: Part-time
+    details:
+      - Prepared technical and financial proposals for infrastructure projects in Egypt, Saudi Arabia, the UAE, Qatar, Kenya, and other countries
+      - Ensured every proposal met the client's requirements
+      - Helped develop and improve the proposal procedures behind successful tender packages
   - years: "2018–2021"
     title: Water and Environment Engineer (Hydrology)
     place: CEEG – Civil and Environmental Engineering Group, Egypt
     note: Part-time
+    details:
+      - Designed hydrology and infrastructure works, including flood protection solutions such as dams, culverts, bridges, Irish crossings, and ponds
+      - Designed stormwater drainage networks
   - years: "2025–now"
     title: Staff Water Resources Engineer
     place: Arcadis U.S., Inc.

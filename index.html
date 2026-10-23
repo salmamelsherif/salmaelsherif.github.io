@@ -91,9 +91,20 @@ title: Homepage
                 <ol class="timeline">
                     {% for step in b[t] %}
                     <li{% if step.current %} class="is-current"{% endif %}>
+                        {% if step.details %}
+                        <details class="tl-more">
+                            <summary>
+                                <span class="tl-years">{{ step.years }}{% if step.note %}<span class="tl-note">{{ step.note }}</span>{% endif %}</span>
+                                <span class="tl-title">{{ step.title }}<span class="tl-chevron" aria-hidden="true"></span></span>
+                                <span class="tl-place">{{ step.place }}</span>
+                            </summary>
+                            <ul class="tl-details">{% for d in step.details %}<li>{{ d }}</li>{% endfor %}</ul>
+                        </details>
+                        {% else %}
                         <span class="tl-years">{{ step.years }}{% if step.note %}<span class="tl-note">{{ step.note }}</span>{% endif %}</span>
                         <span class="tl-title">{{ step.title }}</span>
                         <span class="tl-place">{{ step.place }}</span>
+                        {% endif %}
                     </li>
                     {% endfor %}
                 </ol>

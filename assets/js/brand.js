@@ -82,6 +82,7 @@
   };
   setTails();
   window.addEventListener("resize", setTails);
+  document.querySelectorAll(".timeline details").forEach(function (d) { d.addEventListener("toggle", setTails); });
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(setTails);
 
   /* ---------- Counting figures + timeline fill ---------- */
