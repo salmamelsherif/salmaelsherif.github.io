@@ -140,6 +140,49 @@ projects:
           - Identifying blending zones where water disinfected with free chlorine meets water disinfected with monochloramine
           - Coordinating with EPA on the development of the multi-species chloramine model
           - Supporting development of an MSX model of free chlorine and monochloramine that traces disinfectant behavior across the system and lays the groundwork for its calibration
+  - title: Fayoum Wastewater Expansion Programme Bid, Fayoum, Egypt
+    summary: Tender documents and proposals for a winning bid to bring sanitation to 119 villages.
+    year: "2019–2020"
+    tags: [Sanitation, Sewer networks, Pump stations, Tendering, Proposals]
+    sections:
+      - label: Description
+        text: >-
+          A large-scale sanitation program delivered in two phases: Phase 1 covers 119 villages and
+          Phase 2 covers 41. EGEC was awarded Phase 1, which is now under implementation.
+      - label: Scope
+        points:
+          - About 2,340 km of sewer networks
+          - 99 pump stations
+          - 260 km of force mains
+          - 18 wastewater treatment plants, from 3,000 to 120,000 m³/day
+      - label: Responsibilities
+        points:
+          - Working as part of the bidding team for Phase 1
+          - Preparing the tender documents
+          - Preparing the technical and financial proposals
+  - title: Feasibility Study for Bahr ElBaqar Wastewater Treatment Plant, Sinai, Egypt
+    summary: Early-stage feasibility work for a 5.6 million m³/day plant that treats drain water for irrigation reuse.
+    year: "2019"
+    tags: [Wastewater treatment, Feasibility study, Water reuse, Process selection]
+    sections:
+      - label: Description
+        text: >-
+          A tertiary wastewater treatment and sludge handling plant with a capacity of 5.6 million
+          m³/day. It treats polluted water from the Bahr ElBaqar drain, a mix of industrial effluent,
+          sewage, and agricultural runoff, through coagulation, flocculation, settling, filtration, and
+          disinfection. The treated water is carried under the Suez Canal and reused to irrigate newly
+          created agricultural land. The total project value is about $739 million.
+      - label: Scope
+        points:
+          - Evaluation of treatment alternatives
+          - Capacity assessment
+          - Land requirements
+          - Process selection
+      - label: Responsibilities
+        points:
+          - Working as part of the engineering team preparing the feasibility study in the project's early planning stages
+          - Evaluating treatment alternatives
+          - Developing feasibility study inputs for capacity, land requirements, and process selection
 
 # ---------- Path (shown in order) ----------
 # Two timelines, oldest first. "current: true" gets the highlighted marker.
