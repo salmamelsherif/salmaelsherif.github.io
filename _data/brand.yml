@@ -64,7 +64,7 @@ sides:
 # ---------- Projects (its own page) ----------
 projects_page:
   title: Projects
-  intro: Selected work from practice.
+  intro: Real systems, real data, real decisions.
 # Projects, newest first. Each opens to show its sections.
 # summary: one line shown when closed. year and tags are optional.
 # sections: any mix you like, e.g. Description, Responsibilities, Scope.
