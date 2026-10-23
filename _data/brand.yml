@@ -194,7 +194,7 @@ projects:
   - title: Integrated Sanitation Technologies in Upper Egypt (63 Villages), Egypt
     summary: From feasibility to detailed design and tender documents for full sewerage systems serving 63 rural villages.
     year: "2016–2017"
-    tags: [Sanitation, Sewer networks, Preliminary and detailed design, Hydraulic calculations, Tender documents, FIDIC]
+    tags: [Sanitation, Sewer networks, Preliminary and detailed design, Hydraulic simulation, Tender documents, FIDIC]
     sections:
       - label: Description
         text: >-
@@ -214,12 +214,12 @@ projects:
           - Preparing feasibility study inputs and evaluating wastewater system alternatives for rural villages based on technical and implementation considerations
           - Developing preliminary sewer network designs, including pipe alignment, sizing, and system configuration
           - Preparing detailed design drawings, including plans, profiles, and standard details
-          - Performing hydraulic calculations to verify system capacity under projected demand
+          - Running hydraulic simulations to verify system capacity under projected demand
           - Preparing tender documents in line with FIDIC guidelines
   - title: Second Integrated Sanitation and Sewerage Infrastructure Project (ISSIP 2), Assiut, Egypt
     summary: Detailed design review and tender documents for 400 km of sewers, 24 pump stations, and two treatment plants serving 24 villages.
     year: "2016"
-    tags: [Sanitation, Sewer networks, Design review, Hydraulic checks, Tender documents, FIDIC]
+    tags: [Sanitation, Sewer networks, Design review, Hydraulic simulation, Tender documents, FIDIC]
     sections:
       - label: Description
         text: >-
@@ -239,7 +239,7 @@ projects:
         points:
           - Working as part of the design team during the project's final stage
           - Reviewing and refining detailed design drawings for the wastewater networks, including plans and profiles
-          - Verifying pipe sizing and alignment against design flows, with hydraulic checks to confirm system performance
+          - Verifying pipe sizing and alignment against design flows, with hydraulic simulations to confirm system performance
           - Preparing tender documents and reviewing quantities and specifications
 
 # ---------- Path (shown in order) ----------
