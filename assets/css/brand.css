@@ -97,6 +97,18 @@ a:hover { color: var(--tide); }
 .site-nav a:hover { color: #fff; background: rgba(255,255,255,0.08); }
 .site-nav .nav-cta { color: var(--abyss); background: var(--signal); }
 .site-nav .nav-cta:hover { color: var(--abyss); background: #fff; }
+/* Light/dark switch: shows a moon in light mode and a sun in dark mode */
+.head-inner > .brand { margin-right: auto; }
+.theme-toggle { flex: none; display: inline-grid; place-items: center; width: 36px; height: 36px; padding: 0; color: var(--on-deep); background: transparent; border: 1px solid rgba(255,255,255,0.3); border-radius: 999px; cursor: pointer; transition: background .2s, color .2s; }
+.theme-toggle:hover { background: rgba(255,255,255,0.1); color: #fff; }
+.theme-toggle svg { width: 17px; height: 17px; }
+.theme-toggle .icon-sun { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: block; }
+  :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: none; }
+}
+:root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+:root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
 .nav-toggle { display: none; font: inherit; font-size: var(--step--1); color: var(--on-deep); background: transparent; border: 1px solid rgba(255,255,255,0.3); border-radius: 999px; padding: 6px 14px; cursor: pointer; }
 
 /* ---------- Hero ---------- */

@@ -592,3 +592,29 @@
 
   build(); draw(); loop();
 })();
+
+/* Light/dark switch. Follows the device setting until the visitor picks a mode, then remembers it. */
+(function () {
+  var root = document.documentElement;
+  var btn = document.querySelector(".theme-toggle");
+  if (!btn) return;
+  var mq = window.matchMedia("(prefers-color-scheme: dark)");
+  function current() {
+    var t = root.getAttribute("data-theme");
+    return t === "dark" || t === "light" ? t : (mq.matches ? "dark" : "light");
+  }
+  function label() {
+    var next = current() === "dark" ? "light" : "dark";
+    var text = "Switch to " + next + " mode";
+    btn.setAttribute("aria-label", text);
+    btn.setAttribute("title", text);
+  }
+  btn.addEventListener("click", function () {
+    var next = current() === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("theme", next); } catch (e) {}
+    label();
+  });
+  if (mq.addEventListener) mq.addEventListener("change", label);
+  label();
+})();
