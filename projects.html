@@ -28,14 +28,24 @@ nav: projects
                 </summary>
                 <div class="proj-body">
                     {% if pr.image %}<img class="proj-img" src="{{ pr.image | relative_url }}" alt="" loading="lazy">{% endif %}
+                    {% comment %}Description and Scope stack on the left; Responsibilities gets the wider right column.{% endcomment %}
                     <div class="proj-sections">
-                        {% for sec in pr.sections %}
+                        <div class="proj-col">
+                        {% for sec in pr.sections %}{% if sec.label != "Responsibilities" %}
                         <div class="proj-sec">
                             <p class="proj-label">{{ sec.label }}</p>
                             {% if sec.text %}<p>{{ sec.text }}</p>{% endif %}
                             {% if sec.points %}<ul>{% for pt in sec.points %}<li>{{ pt }}</li>{% endfor %}</ul>{% endif %}
                         </div>
-                        {% endfor %}
+                        {% endif %}{% endfor %}
+                        </div>
+                        {% for sec in pr.sections %}{% if sec.label == "Responsibilities" %}
+                        <div class="proj-sec proj-sec-wide">
+                            <p class="proj-label">{{ sec.label }}</p>
+                            {% if sec.text %}<p>{{ sec.text }}</p>{% endif %}
+                            {% if sec.points %}<ul>{% for pt in sec.points %}<li>{{ pt }}</li>{% endfor %}</ul>{% endif %}
+                        </div>
+                        {% endif %}{% endfor %}
                     </div>
                     {% if pr.tags %}<ul class="tags">{% for t in pr.tags %}<li>{{ t }}</li>{% endfor %}</ul>{% endif %}
                 </div>

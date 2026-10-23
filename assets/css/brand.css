@@ -706,7 +706,10 @@ a.pill[target="_blank"]::after, .btn[target="_blank"]::after { content: ""; disp
 .proj-body { padding: 2px 22px 22px; display: grid; gap: 16px; }
 .proj[open] .proj-body { animation: rise .3s ease both; }
 .proj-img { width: 100%; max-height: 320px; object-fit: cover; border-radius: 12px; }
-.proj-sections { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 18px 28px; }
+.proj-sections { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 18px 36px; align-items: start; }
+.proj-col { display: grid; gap: 18px; align-content: start; min-width: 0; }
+.proj-sections > .proj-sec { min-width: 0; }
+@media (max-width: 760px) { .proj-sections { grid-template-columns: minmax(0, 1fr); } }
 .proj-sec { display: grid; gap: 6px; align-content: start; }
 .proj-label { font-weight: 700; font-size: 0.88rem; color: var(--current); }
 .proj-sec ul { margin: 0; padding-left: 1.1em; display: grid; gap: 5px; }
