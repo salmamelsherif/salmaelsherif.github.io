@@ -234,6 +234,12 @@ identity_page:
 photos_title: Life in pictures
 photos_limit: 6
 photos:
+  - src: /assets/images/life/colorado-2026-1.jpg
+    caption: Colorado, 2026
+    alt: Looking out over an alpine lake and pine trees under a bright sun
+  - src: /assets/images/life/colorado-2026-2.jpg
+    caption: Colorado, 2026
+    alt: Standing by a wooden fence at a mountain overlook framed by pine trees
   - src: /assets/images/life/miami-2026-1.jpg
     caption: Miami, FL, 2026
     alt: Palm trees against a blue sky with soft clouds
