@@ -121,7 +121,7 @@ projects:
           - Working with Aquanuity to add new features to its newly released MSX tools, streamlining our workflow and future work for utilities
   - title: Water Modeling and Field Support, City of Houston, TX, USA
     summary: Hydraulic and water quality modeling of a large, complex system with free chlorine and chloramine blending zones, from source tracing to model calibration.
-    year: "2023–present"
+    year: "2025–present"
     tags: [Hydraulic modeling, Water quality modeling, Water age, Demand forecasting, WaterGEMS]
     sections:
       - label: Description
