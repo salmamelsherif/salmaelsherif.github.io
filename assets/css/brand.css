@@ -469,7 +469,6 @@ main:has(> section:last-child.band-tint) + .site-foot .wave { background: var(--
 .cd-close { width: 38px; height: 38px; flex: none; border: 0; border-radius: 50%; background: transparent; color: var(--muted); cursor: pointer; display: grid; place-items: center; }
 .cd-close:hover { background: var(--foam); color: var(--ink); }
 .cd-close svg { width: 20px; height: 20px; }
-.cd-intro { color: var(--muted); margin-top: -8px; }
 .cd-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 .cd-field { display: grid; gap: 6px; min-width: 0; }
 .cd-field label { font-weight: 700; font-size: 0.92rem; }

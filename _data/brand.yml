@@ -213,7 +213,7 @@ tools:
 # Get a free access key at https://web3forms.com (enter your email, the key arrives by email)
 # and paste it below. The key is safe to publish; it only lets the form send messages to you.
 contact_form:
-  access_key: ""
+  access_key: "34a86455-deac-4568-a32f-9e52ff902870"
   button: Send me a message
 
 contact_line: >-
