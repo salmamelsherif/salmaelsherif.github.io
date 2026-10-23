@@ -67,7 +67,6 @@
     var rItems = Array.prototype.slice.call(rList.querySelectorAll(".pub-item"));
     var typeSel = document.querySelector("[data-filter-type]");
     var yearSel = document.querySelector("[data-filter-year]");
-    var countEl = document.getElementById("rf-count");
     var resetBtn = document.getElementById("rf-reset");
     var emptyEl = document.getElementById("rf-empty");
     // fill the year menu from the items themselves
@@ -82,7 +81,6 @@
         var ok = (t === "all" || it.getAttribute("data-kind") === t) && (y === "all" || it.getAttribute("data-year") === y);
         it.hidden = !ok; if (ok) shown++;
       });
-      countEl.textContent = shown === rItems.length ? rItems.length + " items" : "Showing " + shown + " of " + rItems.length;
       resetBtn.hidden = t === "all" && y === "all";
       emptyEl.hidden = shown > 0;
     };

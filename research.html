@@ -33,7 +33,6 @@ nav: research
                     <option value="all">All years</option>
                 </select>
             </div>
-            <p class="rf-count" id="rf-count" aria-live="polite">{{ items | size }} items</p>
             <button type="button" class="rf-reset" id="rf-reset" hidden>Clear filters</button>
         </div>
 
@@ -55,7 +54,6 @@ nav: research
                     <p class="pub-meta">
                         <span class="tag tag-{{ kind }}">{{ kind_label }}</span>
                         <span class="pub-year-inline">{{ y }}</span>
-                        {% if pub.pub_last contains "Spotlight" %}<span class="tag tag-spotlight">Spotlight</span>{% endif %}
                         {% if pub.pub_post contains "review" %}<span class="tag tag-status">Under review</span>{% endif %}
                     </p>
                     <h3>{{ pub.title }}</h3>

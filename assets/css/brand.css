@@ -440,8 +440,7 @@ main:has(> section:last-child.band-tint) + .site-foot .wave { background: var(--
   background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%);
   background-position: calc(100% - 20px) 52%, calc(100% - 14px) 52%; background-size: 6px 6px; background-repeat: no-repeat; }
 .select-field select:focus-visible { outline: 3px solid var(--tide); outline-offset: 2px; }
-.rf-count { margin-left: auto; color: var(--muted); font-weight: 700; font-size: 0.95rem; padding-bottom: 10px; }
-.rf-reset { font: inherit; font-weight: 700; font-size: 0.92rem; color: var(--current); background: none; border: 0; padding: 0 0 10px; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.rf-reset { margin-left: auto; font: inherit; font-weight: 700; font-size: 0.92rem; color: var(--current); background: none; border: 0; padding: 0 0 10px; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
 .research-list { gap: 0; }
 .research-list > .pub-item { grid-template-columns: minmax(0, 1fr); padding-block: 18px; border-bottom: 1px solid var(--line); }
 .research-list .pub-body { gap: 4px; max-width: 58rem; }
@@ -467,6 +466,9 @@ main:has(> section:last-child.band-tint) + .site-foot .wave { background: var(--
 .research-list.is-compact .pub-cover { aspect-ratio: 1 / 1; border-radius: 10px; }
 .research-list.is-compact .pub-body h3 { font-size: 1.05rem; }
 .research-list.is-compact .pub-authors, .research-list.is-compact .pub-venue { font-size: 0.9rem; }
+
+/* external-link mark on buttons that leave the site */
+a.pill[target="_blank"]::after, .btn[target="_blank"]::after { content: ""; display: inline-block; width: 0.85em; height: 0.85em; margin-left: 6px; background: currentColor; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 4h6v6M20 4l-9 9'/%3E%3Cpath d='M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 4h6v6M20 4l-9 9'/%3E%3Cpath d='M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5'/%3E%3C/svg%3E") center / contain no-repeat; }
 
 /* ---------- About ---------- */
 .about-intro { display: grid; grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr); gap: clamp(32px, 6vw, 80px); align-items: start; }
@@ -574,7 +576,6 @@ main:has(> section:last-child.band-tint) + .site-foot .wave { background: var(--
   .brand-tag { display: none; }
 }
 @media (max-width: 480px) {
-  .rf-count { margin-left: 0; width: 100%; padding: 0; }
   .select-field { flex: 1 1 140px; }
   .select-field select { min-width: 0; width: 100%; }
   .pub-item { grid-template-columns: 88px minmax(0, 1fr); gap: 14px; }
