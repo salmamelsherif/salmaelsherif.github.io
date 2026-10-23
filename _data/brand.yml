@@ -72,13 +72,13 @@ projects_page:
 # image: optional, shown inside the open project.
 projects:
   - title: Water Quality and Hydraulic Modeling for Chlorine Residual, San Jose Water, CA
-    summary: Preparing a utility for upcoming EPA chlorine residual changes with a model that tracks free chlorine, chloramine, and the blending between them.
+    summary: Working with San Jose Water to build and calibrate a model that tracks free chlorine, chloramine, and the blending between them.
     year: "2025–present"
     tags: [Water quality modeling, Multi-species (MSX), Chloramine blending, Calibration, AquaTwin Pro]
     sections:
       - label: Description
         text: >-
-          San Jose Water is preparing for anticipated changes to the US EPA's chlorine residual
+          San Jose Water is preparing for anticipated changes to the US EPA's disinfectant
           requirements. Meeting them will take operational changes, including managing the blending
           zones where water disinfected with free chlorine meets water disinfected with monochloramine.
           The project builds a water quality model that tracks both disinfectants, and how they mix,

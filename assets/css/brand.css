@@ -709,7 +709,14 @@ a.pill[target="_blank"]::after, .btn[target="_blank"]::after { content: ""; disp
 .proj-sections { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 18px 36px; align-items: start; }
 .proj-col { display: grid; gap: 18px; align-content: start; min-width: 0; }
 .proj-sections > .proj-sec { min-width: 0; }
-@media (max-width: 760px) { .proj-sections { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 760px) {
+  .proj-sections { grid-template-columns: minmax(0, 1fr); }
+  /* Phones: year and chevron on their own row above the title, so the title gets the full width */
+  .proj summary { display: grid; grid-template-columns: 1fr auto; gap: 6px 12px; }
+  .proj-year { grid-row: 1; grid-column: 1; }
+  .proj-chev { grid-row: 1; grid-column: 2; align-self: center; }
+  .proj-head { grid-row: 2; grid-column: 1 / -1; }
+}
 .proj-sec { display: grid; gap: 6px; align-content: start; }
 .proj-label { font-weight: 700; font-size: 0.88rem; color: var(--current); }
 .proj-sec ul { margin: 0; padding-left: 1.1em; display: grid; gap: 5px; }
