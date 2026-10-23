@@ -307,7 +307,6 @@ a:hover { color: var(--tide); }
 .cy-sewer { fill: none; stroke: rgba(233, 162, 59, 0.6); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
 .cy-flow { fill: none; stroke: #3CC0D8; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 2 12; animation: pa-flow 2s linear infinite; }
 .cy-flow-waste { stroke: var(--signal); }
-.cy-label text { fill: #9FB8CA; font-family: var(--body); font-size: 11px; letter-spacing: 0.02em; }
 @media (prefers-reduced-motion: reduce) { .cy-rain, .cy-river-flow, .cy-flow { animation: none; } }
 @media (max-width: 860px) { .art { opacity: 0.3; width: 90vw; right: -25vw; } }
 
