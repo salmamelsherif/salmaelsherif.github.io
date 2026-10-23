@@ -136,7 +136,7 @@ projects:
           - Updating and calibrating the hydraulic model
           - Building a calibration dashboard that compares model results with field data, with KPIs and visualizations
           - Validating fire flow and hydrant test data and recommending next steps based on the results
-          - Modeling proposed improvements to verify their hydraulic benefits
+          - Modeling proposed improvements to showcase their hydraulic benefits
           - Contributing to the CIP report
 
 # ---------- Path (shown in order) ----------
