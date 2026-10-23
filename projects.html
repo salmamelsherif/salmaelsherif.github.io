@@ -15,16 +15,31 @@ nav: projects
 
 <section class="band" id="projects">
     <div class="wrap">
-        <div class="projects">
+        <div class="proj-list">
             {% for pr in b.projects %}
-            <article class="project" data-kind="{{ pr.kind }}">
-                {% if pr.image %}<div class="project-img"><img src="{{ pr.image | relative_url }}" alt="" loading="lazy"></div>{% endif %}
-                <div class="project-body">
-                    <h3>{% if pr.link != "" %}<a href="{{ pr.link | relative_url }}">{{ pr.title }}</a>{% else %}{{ pr.title }}{% endif %}</h3>
-                    <p>{{ pr.outcome }}</p>
-                    <ul class="tags">{% for t in pr.tags %}<li>{{ t }}</li>{% endfor %}</ul>
+            <details class="proj"{% if forloop.first %} open{% endif %}>
+                <summary>
+                    <span class="proj-head">
+                        <span class="proj-title">{{ pr.title }}</span>
+                        {% if pr.summary %}<span class="proj-sum">{{ pr.summary }}</span>{% endif %}
+                    </span>
+                    {% if pr.year %}<span class="proj-year">{{ pr.year }}</span>{% endif %}
+                    <span class="proj-chev" aria-hidden="true"></span>
+                </summary>
+                <div class="proj-body">
+                    {% if pr.image %}<img class="proj-img" src="{{ pr.image | relative_url }}" alt="" loading="lazy">{% endif %}
+                    <div class="proj-sections">
+                        {% for sec in pr.sections %}
+                        <div class="proj-sec">
+                            <p class="proj-label">{{ sec.label }}</p>
+                            {% if sec.text %}<p>{{ sec.text }}</p>{% endif %}
+                            {% if sec.points %}<ul>{% for pt in sec.points %}<li>{{ pt }}</li>{% endfor %}</ul>{% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% if pr.tags %}<ul class="tags">{% for t in pr.tags %}<li>{{ t }}</li>{% endfor %}</ul>{% endif %}
                 </div>
-            </article>
+            </details>
             {% endfor %}
         </div>
     </div>

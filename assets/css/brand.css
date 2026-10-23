@@ -575,7 +575,17 @@ a.pill[target="_blank"]::after, .btn[target="_blank"]::after { content: ""; disp
 @media (max-width: 560px) { .cd-row { grid-template-columns: minmax(0, 1fr); } .contact-form { padding: 22px 18px 18px; } }
 
 /* ---------- Identity & Life ---------- */
-.identity-intro { display: grid; gap: clamp(32px, 6vw, 80px); }
+.identity-intro { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: clamp(32px, 6vw, 80px); align-items: center; }
+.py-art { width: 100%; height: auto; }
+.py-edge { fill: none; stroke: color-mix(in srgb, var(--current) 45%, transparent); stroke-width: 1.6; stroke-linejoin: round; }
+.py-ridge { stroke: color-mix(in srgb, var(--current) 30%, transparent); stroke-width: 1.2; }
+.py-face { fill: color-mix(in srgb, var(--tide) 8%, transparent); }
+.py-course { fill: none; stroke: color-mix(in srgb, var(--current) 16%, transparent); stroke-width: 1; }
+.py-star { fill: color-mix(in srgb, var(--tide) 8%, transparent); stroke: color-mix(in srgb, var(--tide) 55%, transparent); stroke-width: 1.4; animation: geo-glow 6s ease-in-out infinite alternate; }
+.py-sun { fill: color-mix(in srgb, var(--signal) 35%, transparent); stroke: color-mix(in srgb, var(--signal) 70%, transparent); stroke-width: 1.4; }
+.py-dune { fill: none; stroke: color-mix(in srgb, var(--current) 22%, transparent); stroke-width: 1.4; stroke-linecap: round; }
+.py-dune2 { stroke: color-mix(in srgb, var(--current) 12%, transparent); }
+@media (max-width: 860px) { .identity-intro { grid-template-columns: minmax(0, 1fr); } .py-art { max-width: 360px; opacity: 0.8; } }
 .identity-story { max-width: 46rem; }
 .identity-intro.has-photo { grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr); max-width: none; align-items: start; }
 .identity-story { display: grid; gap: 18px; font-size: 1.15rem; line-height: 1.8; }
@@ -632,6 +642,27 @@ a.pill[target="_blank"]::after, .btn[target="_blank"]::after { content: ""; disp
 .review-groups { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 1fr); gap: 16px 28px; }
 .review-label { font-size: var(--step--1); font-weight: 700; color: var(--muted); margin-bottom: 8px; }
 @media (max-width: 860px) { .review-groups { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- Projects (expandable list) ---------- */
+.proj-list { display: grid; gap: 12px; max-width: 64rem; }
+.proj { background: var(--surface); border-radius: 14px; box-shadow: 0 0 0 1px var(--line); }
+.proj[open] { box-shadow: 0 0 0 1.5px color-mix(in srgb, var(--current) 40%, transparent); }
+.proj summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 18px; padding: 18px 22px; }
+.proj summary::-webkit-details-marker { display: none; }
+.proj-head { display: grid; gap: 4px; flex: 1; min-width: 0; }
+.proj-title { font-family: var(--display); font-weight: 600; font-size: 1.18rem; line-height: 1.3; }
+.proj summary:hover .proj-title { color: var(--current); }
+.proj-sum { color: var(--muted); }
+.proj-year { font-weight: 700; font-size: 0.92rem; color: var(--current); font-variant-numeric: tabular-nums; }
+.proj-chev { width: 11px; height: 11px; flex: none; border-right: 2px solid var(--current); border-bottom: 2px solid var(--current); transform: rotate(45deg) translateY(-3px); transition: transform .2s; }
+.proj[open] .proj-chev { transform: rotate(225deg) translateY(-2px); }
+.proj-body { padding: 2px 22px 22px; display: grid; gap: 16px; }
+.proj[open] .proj-body { animation: rise .3s ease both; }
+.proj-img { width: 100%; max-height: 320px; object-fit: cover; border-radius: 12px; }
+.proj-sections { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 18px 28px; }
+.proj-sec { display: grid; gap: 6px; align-content: start; }
+.proj-label { font-weight: 700; font-size: 0.88rem; color: var(--current); }
+.proj-sec ul { margin: 0; padding-left: 1.1em; display: grid; gap: 5px; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1120px) {

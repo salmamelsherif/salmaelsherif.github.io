@@ -15,10 +15,11 @@ nav: identity
 </section>
 
 <section class="band">
-    <div class="wrap">
+    <div class="wrap identity-intro">
         <div class="identity-story">
             {% for para in ip.story %}<p>{{ para }}</p>{% endfor %}
         </div>
+        {% include brand/art-pyramids.html %}
     </div>
 </section>
 
