@@ -98,7 +98,7 @@ projects:
           - Coordinating with EPA on the development of the multi-species chloramine model, then feeding it into the MSX model, running it on the system, exporting the results, and building a calibration dashboard
           - Working with Aquanuity to add new features to its newly released MSX tools, streamlining our workflow and future work for utilities
   - title: Water Modeling and Field Support, City of Houston, TX
-    summary: Hydraulic and water quality modeling of a large, complex system where free chlorine and chloramine sources mix, from blending analysis to model calibration.
+    summary: Hydraulic and water quality modeling of a large, complex system with free chlorine and chloramine blending zones, from source tracing to model calibration.
     year: "2023–present"
     tags: [Hydraulic modeling, Water quality modeling, Water age, Demand forecasting, WaterGEMS]
     sections:
@@ -115,6 +115,8 @@ projects:
         points:
           - Building a dashboard that brings together all water quality field sampling data, with quantitative and qualitative analyses
           - Running water age and source trace analyses, and developing maps that highlight zones with high water age
+          - Identifying blending zones where water disinfected with free chlorine meets water disinfected with monochloramine
+          - Coordinating with EPA on the development of the multi-species chloramine model
           - Supporting development of an MSX model of free chlorine and monochloramine that traces disinfectant behavior across the system and lays the groundwork for its calibration
 
 # ---------- Path (shown in order) ----------
