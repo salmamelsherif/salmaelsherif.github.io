@@ -162,6 +162,8 @@ a:hover { color: var(--tide); }
 .page-hero { background: radial-gradient(120% 140% at 85% 0%, #0A3A63 0%, var(--abyss) 65%); color: var(--on-deep); padding-block: clamp(56px, 8vw, 96px) clamp(40px, 6vw, 64px); }
 .page-hero h1 { font-size: var(--step-4); font-weight: 700; letter-spacing: -0.02em; color: #fff; }
 .page-hero p { margin-top: 14px; max-width: 36rem; color: var(--on-deep-muted); font-size: 1.1rem; }
+/* A one-line intro leaves the header short; add the missing line's height back, half above and half below, so the header art fits */
+.page-hero-roomy { padding-block: calc(clamp(56px, 8vw, 96px) + 0.88rem) calc(clamp(40px, 6vw, 64px) + 0.88rem); }
 .site-nav a[aria-current="page"] { color: #fff; background: rgba(255,255,255,0.12); }
 .filter-label { color: var(--muted); font-weight: 600; font-size: var(--step--1); }
 .section-head-row:has(.filter-label) { grid-template-columns: auto 1fr; align-items: center; margin-bottom: 28px; }
