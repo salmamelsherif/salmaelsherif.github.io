@@ -6,6 +6,7 @@
     <title>{% if page.title and page.title != "Homepage" %}{{ page.title }} - {% endif %}{{ site.data.profile.primary_name }}</title>
     <meta name="description" content="{{ site.data.brand.intro | strip_html | strip_newlines | truncate: 160 }}">
     {% capture page_title %}{% if page.title and page.title != "Homepage" %}{{ page.title }} - {% endif %}{{ site.data.profile.primary_name }}{% endcapture %}
+    {% if page.url contains "404" %}<meta name="robots" content="noindex">{% endif %}
     <link rel="canonical" href="https://salmaelsherif.com{{ page.url | replace: 'index.html', '' | replace: '.html', '' }}">
     <!-- Link previews (LinkedIn, WhatsApp, X, Facebook, Slack) -->
     <meta property="og:type" content="website">
