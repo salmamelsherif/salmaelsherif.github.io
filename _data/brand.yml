@@ -315,9 +315,7 @@ highlights:
 # ---------- Inner pages ----------
 research_page:
   title: Research
-  intro: >-
-    Journal papers, conference papers, my Ph.D. dissertation, and talks on modeling,
-    monitoring and control of drinking water networks.
+  intro: Journal papers, conference papers, my Ph.D. dissertation, and talks.
 
 # ---------- Credentials page ----------
 # Add "logo: /path/to/file.png" to any item to show an official logo instead of the lettered badge.
