@@ -21,6 +21,7 @@ nav: projects
                 <summary>
                     <span class="proj-head">
                         <span class="proj-title">{{ pr.title }}</span>
+                        {% if pr.location %}<span class="proj-loc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5a7 7 0 0 0-7 7c0 5.2 7 12 7 12s7-6.8 7-12a7 7 0 0 0-7-7zm0 9.6a2.6 2.6 0 1 1 0-5.2 2.6 2.6 0 0 1 0 5.2z" fill="currentColor"/></svg>{{ pr.location }}</span>{% endif %}
                         {% if pr.summary %}<span class="proj-sum">{{ pr.summary }}</span>{% endif %}
                     </span>
                     {% if pr.year %}<span class="proj-year">{{ pr.year }}</span>{% endif %}

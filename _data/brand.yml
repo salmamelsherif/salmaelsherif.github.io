@@ -66,12 +66,14 @@ projects_page:
   title: Projects
   intro: Real systems, real data, real decisions.
 # Projects, newest first. Each opens to show its sections.
+# location: shown in smaller text under the title (city or region, country).
 # summary: one line shown when closed. year and tags are optional.
 # sections: any mix you like, e.g. Description, Responsibilities, Scope.
 #   Each section has a label and either text: (a paragraph) or points: (a list).
 # image: optional, shown inside the open project.
 projects:
-  - title: Distribution System Model and Capital Plan, City of Steubenville, OH, USA
+  - title: Distribution System Model and Capital Plan
+    location: City of Steubenville, OH, USA
     summary: A calibrated hydraulic model and a prioritized capital investment plan.
     year: "2026"
     tags: [Hydraulic modeling, Hydraulic calibration, Scenario setup, Fire flow, Capital investment planning, Autodesk InfoWater Pro]
@@ -93,7 +95,8 @@ projects:
           - Validating fire flow and hydrant test data and recommending next steps based on the results
           - Modeling proposed improvements to showcase their hydraulic benefits
           - Working on the CIP report
-  - title: Water Quality and Hydraulic Modeling for Chlorine Residual, San Jose Water, CA, USA
+  - title: Water Quality and Hydraulic Modeling for Chlorine Residual
+    location: San Jose Water, CA, USA
     summary: Working with San Jose Water to build and calibrate a model that tracks free chlorine, chloramine, and the blending between them.
     year: "2025–present"
     tags: [Multi-species water quality modeling and calibration, Water age, Multi-source trace, Chlorine & chloramine blending, Aquanuity AquaTwin]
@@ -119,7 +122,8 @@ projects:
           - Analyzing hold studies and developing disinfectant decay curves
           - Coordinating with EPA on the development of the multi-species chloramine model, then feeding it into the MSX model, running it on the system, exporting the results, and building a calibration dashboard
           - Working with Aquanuity to add new features to its newly released MSX tools, streamlining our workflow and future work for utilities
-  - title: Water Modeling and Field Support, City of Houston, TX, USA
+  - title: Water Modeling and Field Support
+    location: City of Houston, TX, USA
     summary: Hydraulic and water quality modeling of a large, complex system with free chlorine and chloramine blending zones, from source tracing to model calibration.
     year: "2025–present"
     tags: [Hydraulic modeling and calibration, Multi-species water quality modeling and calibration, Water age, Multi-source trace, Chlorine & chloramine blending, Bentley WaterGEMS]
@@ -140,7 +144,8 @@ projects:
           - Identifying blending zones where water disinfected with free chlorine meets water disinfected with monochloramine
           - Coordinating with EPA on the development of the multi-species chloramine model
           - Supporting development of an MSX model of free chlorine and monochloramine that traces disinfectant behavior across the system and lays the groundwork for its calibration
-  - title: Fayoum Wastewater Expansion Programme Bid, Fayoum, Egypt
+  - title: Fayoum Wastewater Expansion Programme Bid
+    location: Fayoum, Egypt
     summary: Tender documents and proposals for a winning bid to bring sanitation to 119 villages.
     year: "2019–2020"
     tags: [Business development, Tendering and proposals, Sanitation, Sewer networks]
@@ -156,7 +161,8 @@ projects:
           - Working as part of the bidding team for Phase 1, preparing both the technical and financial proposals
           - Reviewing the tender requirements to make sure the bid met every client requirement
           - Preparing the technical proposal, including the methodology, work plan, and staffing, in line with European Bank for Reconstruction and Development (EBRD) standards and FIDIC guidelines
-  - title: Feasibility Study for Bahr ElBaqar Wastewater Treatment Plant, Sinai, Egypt
+  - title: Feasibility Study for Bahr ElBaqar Wastewater Treatment Plant
+    location: Sinai, Egypt
     summary: Early-stage feasibility work for a 5.6 million m³/day plant that treats drain water for irrigation reuse.
     year: "2019"
     tags: [Feasibility study, Wastewater treatment plant]
@@ -172,7 +178,8 @@ projects:
         points:
           - Working as part of the engineering team preparing the feasibility study in the project's early planning stages
           - Developing feasibility study inputs for capacity, land requirements, and process selection
-  - title: Flood Risk and Hydrological Assessment, AlMadinah, AlJouf, and Tabouk Regions, Saudi Arabia
+  - title: Flood Risk and Hydrological Assessment
+    location: AlMadinah, AlJouf, and Tabouk Regions, Saudi Arabia
     summary: Hydrologic and hydraulic modeling across 99 locations to map flood risk zones and test flood protection schemes.
     year: "2018–2020"
     tags: [Hydrology, Flood risk, Flood protection and control, Watershed modeling, WMS, AutoCAD]
@@ -191,7 +198,8 @@ projects:
           - Delineating watersheds and building hydrologic models in the Watershed Modeling System (WMS) to simulate runoff and identify flood risk zones under varying storm conditions
           - Processing and exporting simulation results for flood mapping and later design stages
           - Rerunning watershed and flood simulations with the proposed protection schemes to measure how well they reduce flood risk under design events
-  - title: Integrated Sanitation Technologies in Upper Egypt (63 Villages), Egypt
+  - title: Integrated Sanitation Technologies in Upper Egypt (63 Villages)
+    location: Minya, Assiut, Sohag, Qena, and Luxor, Egypt
     summary: From feasibility to detailed design and tender documents for full sewerage systems serving 63 rural villages.
     year: "2016–2017"
     tags: [Sanitation, Sewer networks, Preliminary and detailed design, Hydraulic simulation, Tender documents, FIDIC]
@@ -216,7 +224,8 @@ projects:
           - Preparing detailed design drawings, including plans, profiles, and standard details
           - Running hydraulic simulations to verify system capacity under projected demand
           - Preparing tender documents in line with FIDIC guidelines
-  - title: Second Integrated Sanitation and Sewerage Infrastructure Project (ISSIP 2), Assiut, Egypt
+  - title: Second Integrated Sanitation and Sewerage Infrastructure Project (ISSIP 2)
+    location: Assiut, Egypt
     summary: Detailed design review and tender documents for 400 km of sewers, 24 pump stations, and two treatment plants serving 24 villages.
     year: "2016"
     tags: [Sanitation, Sewer networks, Design review, Hydraulic simulation, Tender documents, FIDIC]
