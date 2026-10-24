@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>{% if page.title and page.title != "Homepage" %}{{ page.title }} - {% endif %}{{ site.data.profile.primary_name }}</title>
     <meta name="description" content="{{ site.data.brand.intro | strip_html | strip_newlines | truncate: 160 }}">
+    {% capture page_title %}{% if page.title and page.title != "Homepage" %}{{ page.title }} - {% endif %}{{ site.data.profile.primary_name }}{% endcapture %}
+    <!-- Link previews (LinkedIn, WhatsApp, X, Facebook, Slack) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="{{ site.data.profile.primary_name }}">
+    <meta property="og:title" content="{{ page_title | strip }}">
+    <meta property="og:description" content="{{ site.data.brand.headline }}. Staff Water Resources Engineer, Ph.D., PE.">
+    <meta property="og:url" content="https://salmaelsherif.com{{ page.url | replace: 'index.html', '' }}">
+    <meta property="og:image" content="https://salmaelsherif.com/assets/images/brand/social-preview.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Salma M. Elsherif, Staff Water Resources Engineer, Ph.D., PE, Arcadis U.S., Inc., with a water distribution network illustration">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://salmaelsherif.com/assets/images/brand/social-preview.jpg">
     <link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}?v=3">
     <link rel="icon" type="image/svg+xml" href="{{ '/favicon.svg' | relative_url }}?v=3">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ '/favicon-32x32.png' | relative_url }}?v=3">
