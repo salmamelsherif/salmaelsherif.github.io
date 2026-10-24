@@ -369,12 +369,23 @@
     var usable = function (n) { return n.kind === "junction" && clear(n.x, n.y) && n.x > 24 && n.x < W - 24 && n.y > 24 && n.y < H - 24; };
     var spaced = function (pt, list, min) { return list.every(function (o) { return Math.hypot(pt.x - o.x, pt.y - o.y) > min; }); };
 
-    // storage tanks: far from the plant, on quieter ends of the network
-    // an elevated tank connects to the system by at most two pipes
-    var tanks = [], cands = nodes.filter(function (n) { return usable(n) && n.d > 3 && n.adj.length <= 2; });
-    cands.sort(function (a, b) { return (b.d - a.d) + (a.adj.length - b.adj.length) * 0.5; });
-    cands.forEach(function (n) {
-      if (tanks.length < 2 && spaced(n, tanks.concat([source]), gap * 3)) { n.kind = "tank"; n.tag = "T" + (tanks.length + 1); tanks.push(n); }
+    // storage tanks: elevated tanks a moderate distance from the plant, each on its own single pipe
+    var tanks = [], hosts = nodes.filter(function (n) { return usable(n) && n.d >= 3 && n.d <= 7; });
+    hosts.sort(function (a, b) { return Math.abs(a.d - 5) - Math.abs(b.d - 5) || rand() - 0.5; });
+    hosts.forEach(function (h) {
+      if (tanks.length >= 2) return;
+      // hang the tank off the host junction, in the direction with the most open space
+      var best = null, bestRoom = 0, L = gap * 0.55;
+      [[1, -1], [-1, -1], [1, 1], [-1, 1], [0, -1], [0, 1], [1, 0], [-1, 0]].forEach(function (d) {
+        var len = Math.hypot(d[0], d[1]), pt = { x: h.x + d[0] / len * L, y: h.y + d[1] / len * L };
+        if (!clear(pt.x, pt.y) || pt.x < 30 || pt.x > W - 30 || pt.y < 40 || pt.y > H - 30) return;
+        var room = Infinity;
+        nodes.forEach(function (n) { if (n !== h) room = Math.min(room, Math.hypot(n.x - pt.x, n.y - pt.y)); });
+        if (room > bestRoom) { bestRoom = room; best = pt; }
+      });
+      if (!best || bestRoom < gap * 0.38 || !spaced(best, tanks.concat([source]), gap * 3)) return;
+      var t = { x: best.x, y: best.y, r: h.r, c: h.c, adj: [], d: h.d + 1, id: nodes.length + 1, kind: "tank", tag: "T" + (tanks.length + 1) };
+      nodes.push(t); link(h, t, false); tanks.push(t);
     });
 
     // pumps (on pipes): the high-service pump at the plant, plus a booster on the way to a tank
@@ -395,19 +406,64 @@
     }
 
     // valves (on pipes)
-    var valveTypes = ["Pressure-reducing valve, active", "Isolation valve, open", "Flow control valve, active", "Isolation valve, open", "Pressure-sustaining valve, active"];
-    var vp = pipes.filter(function (p) {
+    // Control valves (pressure-reducing, pressure-sustaining, flow control) sit on a single pipe that feeds
+    // a zone, never inside a loop. Isolation valves can sit anywhere.
+    var feedsZone = function (p) {           // a pipe whose removal cuts off 2+ junctions = not in a loop
+      var seen = new Set([source]), st = [source];
+      while (st.length) {
+        var u = st.pop();
+        u.adj.forEach(function (q) { if (q === p) return; var o = other(q, u); if (!seen.has(o)) { seen.add(o); st.push(o); } });
+      }
+      var cut = nodes.filter(function (n) { return n.kind !== "isolated" && !seen.has(n); }).length;
+      return cut >= 2;
+    };
+    var okPipe = function (p) {
       var mx = (p.a.x + p.b.x) / 2, my = (p.a.y + p.b.y) / 2;
-      return !p.feature && clear(mx, my) && mx > 20 && mx < W - 20 && my > 20 && my < H - 20 && Math.hypot(p.a.x - p.b.x, p.a.y - p.b.y) > gap * 0.7;
-    });
+      return !p.feature && p.a !== source && p.b !== source && p.a.kind !== "tank" && p.b.kind !== "tank" &&
+        clear(mx, my) && mx > 20 && mx < W - 20 && my > 20 && my < H - 20 && Math.hypot(p.a.x - p.b.x, p.a.y - p.b.y) > gap * 0.7;
+    };
+    var tryPlace = function (list, type, tag, detail, room) {
+      for (var i = 0; i < list.length; i++) {
+        var p = list[i], mid = { x: (p.a.x + p.b.x) / 2, y: (p.a.y + p.b.y) / 2 };
+        if (p.feature || !spaced(mid, placed.concat(tanks, [source]), gap * (room || 1.6))) continue;
+        addLink(p, type, tag, detail); return true;
+      }
+      return false;
+    };
+    var vp = pipes.filter(okPipe);
+    var zoneOk = pipes.filter(function (p) { var mx = (p.a.x + p.b.x) / 2, my = (p.a.y + p.b.y) / 2; return !p.feature && p.a !== source && p.b !== source && p.a.kind !== "tank" && p.b.kind !== "tank" && clear(mx, my) && mx > 20 && mx < W - 20 && my > 20 && my < H - 20 && Math.hypot(p.a.x - p.b.x, p.a.y - p.b.y) > gap * 0.5; });
     vp.sort(function () { return rand() - 0.5; });
-    var v = 0, wanted = narrow ? 3 : 5;
-    vp.forEach(function (p) {
-      if (v >= wanted) return;
-      var mid = { x: (p.a.x + p.b.x) / 2, y: (p.a.y + p.b.y) / 2 };
-      if (!spaced(mid, placed.concat(tanks, [source]), gap * 1.6)) return;
-      addLink(p, "valve", "V" + (v + 1), valveTypes[v]); v++;
-    });
+    var zoneFeeds = zoneOk.sort(function () { return rand() - 0.5; }).filter(feedsZone), loopPipes = vp.filter(function (p) { return zoneFeeds.indexOf(p) < 0; });
+    var control = narrow ? ["Pressure-reducing valve, active"] : ["Pressure-reducing valve, active", "Pressure-sustaining valve, active", "Flow control valve, active"];
+    var v = 0;
+    control.forEach(function (d) { if (tryPlace(zoneFeeds, "valve", "V" + (v + 1), d, 1.1)) v++; });
+    // Fallback: if no pipe already feeds a separate zone, form a small pressure zone fed by a single pipe
+    // (by closing the other pipes into it) and put the pressure-reducing valve on that feed.
+    if (!links.some(function (l) { return /^Pressure-reducing/.test(l.detail); })) {
+      var unlink = function (q) { pipes.splice(pipes.indexOf(q), 1); q.a.adj.splice(q.a.adj.indexOf(q), 1); q.b.adj.splice(q.b.adj.indexOf(q), 1); };
+      var relink = function (q) { pipes.push(q); q.a.adj.push(q); q.b.adj.push(q); };
+      var allReached = function () {
+        var seen = new Set([source]), st = [source];
+        while (st.length) { var u = st.pop(); u.adj.forEach(function (q) { var o = other(q, u); if (!seen.has(o)) { seen.add(o); st.push(o); } }); }
+        return nodes.every(function (n) { return n.kind === "isolated" || seen.has(n); });
+      };
+      var feeds = zoneOk.slice();
+      for (var fi = 0; fi < feeds.length; fi++) {
+        var fp = feeds[fi], zb = fp.b.d >= fp.a.d ? fp.b : fp.a, za = other(fp, zb);
+        var mid = { x: (fp.a.x + fp.b.x) / 2, y: (fp.a.y + fp.b.y) / 2 };
+        if (fp.feature || zb.kind !== "junction" || !spaced(mid, placed.concat(tanks, [source]), gap * 1.1)) continue;
+        var zone = new Set([zb]);
+        zb.adj.forEach(function (q) { var o = other(q, zb); if (o !== za && o.kind === "junction") zone.add(o); });
+        if (zone.size < 2) continue;
+        var cuts = pipes.filter(function (q) { return q !== fp && (zone.has(q.a) !== zone.has(q.b)); });
+        if (cuts.some(function (q) { return q.feature || q.a.kind !== "junction" || q.b.kind !== "junction"; })) continue;
+        cuts.forEach(unlink);
+        if (allReached()) { addLink(fp, "valve", "V" + (v + 1), "Pressure-reducing valve, active"); v++; break; }
+        cuts.forEach(relink);
+      }
+    }
+    var isoWanted = narrow ? 2 : 2;
+    for (var iv = 0; iv < isoWanted; iv++) { if (tryPlace(loopPipes, "valve", "V" + (v + 1), "Isolation valve, open")) v++; }
 
     // travel time per pipe (hours): fast trunk mains, slow distribution pipes
     pipes.forEach(function (p) { p.hours = p.dia > 2 ? 0.4 + rand() * 0.6 : 1.2 + rand() * 2.4; });
@@ -429,7 +485,7 @@
     pipes.forEach(function (p) { if (p.b.age < p.a.age) { var tmp = p.a; p.a = p.b; p.b = tmp; } });
     nodes.forEach(function (n) {
       if (n.age === Infinity) { n.age = null; n.cl = 0; return; }
-      if (n.kind === "tank") n.age += 30 + rand() * 24;                     // tank residence time
+      if (n.kind === "tank") n.age += 10 + rand() * 14;                     // tank residence time (about half a day to a day)
       else if (n.kind === "junction" && n.adj.length === 1) n.age += 6 + rand() * 14;   // dead-end stagnation
       n.cl = C0 * Math.exp(-K * n.age / 24);
     });
