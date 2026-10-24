@@ -302,10 +302,14 @@
     nodes.forEach(function (n) { var d = Math.hypot(n.x - tx, n.y - ty); if (d < bd) { bd = d; best = n; } });
     source = best; source.kind = "plant";
 
-    // 1) a random spanning tree from the plant, so every junction is reachable
-    var inTree = new Set([source]), frontier = [];
-    var pushEdges = function (n) { neighbours(n).forEach(function (m) { if (!inTree.has(m)) frontier.push([n, m]); }); };
-    pushEdges(source);
+    // The plant has a single discharge main (with the high-service pump) into one entry junction.
+    // Every other pipe belongs to the distribution grid and never touches the plant.
+    var gridNb = function (n) { return neighbours(n).filter(function (m) { return m !== source; }); };
+    var entry = neighbours(source).sort(function (a, b) { return Math.hypot(a.x - W * 0.5, a.y - H * 0.5) - Math.hypot(b.x - W * 0.5, b.y - H * 0.5); })[0];
+    // 1) a random spanning tree from the entry junction, so every junction is reachable
+    var inTree = new Set([entry]), frontier = [];
+    var pushEdges = function (n) { gridNb(n).forEach(function (m) { if (!inTree.has(m)) frontier.push([n, m]); }); };
+    pushEdges(entry);
     while (frontier.length) {
       var k = Math.floor(rand() * frontier.length), e = frontier.splice(k, 1)[0];
       if (inTree.has(e[1])) continue;
@@ -313,16 +317,17 @@
     }
     // islands cut off by missing grid cells join their nearest connected junction
     nodes.forEach(function (n) {
-      if (inTree.has(n)) return;
+      if (n === source || inTree.has(n)) return;
       var near = null, nd = Infinity;
       inTree.forEach(function (m) { var d = Math.hypot(n.x - m.x, n.y - m.y); if (d < nd) { nd = d; near = m; } });
       link(n, near, false); inTree.add(n);
     });
-    // the plant feeds every neighbouring junction, so water leaves on several mains
-    neighbours(source).forEach(function (m) { if (!has(source, m)) link(source, m, true); });
+    // the single main leaving the plant
+    link(source, entry, true);
     // 2) extra pipes close loops, like a real gridded distribution system
     nodes.forEach(function (n) {
-      neighbours(n).forEach(function (m) { if (m.id > n.id && !has(n, m) && rand() < 0.4) link(n, m, false); });
+      if (n === source) return;
+      gridNb(n).forEach(function (m) { if (m.id > n.id && !has(n, m) && rand() < 0.4) link(n, m, false); });
     });
 
     // 3) a few junctions left disconnected on purpose
@@ -356,12 +361,17 @@
     markMain(source, narrow ? 3 : 4);
     source.adj.forEach(function (p) { p.dia = 2.6; });
 
-    var clear = function (x, y) { return narrow ? (x > W * 0.72 && y > H * 0.3 && y < H * 0.62) : x > W * 0.55; };
+    // keep equipment out from under the "About this network" button
+    var noteEl = document.querySelector("#network-note summary"), nb = null;
+    if (noteEl) { var r0 = noteEl.getBoundingClientRect(); nb = { l: r0.left - rect.left - 40, r: r0.right - rect.left + 60, t: r0.top - rect.top - 40, b: r0.bottom - rect.top + 40 }; }
+    var underNote = function (x, y) { return nb && x > nb.l && x < nb.r && y > nb.t && y < nb.b; };
+    var clear = function (x, y) { return !underNote(x, y) && (narrow ? (x > W * 0.72 && y > H * 0.3 && y < H * 0.62) : x > W * 0.55); };
     var usable = function (n) { return n.kind === "junction" && clear(n.x, n.y) && n.x > 24 && n.x < W - 24 && n.y > 24 && n.y < H - 24; };
     var spaced = function (pt, list, min) { return list.every(function (o) { return Math.hypot(pt.x - o.x, pt.y - o.y) > min; }); };
 
     // storage tanks: far from the plant, on quieter ends of the network
-    var tanks = [], cands = nodes.filter(function (n) { return usable(n) && n.d > 3; });
+    // an elevated tank connects to the system by at most two pipes
+    var tanks = [], cands = nodes.filter(function (n) { return usable(n) && n.d > 3 && n.adj.length <= 2; });
     cands.sort(function (a, b) { return (b.d - a.d) + (a.adj.length - b.adj.length) * 0.5; });
     cands.forEach(function (n) {
       if (tanks.length < 2 && spaced(n, tanks.concat([source]), gap * 3)) { n.kind = "tank"; n.tag = "T" + (tanks.length + 1); tanks.push(n); }
@@ -380,7 +390,7 @@
       var near = tanks[0].adj.length ? tanks[0].adj.filter(function (p) { return p.b === tanks[0]; })[0] : null;
       if (near && near.a.adj.length) {
         var up = near.a.adj.filter(function (p) { return p.b === near.a; })[0];
-        if (up && !up.feature) addLink(up, "pump", "PU2", "Booster pump, running");
+        if (up && !up.feature && clear((up.a.x + up.b.x) / 2, (up.a.y + up.b.y) / 2)) addLink(up, "pump", "PU2", "Booster pump, running");
       }
     }
 
