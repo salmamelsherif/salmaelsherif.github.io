@@ -428,8 +428,14 @@ identity_page:
 # Photos on the Identity & Life page, newest first. Only the first `photos_limit`
 # show on the page; the rest open in a pop-up gallery ("+ more" tile).
 photos_title: Life in pictures
-photos_limit: 6
+photos_limit: 8
 photos:
+  - src: /assets/images/life/portland-2026-1.jpg
+    caption: Portland, OR, 2026
+    alt: A road through tall evergreen forest leading toward misty mountains under a pale blue sky
+  - src: /assets/images/life/portland-2026-2.jpg
+    caption: Portland, OR, 2026
+    alt: A tall two-tier waterfall with an arched stone footbridge, framed by yellow autumn leaves
   - src: /assets/images/life/new-orleans-2026-1.jpg
     caption: New Orleans, 2026
     alt: A cozy café corner with a carved wooden table, a lamp and a large painting of a family on porch steps
