@@ -11,7 +11,7 @@
   --muted: #585E86;
   --line: #DDE0F4;
   --surface: #FFFFFF;
-  --signal: #F4A261;         /* warm accent: contact and the treatment plant */
+  --signal: #E07B39;         /* warm accent: contact and the treatment plant */
   --on-signal: #2A1A0A;
   --on-tide: #FFFFFF;
   --on-current: #FFFFFF;
@@ -22,7 +22,7 @@
   --art-soft: #6E7FDF;       /* artwork: soft water strokes */
   --art-equip: #2C3478;      /* artwork: equipment symbols */
   --net-pipe: 70,85,170; --net-lo: 150,156,200; --net-hi: 74,98,216; --net-equip: #2C3478; --net-fill: #EEF0FC;
-  --net-source: 236,140,70; --net-iso: 110,115,160; --net-ring: #161A3D;
+  --net-source: 224,123,57; --net-iso: 110,115,160; --net-ring: #161A3D;
   --ok: #1E7A50;
   --err: #B42318;
   --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
@@ -620,7 +620,7 @@ a.pill[target="_blank"]::after, .btn[target="_blank"]::after { content: ""; disp
 
 /* ---------- Contact form ---------- */
 .btn { font: inherit; border: 0; cursor: pointer; }
-.btn-signal { background: var(--signal); color: var(--abyss); font-weight: 700; padding: 13px 26px; }
+.btn-signal { background: var(--signal); color: var(--on-signal); font-weight: 700; padding: 13px 26px; }
 .btn-signal:hover { background: color-mix(in srgb, var(--signal) 75%, var(--surface)); color: var(--on-signal); }
 .contact-dialog { width: min(560px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); padding: 0; border: 0; border-radius: 18px; background: var(--surface); color: var(--ink); box-shadow: 0 30px 80px -20px rgba(2, 18, 35, 0.6); }
 .contact-dialog::backdrop { background: rgba(18, 21, 43, 0.55); backdrop-filter: blur(4px); }
