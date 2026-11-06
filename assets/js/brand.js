@@ -515,35 +515,44 @@
     return x < edge ? 0.22 + 0.5 * (x / edge) : 1;
   }
 
+  // Network colours come from CSS custom properties, so the palette and light/dark mode drive them.
+  var pal = {};
+  function readPal() {
+    var cs = getComputedStyle(document.documentElement);
+    var g = function (n, d) { var v = cs.getPropertyValue(n).trim(); return v || d; };
+    var rgb = function (n, d) { return g(n, d).split(",").map(Number); };
+    pal.pipe = g("--net-pipe", "120,170,205"); pal.lo = rgb("--net-lo", "70,110,150"); pal.hi = rgb("--net-hi", "60,210,225");
+    pal.equip = g("--net-equip", "#DCEAF3"); pal.fill = g("--net-fill", "#032141"); pal.src = g("--net-source", "233,162,59");
+    pal.iso = g("--net-iso", "159,184,202"); pal.ring = g("--net-ring", "#fff");
+  }
+  readPal();
   function colorFor(c, a) {
     // high residual = bright aqua, low residual = dim steel blue
     var k = Math.max(0, Math.min(1, c / C0));
-    var r = Math.round(70 + (60 - 70) * k), g = Math.round(110 + (210 - 110) * k), b = Math.round(150 + (225 - 150) * k);
+    var r = Math.round(pal.lo[0] + (pal.hi[0] - pal.lo[0]) * k), g = Math.round(pal.lo[1] + (pal.hi[1] - pal.lo[1]) * k), b = Math.round(pal.lo[2] + (pal.hi[2] - pal.lo[2]) * k);
     return "rgba(" + r + "," + g + "," + b + "," + a + ")";
   }
 
-  var EQUIP = "#DCEAF3";   // light symbol colour on the deep hero
-  var NAVY = "#032141";
 
   function drawPump(f, on) {
     var a = Math.atan2(f.pipe.b.y - f.pipe.a.y, f.pipe.b.x - f.pipe.a.x);
     ctx.save(); ctx.translate(f.x, f.y); ctx.rotate(a);
-    ctx.fillStyle = NAVY; ctx.strokeStyle = EQUIP; ctx.lineWidth = on ? 2.2 : 1.6;
+    ctx.fillStyle = pal.fill; ctx.strokeStyle = pal.equip; ctx.lineWidth = on ? 2.2 : 1.6;
     ctx.beginPath(); ctx.arc(0, 0, on ? 10 : 8.5, 0, 6.283); ctx.fill(); ctx.stroke();
-    ctx.fillStyle = EQUIP;
+    ctx.fillStyle = pal.equip;
     ctx.beginPath(); ctx.moveTo(5, 0); ctx.lineTo(-3.5, -4.5); ctx.lineTo(-3.5, 4.5); ctx.closePath(); ctx.fill();
     ctx.restore();
   }
   function drawValve(f, on) {
     var a = Math.atan2(f.pipe.b.y - f.pipe.a.y, f.pipe.b.x - f.pipe.a.x), s = on ? 10 : 8;
     ctx.save(); ctx.translate(f.x, f.y); ctx.rotate(a);
-    ctx.fillStyle = EQUIP; ctx.strokeStyle = NAVY; ctx.lineWidth = 1.5; ctx.lineJoin = "round";
+    ctx.fillStyle = pal.equip; ctx.strokeStyle = pal.fill; ctx.lineWidth = 1.5; ctx.lineJoin = "round";
     ctx.beginPath(); ctx.moveTo(-s, -s * 0.75); ctx.lineTo(s, s * 0.75); ctx.lineTo(s, -s * 0.75); ctx.lineTo(-s, s * 0.75); ctx.closePath(); ctx.fill(); ctx.stroke();
     ctx.restore();
   }
   function drawTank(n, on) {
     var w = on ? 22 : 18, h = on ? 18 : 15;
-    ctx.fillStyle = NAVY; ctx.strokeStyle = EQUIP; ctx.lineWidth = 1.6;
+    ctx.fillStyle = pal.fill; ctx.strokeStyle = pal.equip; ctx.lineWidth = 1.6;
     ctx.beginPath(); ctx.rect(n.x - w / 2, n.y - h / 2, w, h); ctx.fill(); ctx.stroke();
     // water level, about two thirds full
     ctx.fillStyle = colorFor(n.cl, 0.95);
@@ -552,12 +561,13 @@
 
   var t = 0;
   function draw() {
+    if (!(Math.round(t * 62.5) % 15)) readPal();   // pick up theme changes a few times a second
     t += 0.016;
     ctx.clearRect(0, 0, W, H);
     ctx.lineCap = "round";
     pipes.forEach(function (p) {
       var s = textShade((p.a.x + p.b.x) / 2);
-      ctx.strokeStyle = "rgba(120,170,205," + ((p.dia > 2 ? 0.3 : 0.18) * s) + ")";
+      ctx.strokeStyle = "rgba(" + pal.pipe + "," + ((p.dia > 2 ? 0.3 : 0.18) * s) + ")";
       ctx.lineWidth = p.dia;
       ctx.beginPath(); ctx.moveTo(p.a.x, p.a.y); ctx.lineTo(p.b.x, p.b.y); ctx.stroke();
     });
@@ -579,13 +589,13 @@
       var s = textShade(n.x), isHover = n === hover;
       if (n.kind === "plant") {
         var pulse = reduceMotion ? 0 : (Math.sin(t * 2) + 1) * 4;
-        ctx.fillStyle = "rgba(233,162,59,0.18)"; ctx.beginPath(); ctx.arc(n.x, n.y, 17 + pulse, 0, 6.283); ctx.fill();
-        ctx.fillStyle = "#E9A23B"; ctx.beginPath(); ctx.arc(n.x, n.y, 8.5, 0, 6.283); ctx.fill();
+        ctx.fillStyle = "rgba(" + pal.src + ",0.18)"; ctx.beginPath(); ctx.arc(n.x, n.y, 17 + pulse, 0, 6.283); ctx.fill();
+        ctx.fillStyle = "rgb(" + pal.src + ")"; ctx.beginPath(); ctx.arc(n.x, n.y, 8.5, 0, 6.283); ctx.fill();
         return;
       }
       if (n.kind === "tank") { ctx.globalAlpha = W < 760 && !isHover ? 0.45 : 1; drawTank(n, isHover); ctx.globalAlpha = 1; return; }
       if (n.kind === "isolated") {
-        ctx.strokeStyle = "rgba(159,184,202," + (isHover ? 1 : 0.7) * Math.max(s, 0.5) + ")";
+        ctx.strokeStyle = "rgba(" + pal.iso + "," + (isHover ? 1 : 0.7) * Math.max(s, 0.5) + ")";
         ctx.lineWidth = 1.5; ctx.setLineDash([2.5, 2.5]);
         ctx.beginPath(); ctx.arc(n.x, n.y, isHover ? 7 : 5, 0, 6.283); ctx.stroke();
         ctx.setLineDash([]);
@@ -594,7 +604,7 @@
       var rad = (n.adj.length > 2 ? 3.6 : 2.8) + (isHover ? 3 : 0);
       ctx.fillStyle = colorFor(n.cl, (isHover ? 1 : 0.85) * s);
       ctx.beginPath(); ctx.arc(n.x, n.y, rad, 0, 6.283); ctx.fill();
-      if (isHover) { ctx.strokeStyle = "#fff"; ctx.lineWidth = 1.5; ctx.stroke(); }
+      if (isHover) { ctx.strokeStyle = pal.ring; ctx.lineWidth = 1.5; ctx.stroke(); }
     });
     links.forEach(function (f) {
       ctx.globalAlpha = W < 760 ? 0.4 : Math.max(textShade(f.x), 0.8);
@@ -683,4 +693,31 @@
   });
   if (mq.addEventListener) mq.addEventListener("change", label);
   label();
+})();
+
+/* Gentle waves where two sections of different colour meet. The wave takes the lower section's
+   colour from CSS (.sec-wave rules), so it follows the palette and light/dark mode. */
+(function () {
+  var NS = "http://www.w3.org/2000/svg";
+  var D = "M0 13 C 260 4, 520 4, 760 11 S 1200 21, 1440 9 V22 H0 Z";   // one long, low swell
+  var secs = Array.prototype.slice.call(document.querySelectorAll("main > section"));
+  var foot = document.querySelector(".site-foot");
+  if (foot) secs.push(foot);
+  var tone = function (el) {
+    if (el.matches(".hero, .page-hero, .band-deep, .site-foot")) return "deep";
+    if (el.matches(".band-tint")) return "tint";
+    return "paper";
+  };
+  for (var i = 1; i < secs.length; i++) {
+    if (tone(secs[i]) === tone(secs[i - 1])) continue;
+    var svg = document.createElementNS(NS, "svg");
+    svg.setAttribute("class", "sec-wave" + (i % 2 ? "" : " flip"));
+    svg.setAttribute("viewBox", "0 0 1440 22");
+    svg.setAttribute("preserveAspectRatio", "none");
+    svg.setAttribute("aria-hidden", "true");
+    var p = document.createElementNS(NS, "path");
+    p.setAttribute("d", D);
+    svg.appendChild(p);
+    secs[i].insertBefore(svg, secs[i].firstChild);
+  }
 })();
